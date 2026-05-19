@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
+    --font-display: "Cal Sans", "Inter", -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #050816;
+    color: #e5e7eb;
+    font-family: var(--font-sans);
+    /* Subtle starfield-ish background for the dark surface — adds depth
+       without distracting from content. */
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.08), transparent 35%),
+      radial-gradient(circle at 85% 60%, rgba(99, 102, 241, 0.06), transparent 40%),
+      radial-gradient(circle at 50% 100%, rgba(245, 158, 11, 0.04), transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background-color: rgba(96, 165, 250, 0.3);
+    color: #f8fafc;
+  }
+}
+
+@layer utilities {
+  /* Reusable "glass card" — used by product cards + value props */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-hover {
+    transition: transform 0.3s ease, border-color 0.3s ease,
+      background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(96, 165, 250, 0.3);
+    box-shadow: 0 12px 40px -8px rgba(59, 130, 246, 0.2);
+    transform: translateY(-4px);
+  }
+
+  /* Brand gradient text — hero accent, product card titles */
+  .text-brand-gradient {
+    background-image: linear-gradient(
+      120deg,
+      #60a5fa 0%,
+      #a78bfa 35%,
+      #fbbf24 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradientX 8s ease-in-out infinite;
+  }
+
+  /* Faint grid background used in the hero section */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(96, 165, 250, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(96, 165, 250, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at 50% 30%, black 0%, transparent 75%);
+    -webkit-mask-image: radial-gradient(
+      ellipse at 50% 30%,
+      black 0%,
+      transparent 75%
+    );
+  }
+}
