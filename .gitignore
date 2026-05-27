@@ -1,6 +1,7 @@
 node_modules/
 .next/
 .vercel/
+.claude/
 .env*
 !.env.example
 *.log

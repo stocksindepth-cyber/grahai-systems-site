@@ -3,143 +3,62 @@ import Link from "next/link";
 import {
   ArrowUpRight,
   Sparkles,
-  Brain,
-  Receipt,
-  FileText,
+  MessageSquare,
+  Languages,
+  Calendar,
   ShieldCheck,
-  Globe2,
   Zap,
+  Layers,
   Mail,
+  MapPin,
   Github,
   Linkedin,
   Twitter,
 } from "lucide-react";
 
-// Single source of truth for product data — feeds the cards AND the
-// structured-data graph. If you add a product, this is the only edit.
-const PRODUCTS = [
-  {
-    name: "GrahAI",
-    tagline: "AI-powered Vedic astrology — for the next billion.",
-    description:
-      "Free Kundli, daily Rashifal, accurate Panchang, and an AI Jyotish chat that explains your chart in plain language. Available in English, हिन्दी, தமிழ், తెలుగు.",
-    href: "https://www.grahai.com",
-    icon: Sparkles,
-    accent: "from-amber-400 via-yellow-500 to-orange-500",
-    tag: "Consumer",
-    metrics: [
-      { label: "Languages", value: "4" },
-      { label: "Daily users", value: "10K+" },
-      { label: "Free tools", value: "8" },
-    ],
-  },
-  {
-    name: "AasanKhata",
-    tagline: "Bharat ka sabse aasaan invoicing app.",
-    description:
-      "GST-compliant invoices in 30 seconds, designed for Indian small businesses. Free editor, dashboards, GSTIN validation, PDF in one click — no signup needed to start.",
-    href: "https://aasankhata.com",
-    icon: Receipt,
-    accent: "from-emerald-400 via-green-500 to-teal-600",
-    tag: "SMB",
-    metrics: [
-      { label: "Invoice in", value: "30s" },
-      { label: "GST-ready", value: "100%" },
-      { label: "Free tier", value: "Yes" },
-    ],
-  },
-  {
-    name: "AgencyPitch",
-    tagline: "AI proposal generator for digital marketing agencies.",
-    description:
-      "Paste a brief, get a client-ready pitch deck with scope, deliverables, pricing, and timeline. Built for the agency owner who'd rather win clients than write Word docs.",
-    href: "https://agencypitch.com",
-    icon: FileText,
-    accent: "from-indigo-400 via-blue-500 to-cyan-500",
-    tag: "B2B",
-    metrics: [
-      { label: "Pitch time", value: "5 min" },
-      { label: "Tone presets", value: "6" },
-      { label: "Export", value: "PDF · PPT" },
-    ],
-  },
-];
-
-const VALUES = [
-  {
-    icon: Brain,
-    title: "Practical AI, not parlor tricks",
-    body:
-      "We ship AI products people pay for and use weekly — not demos that go viral and die.",
-  },
-  {
-    icon: Globe2,
-    title: "Made in India, used worldwide",
-    body:
-      "Built for Indian languages, Indian pricing, Indian payment rails — then exported to global users who need the same.",
-  },
-  {
-    icon: Zap,
-    title: "Ship to learn",
-    body:
-      "Three live products in 18 months. We launch fast, measure honestly, and pivot when the data tells us to.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Own the stack",
-    body:
-      "First-party AI infrastructure, first-party data, first-party billing. No middleware companies in the critical path.",
-  },
-];
-
 const SITE_URL = "https://grahaisystems.com";
+const GRAHAI_URL = "https://www.grahai.com";
 
 export default function Page() {
-  // Product graph — separate JSON-LD node attached to the page itself
-  // so SoftwareApplication entries get crawled with full context.
-  const productGraph = {
+  const productSchema = {
     "@context": "https://schema.org",
-    "@graph": PRODUCTS.map((p) => ({
-      "@type": "SoftwareApplication",
-      name: p.name,
-      url: p.href,
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
-      description: p.description,
-      offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
-      publisher: {
-        "@type": "Organization",
-        name: "GrahAI Systems",
-        url: SITE_URL,
-      },
-    })),
+    "@type": "SoftwareApplication",
+    name: "GrahAI",
+    url: GRAHAI_URL,
+    applicationCategory: "LifestyleApplication",
+    operatingSystem: "Web, Android",
+    description:
+      "AI-powered Vedic astrology platform. Free Kundli, daily Rashifal, Panchang, and an AI Jyotish chat in English, Hindi, Tamil, and Telugu.",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+    publisher: {
+      "@type": "Organization",
+      name: "GrahAI Systems",
+      url: SITE_URL,
+    },
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productGraph) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
 
       <Header />
       <Hero />
-      <Products />
-      <Values />
-      <Stats />
+      <Flagship />
+      <Approach />
+      <Company />
       <Contact />
       <Footer />
     </>
   );
 }
 
-// ===================================================================
-// Header — minimal nav, logo + product links + GitHub
-// ===================================================================
 function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/5 bg-ink-950/70 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="flex items-center gap-2.5 group"
@@ -160,12 +79,15 @@ function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm text-white/70 md:flex">
-          <a href="#products" className="hover:text-white transition-colors">
-            Products
+        <nav className="hidden items-center gap-7 text-sm text-white/70 md:flex">
+          <a href="#product" className="hover:text-white transition-colors">
+            Product
           </a>
-          <a href="#values" className="hover:text-white transition-colors">
-            How we build
+          <a href="#approach" className="hover:text-white transition-colors">
+            Approach
+          </a>
+          <a href="#company" className="hover:text-white transition-colors">
+            Company
           </a>
           <a href="#contact" className="hover:text-white transition-colors">
             Contact
@@ -173,10 +95,12 @@ function Header() {
         </nav>
 
         <a
-          href="#contact"
+          href={GRAHAI_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-semibold text-white hover:bg-white/10 hover:border-white/25 transition-all sm:text-sm"
         >
-          Get in touch
+          Visit GrahAI
           <ArrowUpRight size={14} />
         </a>
       </div>
@@ -184,191 +108,139 @@ function Header() {
   );
 }
 
-// ===================================================================
-// Hero — outcome-first headline, calibrated to AI engines
-// ===================================================================
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-white/5">
       <div className="absolute inset-0 bg-grid pointer-events-none" />
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
-        <div className="mx-auto max-w-3xl text-center">
-          {/* Tagline pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-azure-500/30 bg-azure-500/10 px-3 py-1.5 text-xs font-semibold text-azure-400 backdrop-blur-sm">
-            <Sparkles size={12} className="text-gold-400" />
-            <span>AI product studio · Made in India</span>
+      <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+        <div className="mx-auto max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            Bengaluru, India · Founded 2024
           </div>
 
-          <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up">
-            Practical AI,{" "}
-            <span className="text-brand-gradient">made for the world.</span>
+          <h1 className="mt-7 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[72px] animate-fade-in-up">
+            An AI company building
+            <br />
+            <span className="text-brand-gradient">software for India and the World.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
-            GrahAI Systems is an AI software company building category-leading
-            consumer and SMB products. Three live products. One thesis:
-            <span className="font-semibold text-white">
-              {" "}
-              AI is most useful when it disappears into a job people actually
-              do daily.
-            </span>
+          <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+            GrahAI Systems is a Bengaluru-based AI software company. We build
+            consumer products where AI does the heavy lifting and the user
+            simply gets a faster, clearer answer — in the language they
+            actually speak.
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-9 flex flex-col items-start justify-start gap-3 sm:flex-row sm:items-center">
             <a
-              href="#products"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-500 to-azure-700 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-azure-700/40 hover:from-azure-400 hover:to-azure-600 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              href="#product"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-500 to-azure-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-azure-700/30 hover:from-azure-400 hover:to-azure-600 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Explore our products
+              See what we&apos;ve built
               <ArrowUpRight size={16} />
             </a>
             <a
               href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/25 transition-all"
             >
-              Work with us
+              Get in touch
             </a>
           </div>
-
-          {/* Below-fold authority — companies/products we run */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs uppercase tracking-widest text-white/40">
-            <span>Our products power</span>
-            <span className="font-bold text-white/70">GrahAI</span>
-            <span>·</span>
-            <span className="font-bold text-white/70">AasanKhata</span>
-            <span>·</span>
-            <span className="font-bold text-white/70">AgencyPitch</span>
-          </div>
         </div>
       </div>
     </section>
   );
 }
 
-// ===================================================================
-// Products — the heart of the page
-// ===================================================================
-function Products() {
-  return (
-    <section id="products" className="relative border-b border-white/5 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-azure-400">
-            Our products
-          </p>
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
-            Three products. One thesis.
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-white/70">
-            Each product solves a job that's painful, repeated, and
-            mostly-manual today. AI hides under the hood — the user just sees
-            a faster, smarter tool.
-          </p>
-        </div>
+function Flagship() {
+  const features = [
+    {
+      icon: Sparkles,
+      title: "Instant Kundli",
+      body:
+        "Birth charts generated in seconds — no signup, no paywall. Traditional accuracy with modern presentation.",
+    },
+    {
+      icon: MessageSquare,
+      title: "AI Jyotish chat",
+      body:
+        "Ask anything about your chart in plain language. The AI explains placements, dashas, and yogas without jargon.",
+    },
+    {
+      icon: Calendar,
+      title: "Daily Rashifal & Panchang",
+      body:
+        "Accurate Tithi, Nakshatra, Yoga, Karana, and Muhurat — refreshed daily for every Rashi.",
+    },
+    {
+      icon: Languages,
+      title: "Four Indian languages",
+      body:
+        "Full content parity in English, हिन्दी, தமிழ், and తెలుగు — not machine translation.",
+    },
+  ];
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {PRODUCTS.map((p) => (
-            <ProductCard key={p.name} product={p} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ProductCard({ product }) {
-  const Icon = product.icon;
   return (
-    <a
-      href={product.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex flex-col overflow-hidden rounded-2xl glass glass-hover p-7"
+    <section
+      id="product"
+      className="relative border-b border-white/5 py-24 sm:py-32"
     >
-      {/* Accent gradient strip on top */}
-      <div
-        className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${product.accent} opacity-80`}
-      />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-start gap-16 lg:grid-cols-[1fr_1.2fr]">
+          <div className="lg:sticky lg:top-28">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-azure-400">
+              Our flagship product
+            </p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+              GrahAI
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-white/70 sm:text-lg">
+              Vedic astrology, rebuilt for the way people actually want to use
+              it: fast, conversational, multilingual, and free at the core.
+            </p>
 
-      <div className="flex items-start justify-between">
-        <div
-          className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${product.accent} shadow-lg`}
-        >
-          <Icon size={22} className="text-white" />
-        </div>
-        <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/60">
-          {product.tag}
-        </span>
-      </div>
+            <p className="mt-6 text-sm leading-relaxed text-white/60">
+              Existing astrology platforms in India load slowly, paywall basic
+              features, and were designed for an internet that no longer
+              exists. GrahAI is what a modern Indian astrology product looks
+              like — built on first-party AI, designed for phones, and shipped
+              in the languages users actually search in.
+            </p>
 
-      <h3 className="mt-6 font-display text-2xl font-extrabold text-white">
-        {product.name}
-      </h3>
-      <p className="mt-1.5 text-sm font-semibold text-white/80">
-        {product.tagline}
-      </p>
-      <p className="mt-4 text-sm leading-relaxed text-white/60 flex-1">
-        {product.description}
-      </p>
-
-      <div className="mt-6 grid grid-cols-3 gap-3 border-t border-white/5 pt-5">
-        {product.metrics.map((m) => (
-          <div key={m.label}>
-            <div className="text-lg font-bold text-white">{m.value}</div>
-            <div className="text-[10px] uppercase tracking-wider text-white/50">
-              {m.label}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={GRAHAI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-azure-500 to-azure-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-azure-700/30 hover:from-azure-400 hover:to-azure-600 transition-all"
+              >
+                Visit grahai.com
+                <ArrowUpRight size={14} />
+              </a>
+              <span className="inline-flex items-center gap-2 text-xs text-white/50">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                Live · free to use
+              </span>
             </div>
           </div>
-        ))}
-      </div>
 
-      <div className="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-azure-400 group-hover:gap-2.5 transition-all">
-        Visit {product.name.toLowerCase()}.com
-        <ArrowUpRight
-          size={14}
-          className="transition-transform group-hover:rotate-45"
-        />
-      </div>
-    </a>
-  );
-}
-
-// ===================================================================
-// Values — how we build (4-up grid)
-// ===================================================================
-function Values() {
-  return (
-    <section id="values" className="relative border-b border-white/5 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-start gap-12 lg:grid-cols-[1fr_2fr]">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-azure-400">
-              How we build
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              We pick problems
-              <br />
-              <span className="text-brand-gradient">people actually pay for.</span>
-            </h2>
-            <p className="mt-5 text-sm leading-relaxed text-white/70">
-              Three live products in 18 months tells you everything about how
-              we work. We don't ship to demo — we ship to retain.
-            </p>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            {VALUES.map((v) => {
-              const Icon = v.icon;
+          <div className="grid gap-4 sm:grid-cols-2">
+            {features.map((f) => {
+              const Icon = f.icon;
               return (
-                <div key={v.title} className="glass rounded-2xl p-6">
+                <div
+                  key={f.title}
+                  className="glass rounded-2xl p-6 transition-colors hover:border-white/15"
+                >
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-azure-500/15 ring-1 ring-azure-500/30">
                     <Icon size={18} className="text-azure-400" />
                   </div>
                   <h3 className="mt-4 font-display text-base font-bold text-white">
-                    {v.title}
+                    {f.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-white/60">
-                    {v.body}
+                    {f.body}
                   </p>
                 </div>
               );
@@ -380,67 +252,162 @@ function Values() {
   );
 }
 
-// ===================================================================
-// Stats — single trust strip, canonical numbers
-// ===================================================================
-function Stats() {
-  const stats = [
-    { value: "3", label: "Live products" },
-    { value: "10K+", label: "Daily users" },
-    { value: "4", label: "Languages supported" },
-    { value: "100%", label: "Bootstrapped" },
+function Approach() {
+  const principles = [
+    {
+      icon: Zap,
+      title: "AI under the hood",
+      body:
+        "The best AI products don’t feel like AI products. We use LLMs where they earn their keep and stay out of the way everywhere else.",
+    },
+    {
+      icon: Languages,
+      title: "Indian languages, first-class",
+      body:
+        "Hindi, Tamil, and Telugu aren’t translations of an English product — they’re shipped with content parity from day one.",
+    },
+    {
+      icon: Layers,
+      title: "First-party stack",
+      body:
+        "We own the AI infrastructure, the data layer, and the billing. No middleware companies in the critical path of our users.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Bootstrapped and patient",
+      body:
+        "No outside capital, no growth-at-all-costs. We pick durable problems and build for users who stay.",
+    },
   ];
+
   return (
-    <section className="relative border-b border-white/5 py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
-                {s.value}
+    <section
+      id="approach"
+      className="relative border-b border-white/5 py-24 sm:py-32"
+    >
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-azure-400">
+            How we build
+          </p>
+          <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+            Practical AI, made
+            <br />
+            <span className="text-brand-gradient">for people who&apos;ll use it daily.</span>
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-white/70">
+            Four principles guide every product decision we make.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {principles.map((p) => {
+            const Icon = p.icon;
+            return (
+              <div key={p.title} className="glass rounded-2xl p-6">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
+                  <Icon size={18} className="text-white/80" />
+                </div>
+                <h3 className="mt-5 font-display text-base font-bold text-white">
+                  {p.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">
+                  {p.body}
+                </p>
               </div>
-              <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-white/50 sm:text-xs">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// ===================================================================
-// Contact — single CTA, no form (just emails)
-// ===================================================================
+function Company() {
+  const facts = [
+    { label: "Founded", value: "2024" },
+    { label: "Headquarters", value: "Bengaluru, India" },
+    { label: "Funding", value: "Bootstrapped" },
+    { label: "Reach", value: "India & the World" },
+  ];
+
+  return (
+    <section
+      id="company"
+      className="relative border-b border-white/5 py-24 sm:py-32"
+    >
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.3fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-azure-400">
+              The company
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              A small team
+              <br />
+              shipping serious software.
+            </h2>
+          </div>
+
+          <div>
+            <p className="text-base leading-relaxed text-white/70">
+              GrahAI Systems was founded in 2024 by Rahul Dubey to build AI
+              products for India and the World — meeting users on a mobile
+              phone, in their own language, with no learning curve.
+            </p>
+            <p className="mt-5 text-base leading-relaxed text-white/70">
+              We&apos;re engineers first. We write our own code, run our own
+              infrastructure, and pick our AI models on the merits. The
+              company exists to build things people open every day, not pitch
+              decks.
+            </p>
+
+            <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-white/5 pt-8 sm:grid-cols-4">
+              {facts.map((f) => (
+                <div key={f.label}>
+                  <dt className="text-[11px] font-semibold uppercase tracking-wider text-white/40">
+                    {f.label}
+                  </dt>
+                  <dd className="mt-1.5 text-sm font-semibold text-white">
+                    {f.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <section id="contact" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="glass rounded-3xl px-8 py-16 text-center sm:px-12 sm:py-20">
-          <Mail size={32} className="mx-auto text-azure-400" />
+          <Mail size={28} className="mx-auto text-azure-400" />
           <h2 className="mt-6 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Building something
-            <br className="hidden sm:block" />{" "}
-            <span className="text-brand-gradient">we should know about?</span>
+            Get in touch.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/70">
-            Partnerships, press, or just curious — drop us a line. We
-            personally read everything.
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/70">
+            Partnerships, press, hiring inquiries, or just curious about what
+            we&apos;re building — write to us. We read everything.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href="mailto:hello@grahaisystems.com"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-500 to-azure-700 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-azure-700/40 hover:from-azure-400 hover:to-azure-600 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-500 to-azure-700 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-azure-700/30 hover:from-azure-400 hover:to-azure-600 transition-all"
             >
               hello@grahaisystems.com
               <ArrowUpRight size={16} />
             </a>
           </div>
 
-          <p className="mt-6 text-xs text-white/40">
-            Based in Bengaluru, India · Building for the world
+          <p className="mt-8 inline-flex items-center gap-1.5 text-xs text-white/40">
+            <MapPin size={12} />
+            Bengaluru, Karnataka, India
           </p>
         </div>
       </div>
@@ -448,13 +415,10 @@ function Contact() {
   );
 }
 
-// ===================================================================
-// Footer
-// ===================================================================
 function Footer() {
   return (
     <footer className="border-t border-white/5 bg-ink-950/50">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="flex items-center gap-2.5">
@@ -472,40 +436,42 @@ function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/50">
-              AI-first product studio building practical software for India and
-              the world. Three live products. One thesis.
+              An AI software company building consumer products for India and
+              the World.
             </p>
           </div>
 
           <FooterCol
-            title="Products"
-            links={[
-              { label: "GrahAI", href: "https://www.grahai.com" },
-              { label: "AasanKhata", href: "https://aasankhata.com" },
-              { label: "AgencyPitch", href: "https://agencypitch.com" },
-            ]}
+            title="Product"
+            links={[{ label: "GrahAI", href: GRAHAI_URL }]}
           />
           <FooterCol
             title="Company"
             links={[
-              { label: "How we build", href: "#values" },
+              { label: "Approach", href: "#approach" },
+              { label: "About", href: "#company" },
               { label: "Contact", href: "#contact" },
-              { label: "hello@grahaisystems.com", href: "mailto:hello@grahaisystems.com" },
             ]}
           />
           <FooterCol
             title="Connect"
             links={[
-              { label: "GitHub", href: "https://github.com/stocksindepth-cyber", icon: Github },
-              { label: "LinkedIn", href: "#", icon: Linkedin },
-              { label: "Twitter / X", href: "#", icon: Twitter },
+              {
+                label: "hello@grahaisystems.com",
+                href: "mailto:hello@grahaisystems.com",
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/stocksindepth-cyber",
+                icon: Github,
+              },
             ]}
           />
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/5 pt-6 text-xs text-white/40 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} GrahAI Systems. All rights reserved.</p>
-          <p>Bengaluru, India · Built with Next.js</p>
+          <p>Bengaluru, India</p>
         </div>
       </div>
     </footer>
@@ -521,13 +487,13 @@ function FooterCol({ title, links }) {
       <ul className="mt-4 space-y-2.5">
         {links.map((l) => {
           const Icon = l.icon;
-          const external = l.href.startsWith("http");
+          const external = l.href.startsWith("http") || l.href.startsWith("mailto:");
           return (
             <li key={l.label}>
               <a
                 href={l.href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noopener noreferrer" : undefined}
+                target={external && l.href.startsWith("http") ? "_blank" : undefined}
+                rel={external && l.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="inline-flex items-center gap-1.5 text-sm text-white/50 hover:text-white transition-colors"
               >
                 {Icon && <Icon size={14} />}

@@ -9,10 +9,9 @@ const inter = Inter({
 
 const SITE_URL = "https://grahaisystems.com";
 const SITE_NAME = "GrahAI Systems";
-const SITE_TAGLINE =
-  "AI-first product studio building practical software for India.";
+const SITE_TAGLINE = "Building practical AI products for India and the World.";
 const SITE_DESCRIPTION =
-  "GrahAI Systems is an Indian AI software company building category-leading consumer and SMB products — GrahAI (Vedic astrology AI), AasanKhata (GST invoicing), and AgencyPitch (AI proposals for agencies). Practical AI, made in India, used worldwide.";
+  "GrahAI Systems is an AI software company building for India and the World. We make GrahAI — an AI-powered Vedic astrology platform used by people across four Indian languages. Founded 2024, based in Bengaluru, bootstrapped.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -23,17 +22,14 @@ export const metadata = {
   description: SITE_DESCRIPTION,
   keywords: [
     "GrahAI Systems",
-    "AI company India",
-    "AI product studio",
-    "Indian AI startup",
     "GrahAI",
-    "AasanKhata",
-    "AgencyPitch",
+    "AI company India",
+    "Indian AI startup",
     "Vedic astrology AI",
-    "GST invoicing software",
-    "AI proposal generator",
-    "Bengaluru AI startup",
-    "AI SaaS India",
+    "AI Kundli",
+    "AI Jyotish",
+    "Bengaluru AI company",
+    "Indian language AI",
     "practical AI",
   ],
   authors: [{ name: "GrahAI Systems", url: SITE_URL }],
@@ -59,7 +55,7 @@ export const metadata = {
         url: "/logo-square.png",
         width: 1024,
         height: 1024,
-        alt: "GrahAI Systems — AI product studio (logo)",
+        alt: "GrahAI Systems",
         type: "image/png",
       },
     ],
@@ -99,7 +95,6 @@ export const viewport = {
   maximumScale: 5,
 };
 
-// JSON-LD: Organization + WebSite — discoverable by SEO + AEO crawlers
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -116,9 +111,7 @@ const orgSchema = {
     addressRegion: "Karnataka",
     addressCountry: "IN",
   },
-  sameAs: [
-    "https://github.com/stocksindepth-cyber",
-  ],
+  sameAs: ["https://github.com/stocksindepth-cyber"],
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -131,17 +124,11 @@ const orgSchema = {
   knowsAbout: [
     "Artificial Intelligence",
     "Vedic Astrology Software",
-    "GST Invoicing",
-    "SaaS",
-    "AI for Indian Businesses",
-    "AI Proposals",
-    "AI Product Development",
+    "Large Language Models",
+    "Indian Language AI",
+    "Consumer AI",
   ],
-  brand: [
-    { "@type": "Brand", name: "GrahAI", url: "https://www.grahai.com" },
-    { "@type": "Brand", name: "AasanKhata", url: "https://aasankhata.com" },
-    { "@type": "Brand", name: "AgencyPitch", url: "https://agencypitch.com" },
-  ],
+  brand: [{ "@type": "Brand", name: "GrahAI", url: "https://www.grahai.com" }],
 };
 
 const websiteSchema = {
@@ -152,11 +139,6 @@ const websiteSchema = {
   description: SITE_DESCRIPTION,
   publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   inLanguage: "en-IN",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE_URL}/search?q={query}`,
-    "query-input": "required name=query",
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -165,9 +147,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="canonical" href={SITE_URL} />
-        {/* Structured data — Organization + WebSite (graph node for AEO) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
