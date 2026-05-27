@@ -10,10 +10,7 @@ GrahAI Systems is a Bengaluru-based AI software company founded in 2024 by Rahul
 
 ## 2. Founder
 
-**Rahul Dubey** — operator/engineer. Builds the product, code, infrastructure, and go-to-market. Public footprint:
-
-- GitHub: https://github.com/stocksindepth-cyber
-- Background: Engineering-led founder with prior experience building consumer and SMB products at scale.
+**Rahul Dubey** — operator/engineer. Builds the product, code, infrastructure, and go-to-market. Engineering-led founder with prior experience building consumer and SMB products at scale.
 
 ## 3. Product — GrahAI
 

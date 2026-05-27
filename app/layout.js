@@ -111,7 +111,6 @@ const orgSchema = {
     addressRegion: "Karnataka",
     addressCountry: "IN",
   },
-  sameAs: ["https://github.com/stocksindepth-cyber"],
   contactPoint: [
     {
       "@type": "ContactPoint",

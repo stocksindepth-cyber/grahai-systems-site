@@ -11,9 +11,6 @@ import {
   Layers,
   Mail,
   MapPin,
-  Github,
-  Linkedin,
-  Twitter,
 } from "lucide-react";
 
 const SITE_URL = "https://grahaisystems.com";
@@ -459,11 +456,6 @@ function Footer() {
               {
                 label: "hello@grahaisystems.com",
                 href: "mailto:hello@grahaisystems.com",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/stocksindepth-cyber",
-                icon: Github,
               },
             ]}
           />
