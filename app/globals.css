@@ -17,31 +17,31 @@
   }
 
   body {
-    background-color: #050816;
-    color: #e5e7eb;
+    background-color: #f8fafc;
+    color: #1e293b;
     font-family: var(--font-sans);
-    /* Subtle starfield-ish background for the dark surface — adds depth
-       without distracting from content. */
+    /* Subtle ambient glows for a premium light canvas */
     background-image:
-      radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.08), transparent 35%),
-      radial-gradient(circle at 85% 60%, rgba(99, 102, 241, 0.06), transparent 40%),
-      radial-gradient(circle at 50% 100%, rgba(245, 158, 11, 0.04), transparent 50%);
+      radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.03), transparent 35%),
+      radial-gradient(circle at 85% 60%, rgba(99, 102, 241, 0.02), transparent 40%),
+      radial-gradient(circle at 50% 100%, rgba(245, 158, 11, 0.01), transparent 50%);
     background-attachment: fixed;
   }
 
   ::selection {
-    background-color: rgba(96, 165, 250, 0.3);
-    color: #f8fafc;
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #1e3a8a;
   }
 }
 
 @layer utilities {
-  /* Reusable "glass card" — used by product cards + value props */
+  /* Reusable light-theme glass card */
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
   }
 
   .glass-hover {
@@ -49,19 +49,19 @@
       background-color 0.3s ease, box-shadow 0.3s ease;
   }
   .glass-hover:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(96, 165, 250, 0.3);
-    box-shadow: 0 12px 40px -8px rgba(59, 130, 246, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(59, 130, 246, 0.25);
+    box-shadow: 0 16px 40px -8px rgba(59, 130, 246, 0.08);
     transform: translateY(-4px);
   }
 
-  /* Brand gradient text — hero accent, product card titles */
+  /* Professional text gradient (royal blue to deep purple to amber gold) */
   .text-brand-gradient {
     background-image: linear-gradient(
       120deg,
-      #60a5fa 0%,
-      #a78bfa 35%,
-      #fbbf24 100%
+      #2563eb 0%,
+      #7c3aed 35%,
+      #d97706 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -70,11 +70,11 @@
     animation: gradientX 8s ease-in-out infinite;
   }
 
-  /* Faint grid background used in the hero section */
+  /* Light blue grid background */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(96, 165, 250, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(96, 165, 250, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse at 50% 30%, black 0%, transparent 75%);
     -webkit-mask-image: radial-gradient(

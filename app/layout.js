@@ -88,8 +88,8 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#050816",
-  colorScheme: "dark",
+  themeColor: "#f8fafc",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -115,7 +115,7 @@ const orgSchema = {
     {
       "@type": "ContactPoint",
       contactType: "customer support",
-      email: "hello@grahaisystems.com",
+      email: "support@grahai.com",
       areaServed: "Worldwide",
       availableLanguage: ["English", "Hindi"],
     },
@@ -124,10 +124,17 @@ const orgSchema = {
     "Artificial Intelligence",
     "Vedic Astrology Software",
     "Large Language Models",
-    "Indian Language AI",
-    "Consumer AI",
+    "AI Agent Development",
+    "AI Workflow Automation",
+    "Custom AI Chatbots",
+    "AI Document Processing OCR",
+    "AI SaaS Platform Development",
   ],
-  brand: [{ "@type": "Brand", name: "GrahAI", url: "https://www.grahai.com" }],
+  brand: [
+    { "@type": "Brand", name: "GrahAI", url: "https://www.grahai.com" },
+    { "@type": "Brand", name: "AgencyPitch", url: "https://agencypitch.io" },
+    { "@type": "Brand", name: "AasanKhata", url: "https://aasankhata.in" }
+  ],
 };
 
 const websiteSchema = {
