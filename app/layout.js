@@ -9,9 +9,9 @@ const inter = Inter({
 
 const SITE_URL = "https://grahaisystems.com";
 const SITE_NAME = "GrahAI Systems";
-const SITE_TAGLINE = "Building practical AI products for India and the World.";
+const SITE_TAGLINE = "An AI product studio for India and the World.";
 const SITE_DESCRIPTION =
-  "GrahAI Systems is an AI software company building for India and the World. We make GrahAI — an AI-powered Vedic astrology platform used by people across four Indian languages. Founded 2024, based in Bengaluru, bootstrapped.";
+  "GrahAI Systems is a product-first AI studio. We build and operate our own software — GrahAI (Vedic astrology), OptionsGyani (options practice), AasanKhata (SMB accounting) and AgencyPitch (agency proposals) — used by people and businesses across India and the World. Founded 2024, based in Bengaluru, bootstrapped.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -131,9 +131,10 @@ const orgSchema = {
     "AI SaaS Platform Development",
   ],
   brand: [
-    { "@type": "Brand", name: "GrahAI", url: "https://www.grahai.com" },
+    { "@type": "Brand", name: "GrahAI", url: "https://grahai.com" },
+    { "@type": "Brand", name: "OptionsGyani", url: "https://optionsgyani.com" },
+    { "@type": "Brand", name: "AasanKhata", url: "https://aasankhata.in" },
     { "@type": "Brand", name: "AgencyPitch", url: "https://agencypitch.io" },
-    { "@type": "Brand", name: "AasanKhata", url: "https://aasankhata.in" }
   ],
 };
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin } from "lucide-react";
+import { products as productCatalogue } from "../content/products";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,23 +15,15 @@ export default function Footer() {
     { label: "Custom AI SaaS", href: "/custom-ai-saas-development" },
   ];
 
-  const technologies = [
-    { label: "OpenAI Integration", href: "/openai-development-company" },
-    { label: "Claude AI Integration", href: "/claude-ai-development" },
-    { label: "Gemini AI Integration", href: "/gemini-ai-development" },
-    { label: "Groq LPU Services", href: "/groq-development-services" },
-  ];
-
-  const products = [
-    { label: "Grah AI", href: "https://grahai.com?utm_source=grahaisystems.com" },
-    { label: "AgencyPitch.io", href: "https://agencypitch.io?utm_source=grahaisystems.com" },
-    { label: "AasanKhata.in", href: "https://aasankhata.in?utm_source=grahaisystems.com" },
-  ];
+  const products = productCatalogue.map((p) => ({
+    label: `${p.name} · ${p.domain}`,
+    href: p.url,
+  }));
 
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand block */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5">
@@ -48,7 +41,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
-              Grah AI Systems is a product-first AI engineering company. We design and build high-performance, autonomous AI applications and workflows that replace manual work.
+              GrahAI Systems is a product-first AI studio. We design, ship, and operate our own software — used by people and businesses across India and the World.
             </p>
             <div className="mt-6 space-y-2.5 text-xs text-slate-500">
               <p className="inline-flex items-center gap-2">
@@ -65,48 +58,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 1: Services */}
+          {/* Column 1: Products */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-              AI Services
-            </h4>
-            <ul className="mt-4 space-y-2.5">
-              {services.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 2: Tech Capabilities */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-              AI Engines
-            </h4>
-            <ul className="mt-4 space-y-2.5">
-              {technologies.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: Products */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-              Flagship Products
+              Our Products
             </h4>
             <ul className="mt-4 space-y-2.5">
               {products.map((link) => (
@@ -119,6 +74,25 @@ export default function Footer() {
                   >
                     {link.label}
                   </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 2: Services */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+              Build With Us
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {services.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>

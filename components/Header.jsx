@@ -9,11 +9,10 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Services", href: "/#services" },
     { name: "Products", href: "/#products" },
-    { name: "Pricing", href: "/#pricing" },
+    { name: "Build With Us", href: "/#build" },
+    { name: "Studio", href: "/#company" },
     { name: "Blog", href: "/blog" },
-    { name: "Company", href: "/#company" },
   ];
 
   return (
@@ -62,10 +61,10 @@ export default function Header() {
             support@grahai.com
           </a>
           <a
-            href="#contact"
+            href="/#products"
             className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 transition-all"
           >
-            Book Strategy Call
+            Explore Products
             <ArrowUpRight size={14} />
           </a>
         </div>
@@ -106,7 +105,7 @@ export default function Header() {
               support@grahai.com
             </a>
             <a
-              href="#contact"
+              href="/#products"
               className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 transition-all"
               onClick={() => setMobileMenuOpen(false)}
             >
