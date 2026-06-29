@@ -115,6 +115,7 @@ const orgSchema = {
       "@type": "ContactPoint",
       contactType: "customer support",
       email: "support@grahai.com",
+      telephone: "+91-96196-98372",
       areaServed: "Worldwide",
       availableLanguage: ["English", "Hindi"],
     },

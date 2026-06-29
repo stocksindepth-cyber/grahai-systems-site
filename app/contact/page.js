@@ -20,6 +20,7 @@ export default function ContactPage() {
           heading: "Reach us",
           list: [
             `<strong>Email:</strong> <a href="mailto:support@grahai.com" class="text-azure-600 font-semibold">support@grahai.com</a> (fastest — we reply within 1–2 business days)`,
+            `<strong>Phone:</strong> <a href="tel:+919619698372" class="text-azure-600 font-semibold">+91 96196 98372</a>`,
             `<strong>Business name:</strong> ${COMPANY.name}`,
             `<strong>Registered location:</strong> ${COMPANY.addressLine}`,
             `<strong>Hours:</strong> Monday–Friday, 10:00–18:00 IST`,
