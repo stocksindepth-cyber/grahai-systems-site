@@ -125,13 +125,31 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-slate-200 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center">
-          <p>© {currentYear} GrahAI Systems. All rights reserved. Registered in Bengaluru, India.</p>
-          <div className="flex gap-4">
-            <Link href="/blog" className="hover:text-slate-900 transition-colors">Blog</Link>
-            <Link href="/sitemap.xml" className="hover:text-slate-900 transition-colors">Sitemap</Link>
+        {/* Legal / policy links (also required for payment-partner verification) */}
+        <div className="mt-14 border-t border-slate-200 pt-8">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-slate-500">
+            {[
+              { label: "Contact Us", href: "/contact" },
+              { label: "Pricing", href: "/pricing" },
+              { label: "Terms & Conditions", href: "/terms" },
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Cancellation & Refund", href: "/refund" },
+              { label: "Shipping & Delivery", href: "/shipping" },
+              { label: "Sitemap", href: "/sitemap.xml" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="hover:text-slate-900 transition-colors">
+                {l.label}
+              </Link>
+            ))}
           </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-slate-200 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center">
+          <p>© {currentYear} GrahAI Systems. All rights reserved. Registered in Bengaluru, Karnataka, India.</p>
+          <a href="mailto:support@grahai.com" className="hover:text-slate-900 transition-colors">
+            support@grahai.com
+          </a>
         </div>
       </div>
     </footer>

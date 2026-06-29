@@ -11,6 +11,12 @@ export default function sitemap() {
   const routes = [
     "",
     "/start",
+    "/pricing",
+    "/contact",
+    "/terms",
+    "/privacy",
+    "/refund",
+    "/shipping",
     "/solutions",
     "/case-studies",
     "/blog",
