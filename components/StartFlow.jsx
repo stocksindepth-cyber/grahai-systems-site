@@ -33,17 +33,6 @@ const INTEGRATIONS = [
 ];
 const URGENCY = ["ASAP", "Within 1–3 months", "This quarter", "Just exploring"];
 
-function loadRazorpay() {
-  return new Promise((resolve) => {
-    if (typeof window !== "undefined" && window.Razorpay) return resolve(true);
-    const s = document.createElement("script");
-    s.src = "https://checkout.razorpay.com/v1/checkout.js";
-    s.onload = () => resolve(true);
-    s.onerror = () => resolve(false);
-    document.body.appendChild(s);
-  });
-}
-
 export default function StartFlow() {
   const [step, setStep] = useState("form"); // form | quote | done
   const [busy, setBusy] = useState(false);
@@ -99,41 +88,15 @@ export default function StartFlow() {
     setError("");
     setBusy(true);
     try {
-      const ok = await loadRazorpay();
-      if (!ok) throw new Error("Couldn't load secure checkout. Check your connection.");
-      const res = await fetch("/api/create-order", {
+      // Generate a Razorpay-hosted payment link and send the user to it.
+      const res = await fetch("/api/payment-link", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: quote.token }),
       });
-      const order = await res.json();
-      if (!res.ok || !order.orderId) throw new Error(order.error || "Could not start checkout.");
-
-      const rzp = new window.Razorpay({
-        key: order.keyId,
-        order_id: order.orderId,
-        amount: order.amount,
-        currency: order.currency,
-        name: "GrahAI Systems",
-        description: order.name,
-        prefill: { email: order.email },
-        theme: { color: "#2563eb" },
-        handler: async (resp) => {
-          const v = await fetch("/api/verify-payment", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(resp),
-          });
-          if (v.ok) {
-            setStep("done");
-          } else {
-            setError("Payment couldn't be verified. If you were charged, email support@grahai.com.");
-          }
-          setBusy(false);
-        },
-        modal: { ondismiss: () => setBusy(false) },
-      });
-      rzp.open();
+      const data = await res.json();
+      if (!res.ok || !data.url) throw new Error(data.error || "Could not start checkout.");
+      window.location.href = data.url; // hosted on Razorpay; redirects back to /start/done
     } catch (err) {
       setError(err.message);
       setBusy(false);
