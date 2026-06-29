@@ -62,10 +62,10 @@ export default function Header() {
             support@grahai.com
           </a>
           <a
-            href="/#contact"
+            href="/start"
             className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 transition-all"
           >
-            Book a Call
+            Get a Quote
             <ArrowUpRight size={14} />
           </a>
         </div>
@@ -106,11 +106,11 @@ export default function Header() {
               support@grahai.com
             </a>
             <a
-              href="/#contact"
+              href="/start"
               className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 transition-all"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Book a Discovery Call
+              Get a Quote
               <ArrowUpRight size={14} />
             </a>
           </div>
