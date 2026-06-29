@@ -7,12 +7,19 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { label: "AI Agent Development", href: "/ai-agent-development" },
-    { label: "AI Chatbots", href: "/ai-chatbot-development" },
-    { label: "Workflow Automation", href: "/ai-automation-services" },
-    { label: "Document Processing AI", href: "/document-processing-ai" },
-    { label: "Enterprise AI Solutions", href: "/enterprise-ai-solutions" },
-    { label: "Custom AI SaaS", href: "/custom-ai-saas-development" },
+    { label: "AI Agent Development", href: "/solutions/ai-agent-development-company" },
+    { label: "RAG & Private GPT", href: "/solutions/rag-development-company" },
+    { label: "Workflow Automation", href: "/solutions/ai-workflow-automation-company" },
+    { label: "Document Processing", href: "/solutions/ai-document-search" },
+    { label: "Internal Copilots", href: "/solutions/internal-knowledge-chatbot" },
+    { label: "All AI Solutions", href: "/solutions" },
+  ];
+
+  const company = [
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "The Studio", href: "/#company" },
+    { label: "Engineering Blog", href: "/blog" },
+    { label: "Book a Discovery Call", href: "/#contact" },
   ];
 
   const products = productCatalogue.map((p) => ({
@@ -23,7 +30,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand block */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5">
@@ -82,10 +89,29 @@ export default function Footer() {
           {/* Column 2: Services */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-              Build With Us
+              AI Solutions
             </h4>
             <ul className="mt-4 space-y-2.5">
               {services.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Company */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+              Company
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {company.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

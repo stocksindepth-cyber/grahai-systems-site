@@ -9,8 +9,9 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation = [
+    { name: "Solutions", href: "/solutions" },
+    { name: "Case Studies", href: "/case-studies" },
     { name: "Products", href: "/#products" },
-    { name: "Build With Us", href: "/#build" },
     { name: "Studio", href: "/#company" },
     { name: "Blog", href: "/blog" },
   ];
@@ -40,12 +41,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex">
+        <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-600 lg:flex">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="hover:text-slate-900 transition-colors"
+              className="whitespace-nowrap hover:text-slate-900 transition-colors"
             >
               {item.name}
             </Link>
@@ -53,24 +54,24 @@ export default function Header() {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden items-center gap-5 md:flex">
+        <div className="hidden items-center gap-5 lg:flex">
           <a
             href="mailto:support@grahai.com"
-            className="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors lg:text-sm"
+            className="hidden text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors xl:inline"
           >
             support@grahai.com
           </a>
           <a
-            href="/#products"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 transition-all"
+            href="/#contact"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 transition-all"
           >
-            Explore Products
+            Book a Call
             <ArrowUpRight size={14} />
           </a>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex md:hidden">
+        <div className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700 hover:text-slate-900"
@@ -84,7 +85,7 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200/50 bg-white px-4 py-6 space-y-4">
+        <div className="lg:hidden border-t border-slate-200/50 bg-white px-4 py-6 space-y-4">
           <nav className="flex flex-col gap-4">
             {navigation.map((item) => (
               <Link
@@ -105,11 +106,11 @@ export default function Header() {
               support@grahai.com
             </a>
             <a
-              href="/#products"
+              href="/#contact"
               className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-4 py-3 text-sm font-semibold text-white shadow-md shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 transition-all"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Book Strategy Call
+              Book a Discovery Call
               <ArrowUpRight size={14} />
             </a>
           </div>

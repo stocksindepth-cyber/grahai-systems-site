@@ -9,9 +9,9 @@ const inter = Inter({
 
 const SITE_URL = "https://grahaisystems.com";
 const SITE_NAME = "GrahAI Systems";
-const SITE_TAGLINE = "An AI product studio for India and the World.";
+const SITE_TAGLINE = "Production-Grade AI Systems for Business.";
 const SITE_DESCRIPTION =
-  "GrahAI Systems is a product-first AI studio. We build and operate our own software — GrahAI (Vedic astrology), OptionsGyani (options practice), AasanKhata (SMB accounting) and AgencyPitch (agency proposals) — used by people and businesses across India and the World. Founded 2024, based in Bengaluru, bootstrapped.";
+  "GrahAI Systems builds production-grade AI for business — AI agents, RAG, workflow automation, internal copilots and custom AI SaaS. We bring real operating experience: we also build and run our own AI products (GrahAI, OptionsGyani, AasanKhata, AgencyPitch). Bengaluru-based, building for India and the World.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -104,7 +104,6 @@ const orgSchema = {
   logo: `${SITE_URL}/logo.png`,
   description: SITE_DESCRIPTION,
   foundingDate: "2024",
-  founders: [{ "@type": "Person", name: "Rahul Dubey" }],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bengaluru",
@@ -124,6 +123,8 @@ const orgSchema = {
     "Artificial Intelligence",
     "Vedic Astrology Software",
     "Large Language Models",
+    "Production AI Systems",
+    "Retrieval-Augmented Generation (RAG)",
     "AI Agent Development",
     "AI Workflow Automation",
     "Custom AI Chatbots",

@@ -4,7 +4,7 @@ export const blogPosts = [
     title: "How AI Agents Are Replacing Manual Business Operations in 2026",
     excerpt: "Discover how modern autonomous AI agents are moving beyond simple chat interfaces to execute complex, multi-step business operations completely hands-free.",
     date: "June 4, 2026",
-    author: "Rahul Dubey",
+    author: "GrahAI Engineering",
     readTime: "6 min read",
     category: "AI Agents",
     content: `
@@ -52,7 +52,7 @@ Ready to integrate AI agents into your business operations? Contact Grah AI Syst
     title: "OpenAI vs Claude vs Gemini: Picking the Right API for Enterprise",
     excerpt: "An in-depth technical comparison of OpenAI GPT-4o, Anthropic Claude 3.5, and Google Gemini 1.5 APIs for document processing, agentic routing, and speed.",
     date: "May 28, 2026",
-    author: "Rahul Dubey",
+    author: "GrahAI Engineering",
     readTime: "8 min read",
     category: "LLM Engineering",
     content: `
@@ -119,7 +119,7 @@ Need assistance choosing or configuring these model endpoints safely? Reach out 
     title: "AI Document Processing: Saving 100+ Hours for Accounting & Logistics",
     excerpt: "How invoice parsing, OCR table extraction, and automatic ledger entry systems are transforming manual bookkeeping operations in accounting and trucking logistics.",
     date: "May 15, 2026",
-    author: "Rahul Dubey",
+    author: "GrahAI Engineering",
     readTime: "7 min read",
     category: "Document Intelligence",
     content: `

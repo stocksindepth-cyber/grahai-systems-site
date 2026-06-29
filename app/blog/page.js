@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { blogPosts } from "../../content/posts";
+import { allPosts as blogPosts } from "../../content/allPosts";
 
 export const metadata = {
   title: "Blog & AI Insights | Grah AI Systems",
@@ -77,8 +77,8 @@ export default function BlogListing() {
                   </p>
 
                   <div className="mt-6 flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-800 border border-slate-200">
-                      RD
+                    <div className="h-8 w-8 rounded-full bg-slate-900 flex items-center justify-center text-[10px] font-bold text-white border border-slate-200">
+                      GA
                     </div>
                     <span className="text-xs font-bold text-slate-700">{blogPosts[0].author}</span>
                   </div>

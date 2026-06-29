@@ -1,6 +1,8 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
+  ArrowRight,
+  Check,
   Cpu,
   Sparkles,
   ShieldCheck,
@@ -10,20 +12,28 @@ import {
   FileText,
   MessageSquare,
   Globe2,
+  Layers,
 } from "lucide-react";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductShowcase from "../components/ProductShowcase";
 import ProductsSection from "../components/ProductsSection";
-import PricingEstimator from "../components/PricingEstimator";
 import ContactSection from "../components/ContactSection";
+import { stats } from "../content/stats";
+import { offers, customOffer } from "../content/offers";
 
 export const metadata = {
   title:
-    "GrahAI Systems — An AI Product Studio Building for India and the World",
+    "GrahAI Systems — Production-Grade AI Systems for Business | India and the World",
   description:
-    "GrahAI Systems builds and operates its own AI products — GrahAI (Vedic astrology), OptionsGyani (options practice), AasanKhata (SMB accounting) and AgencyPitch (agency proposals). A product-first AI studio based in Bengaluru.",
+    "We help companies automate repetitive work with production-grade AI — agents, workflow automation, internal copilots and custom AI SaaS. Built by a studio that ships and runs its own AI products. Book a discovery call.",
+};
+
+const accentMap = {
+  azure: { text: "text-azure-600", dot: "bg-azure-500", btn: "bg-azure-600 hover:bg-azure-700", chip: "bg-azure-50 border-azure-100" },
+  purple: { text: "text-purple-600", dot: "bg-purple-500", btn: "bg-purple-600 hover:bg-purple-700", chip: "bg-purple-50 border-purple-100" },
+  emerald: { text: "text-emerald-600", dot: "bg-emerald-500", btn: "bg-emerald-600 hover:bg-emerald-700", chip: "bg-emerald-50 border-emerald-100" },
 };
 
 export default function Page() {
@@ -31,96 +41,64 @@ export default function Page() {
     <>
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden border-b border-slate-200/50 pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20 lg:pb-40">
+      {/* Hero Section — lead with the business outcome */}
+      <section className="relative overflow-hidden border-b border-slate-200/50 pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20 lg:pb-32">
         <div className="absolute inset-0 bg-grid pointer-events-none" />
         <div className="absolute top-20 left-10 w-72 h-72 bg-azure-500/5 rounded-full blur-[80px] pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            {/* Hero Copy */}
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-azure-200 bg-azure-50/50 px-3.5 py-1.5 text-xs font-semibold text-azure-600 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                AI Product Studio · Bengaluru · India and the World
+                Production AI Systems · India and the World
               </div>
 
-              <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-[64px]">
-                We Build &amp; Run
-                <br />
-                <span className="text-brand-gradient">Real AI Products.</span>
+              <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.06] tracking-tight text-slate-900 sm:text-5xl md:text-[56px] lg:text-[60px]">
+                We automate repetitive work with{" "}
+                <span className="text-brand-gradient">production-grade AI.</span>
               </h1>
 
               <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
-                GrahAI Systems is a product-first AI studio. We don&apos;t just
-                advise on AI — we ship and operate our own software, used by
-                people and businesses across India and the World every day.
+                Customer support is expensive. Staff lose hours to manual work.
+                Thousands of documents get processed by hand. We design and run
+                AI systems that take that load off your team — and keep working
+                in production, not just in a demo.
               </p>
 
-              <p className="mt-3 text-sm font-semibold text-slate-400">
-                Four live products. Built and owned end-to-end.
+              {/* capability line */}
+              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold text-slate-700">
+                {["AI Agents", "Workflow Automation", "Internal Copilots", "Custom AI SaaS"].map((c, i) => (
+                  <span key={c} className="inline-flex items-center gap-3">
+                    {i > 0 && <span className="h-1 w-1 rounded-full bg-slate-300" />}
+                    {c}
+                  </span>
+                ))}
+              </div>
+
+              <p className="mt-5 text-sm font-semibold text-slate-400">
+                We build AI products — and we run them ourselves.
               </p>
 
               <div className="mt-8 flex flex-col items-start justify-start gap-4 sm:flex-row sm:items-center">
                 <a
-                  href="#products"
+                  href="#contact"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 hover:shadow-xl hover:-translate-y-0.5 transition-all w-full sm:w-auto"
                 >
-                  Explore Our Products
+                  Book a Discovery Call
                   <ArrowUpRight size={16} />
                 </a>
-                <a
-                  href="#build"
+                <Link
+                  href="/case-studies"
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all w-full sm:w-auto"
                 >
-                  We Build For You Too
-                </a>
-              </div>
-
-              {/* Trust Strip — product proof, not tech stack */}
-              <div className="mt-12 pt-8 border-t border-slate-200/60">
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  What we&apos;ve shipped
-                </p>
-                <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
-                  <div>
-                    <div className="font-display text-2xl font-extrabold text-slate-900">
-                      4
-                    </div>
-                    <div className="text-xs font-medium text-slate-500">
-                      Live products
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-display text-2xl font-extrabold text-slate-900">
-                      4
-                    </div>
-                    <div className="text-xs font-medium text-slate-500">
-                      Indian languages
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-display text-2xl font-extrabold text-slate-900">
-                      11+
-                    </div>
-                    <div className="text-xs font-medium text-slate-500">
-                      Yrs engineering
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-display text-2xl font-extrabold text-slate-900">
-                      100%
-                    </div>
-                    <div className="text-xs font-medium text-slate-500">
-                      Bootstrapped
-                    </div>
-                  </div>
-                </div>
+                  See Case Studies
+                  <ArrowRight size={16} />
+                </Link>
               </div>
             </div>
 
-            {/* Product Showcase */}
             <div>
               <ProductShowcase />
             </div>
@@ -128,164 +106,162 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Products (Primary Section) */}
-      <ProductsSection />
-
-      {/* We Build For You Too (Services — secondary) */}
-      <section
-        id="build"
-        className="relative border-b border-slate-200/50 bg-slate-50 py-24 sm:py-32"
-      >
+      {/* Proof band */}
+      <section className="border-b border-slate-200/50 bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-azure-600">
-              BEYOND OUR OWN PRODUCTS
-            </span>
-            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              We Build For You, Too
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-600">
-              The same team that runs our products takes on a small number of
-              client builds each quarter — AI agents, automations, document
-              intelligence, and custom SaaS, shipped with product-grade care.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* AI Agents */}
-            <Link
-              href="/ai-agent-development"
-              className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all hover:border-azure-500/20 hover:shadow-md"
-            >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-azure-100 bg-azure-50 text-azure-600 shadow-sm">
-                <Cpu size={20} />
+          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
+            The proof is in what we run
+          </p>
+          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <div className="font-display text-2xl font-extrabold text-slate-900 sm:text-3xl">
+                  {s.value}
+                </div>
+                <div className="mt-1.5 text-xs font-semibold text-slate-700">{s.label}</div>
+                <div className="mt-0.5 text-[11px] leading-snug text-slate-400">{s.sub}</div>
               </div>
-              <h3 className="mt-5 font-display text-base font-bold text-slate-900 transition-colors group-hover:text-azure-600">
-                AI Agents
-              </h3>
-              <p className="mt-2.5 text-xs leading-relaxed text-slate-500">
-                Autonomous agents that reason, plan, and execute business tasks
-                using custom toolboxes.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-azure-600">
-                Learn more <ArrowUpRight size={12} />
-              </span>
-            </Link>
-
-            {/* Workflow Automation */}
-            <Link
-              href="/ai-automation-services"
-              className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all hover:border-azure-500/20 hover:shadow-md"
-            >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-azure-100 bg-azure-50 text-azure-600 shadow-sm">
-                <GitMerge size={20} />
-              </div>
-              <h3 className="mt-5 font-display text-base font-bold text-slate-900 transition-colors group-hover:text-azure-600">
-                Workflow Automation
-              </h3>
-              <p className="mt-2.5 text-xs leading-relaxed text-slate-500">
-                Connect your business systems together and eliminate repetitive
-                human processing.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-azure-600">
-                Learn more <ArrowUpRight size={12} />
-              </span>
-            </Link>
-
-            {/* Document Intelligence */}
-            <Link
-              href="/document-processing-ai"
-              className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all hover:border-azure-500/20 hover:shadow-md"
-            >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-azure-100 bg-azure-50 text-azure-600 shadow-sm">
-                <FileText size={20} />
-              </div>
-              <h3 className="mt-5 font-display text-base font-bold text-slate-900 transition-colors group-hover:text-azure-600">
-                Document Intelligence
-              </h3>
-              <p className="mt-2.5 text-xs leading-relaxed text-slate-500">
-                Extract, structure, and validate data from complex document sets
-                automatically.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-azure-600">
-                Learn more <ArrowUpRight size={12} />
-              </span>
-            </Link>
-
-            {/* AI Chatbots */}
-            <Link
-              href="/ai-chatbot-development"
-              className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all hover:border-azure-500/20 hover:shadow-md"
-            >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-azure-100 bg-azure-50 text-azure-600 shadow-sm">
-                <MessageSquare size={20} />
-              </div>
-              <h3 className="mt-5 font-display text-base font-bold text-slate-900 transition-colors group-hover:text-azure-600">
-                AI Chatbots
-              </h3>
-              <p className="mt-2.5 text-xs leading-relaxed text-slate-500">
-                Human-like assistants trained on your internal data, policies,
-                and product lists.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-azure-600">
-                Learn more <ArrowUpRight size={12} />
-              </span>
-            </Link>
-
-            {/* Custom AI SaaS */}
-            <Link
-              href="/custom-ai-saas-development"
-              className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all hover:border-azure-500/20 hover:shadow-md"
-            >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-azure-100 bg-azure-50 text-azure-600 shadow-sm">
-                <Globe2 size={20} />
-              </div>
-              <h3 className="mt-5 font-display text-base font-bold text-slate-900 transition-colors group-hover:text-azure-600">
-                Custom AI SaaS
-              </h3>
-              <p className="mt-2.5 text-xs leading-relaxed text-slate-500">
-                Launch a proprietary AI product faster, with engineering that
-                knows how to run one.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-azure-600">
-                Learn more <ArrowUpRight size={12} />
-              </span>
-            </Link>
-
-            {/* CTA card */}
-            <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-azure-50/30 p-6 shadow-sm">
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-azure-600">
-                  Have something in mind?
-                </span>
-                <h3 className="mt-2 font-display text-base font-bold text-slate-900">
-                  Let&apos;s scope your build
-                </h3>
-                <p className="mt-2 text-xs leading-relaxed text-slate-500">
-                  Tell us the workflow you want to automate or the product you
-                  want to launch — we&apos;ll map a pilot.
-                </p>
-              </div>
-              <a
-                href="#contact"
-                className="mt-6 inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-azure-600 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-azure-700"
-              >
-                Start a conversation
-                <ArrowUpRight size={12} />
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing Estimator (for client builds) */}
-      <PricingEstimator />
+      {/* Products (proof we ship & operate) */}
+      <ProductsSection />
+
+      {/* Productized AI engagements */}
+      <section id="offers" className="relative border-b border-slate-200/50 bg-slate-50 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-azure-600">
+              PRODUCTIZED AI ENGAGEMENTS
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+              Fixed scope. Fixed timeline. In production.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600">
+              Not open-ended consulting — productized engagements with a clear
+              outcome, a delivery window, and a starting price. Every one ships
+              as a real system your team can rely on.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {offers.map((o) => {
+              const a = accentMap[o.accent] || accentMap.azure;
+              return (
+                <div key={o.id} className="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition-all hover:shadow-md">
+                  <div className="flex items-center justify-between">
+                    <span className={`text-[10px] font-bold uppercase tracking-widest ${a.text}`}>{o.timeline}</span>
+                    <span className="text-[11px] font-semibold text-slate-400">from</span>
+                  </div>
+                  <h3 className="mt-2 font-display text-xl font-extrabold text-slate-900">{o.name}</h3>
+                  <div className="mt-1 font-display text-2xl font-extrabold text-slate-900">{o.priceFrom}</div>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{o.outcome}</p>
+                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 text-sm text-slate-600">
+                    {o.includes.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5">
+                        <Check size={15} className={`mt-0.5 shrink-0 ${a.text}`} />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 text-xs text-slate-400">{o.idealFor}</p>
+                  <div className="mt-6 flex items-center gap-3 pt-1">
+                    <a href="#contact" className={`inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition-colors ${a.btn}`}>
+                      Start a conversation
+                      <ArrowUpRight size={13} />
+                    </a>
+                    <Link href={o.href} className="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors">
+                      Details
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* custom catch-all */}
+          <div className="mt-6 flex flex-col items-start justify-between gap-4 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:flex-row sm:items-center">
+            <div>
+              <h3 className="font-display text-lg font-bold text-slate-900">{customOffer.name}</h3>
+              <p className="mt-1 max-w-2xl text-sm text-slate-600">{customOffer.outcome}</p>
+            </div>
+            <a href="#contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
+              Scope my project
+              <ArrowUpRight size={15} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Case studies CTA */}
+      <section className="relative border-b border-slate-200/50 bg-slate-900 py-20 sm:py-24 overflow-hidden">
+        <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-azure-500/10 blur-[100px] pointer-events-none" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+            <div className="max-w-2xl">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-azure-400">
+                ENGINEERING, IN THE OPEN
+              </span>
+              <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                Read how we actually build them
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-slate-300">
+                Deep technical case studies of our own products — the problem,
+                the architecture, the AI stack, the hard engineering calls, the
+                result, and the lessons. The kind of detail that tells a CTO
+                we can be trusted with a project that&apos;s too important to fail.
+              </p>
+            </div>
+            <Link
+              href="/case-studies"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 hover:bg-slate-100 transition-colors"
+            >
+              Explore Case Studies
+              <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What we build for clients — outcome-led */}
+      <section id="build" className="relative border-b border-slate-200/50 bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-azure-600">
+              WHAT WE BUILD FOR YOU
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+              Production AI, mapped to your bottleneck
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600">
+              Start from the business problem. We design the system, choose the
+              right AI stack, and run it in production — with evals, monitoring
+              and cost control built in.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <ServiceCard href="/solutions/ai-agent-development-company" icon={Cpu} title="AI Agents" desc="Autonomous agents that reason, plan and execute real business tasks with safe tool-use." />
+            <ServiceCard href="/solutions/ai-workflow-automation-company" icon={GitMerge} title="Workflow Automation" desc="Connect your systems and remove the repetitive human steps between them." />
+            <ServiceCard href="/solutions/ai-document-search" icon={FileText} title="Document Intelligence" desc="Extract, structure and validate data from messy real-world documents." />
+            <ServiceCard href="/solutions/customer-support-automation" icon={MessageSquare} title="Support Copilots" desc="Deflect repetitive tickets with answers grounded in your own docs." />
+            <ServiceCard href="/solutions/internal-knowledge-chatbot" icon={Layers} title="Internal Copilots" desc="Private RAG over your wiki and SOPs, with cited answers staff can trust." />
+            <ServiceCard href="/solutions/custom-ai-agent-development" icon={Globe2} title="Custom AI SaaS" desc="Launch a proprietary AI product with a team that already runs four." />
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link href="/solutions" className="inline-flex items-center gap-1.5 text-sm font-semibold text-azure-600 hover:text-azure-700 transition-colors">
+              Browse all AI solutions
+              <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Why GrahAI Systems */}
-      <section
-        id="company"
-        className="relative border-b border-slate-200/50 bg-white py-24 sm:py-32"
-      >
+      <section id="company" className="relative border-b border-slate-200/50 bg-slate-50 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:items-start">
             <div>
@@ -293,70 +269,25 @@ export default function Page() {
                 THE STUDIO
               </span>
               <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-                A product studio, not an agency
+                The team to call when the AI project can&apos;t fail
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600">
-                Over 11 years of software and product experience goes into
+                Over 11 years of software and product engineering goes into
                 everything we run. Because we live with our own products in
-                production, we build software that stays online under load,
-                handles errors gracefully, and scales transparently.
+                production, we build AI that stays online under load, fails
+                gracefully, and is honest about cost and accuracy.
               </p>
+              <Link href="/case-studies" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-azure-600 hover:text-azure-700 transition-colors">
+                See how we build
+                <ArrowRight size={15} />
+              </Link>
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 flex items-center gap-3">
-                  <Briefcase size={18} className="text-azure-600" />
-                  <h3 className="text-sm font-bold text-slate-900">
-                    We Own What We Build
-                  </h3>
-                </div>
-                <p className="text-xs leading-relaxed text-slate-500">
-                  We run commercial products ourselves — so we sweat latency,
-                  uptime, billing, and UX because our own users depend on them
-                  daily.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 flex items-center gap-3">
-                  <Sparkles size={18} className="text-azure-600" />
-                  <h3 className="text-sm font-bold text-slate-900">
-                    Outcomes, Not Buzzwords
-                  </h3>
-                </div>
-                <p className="text-xs leading-relaxed text-slate-500">
-                  Every product and pipeline is built around a measurable result
-                  — time saved, accuracy gained — not model name-dropping.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 flex items-center gap-3">
-                  <ShieldCheck size={18} className="text-azure-600" />
-                  <h3 className="text-sm font-bold text-slate-900">
-                    Built to Last
-                  </h3>
-                </div>
-                <p className="text-xs leading-relaxed text-slate-500">
-                  Secure paths, graceful failovers, and proper billing — the
-                  unglamorous engineering that keeps real products alive.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 flex items-center gap-3">
-                  <Clock size={18} className="text-azure-600" />
-                  <h3 className="text-sm font-bold text-slate-900">
-                    Ship, Then Iterate
-                  </h3>
-                </div>
-                <p className="text-xs leading-relaxed text-slate-500">
-                  We get working software in front of real users fast, then
-                  improve from what they actually do — the way we run our own
-                  products.
-                </p>
-              </div>
+              <WhyCard icon={Briefcase} title="We Own What We Build" desc="We run commercial AI products ourselves — so we sweat latency, uptime, billing and accuracy because our own users depend on them daily." />
+              <WhyCard icon={Sparkles} title="Outcomes, Not Buzzwords" desc="Every system targets a measurable result — tickets deflected, hours saved, errors removed — not a model name on a slide." />
+              <WhyCard icon={ShieldCheck} title="Production-Grade by Default" desc="Evals, monitoring, retries, idempotent webhooks, cost controls. The unglamorous engineering that keeps AI alive in the real world." />
+              <WhyCard icon={Clock} title="Ship, Then Iterate" desc="We get a working system in front of real users fast, then improve from what they actually do — the way we run our own products." />
             </div>
           </div>
         </div>
@@ -365,5 +296,37 @@ export default function Page() {
       <ContactSection />
       <Footer />
     </>
+  );
+}
+
+function ServiceCard({ href, icon: Icon, title, desc }) {
+  return (
+    <Link
+      href={href}
+      className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all hover:border-azure-500/20 hover:shadow-md"
+    >
+      <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-azure-100 bg-azure-50 text-azure-600 shadow-sm">
+        <Icon size={20} />
+      </div>
+      <h3 className="mt-5 font-display text-base font-bold text-slate-900 transition-colors group-hover:text-azure-600">
+        {title}
+      </h3>
+      <p className="mt-2.5 text-xs leading-relaxed text-slate-500">{desc}</p>
+      <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-azure-600">
+        Learn more <ArrowUpRight size={12} />
+      </span>
+    </Link>
+  );
+}
+
+function WhyCard({ icon: Icon, title, desc }) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mb-3 flex items-center gap-3">
+        <Icon size={18} className="text-azure-600" />
+        <h3 className="text-sm font-bold text-slate-900">{title}</h3>
+      </div>
+      <p className="text-xs leading-relaxed text-slate-500">{desc}</p>
+    </div>
   );
 }

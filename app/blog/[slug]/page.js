@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, User, MessageSquare } from "lucide-react";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import { blogPosts } from "../../../content/posts";
+import { allPosts as blogPosts } from "../../../content/allPosts";
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
