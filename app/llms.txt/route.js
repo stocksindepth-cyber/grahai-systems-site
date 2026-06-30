@@ -1,6 +1,9 @@
 import { solutions } from "../../content/solutions";
 import { caseStudies } from "../../content/caseStudies";
 import { allPosts } from "../../content/allPosts";
+import { industries } from "../../content/industries";
+import { comparisons } from "../../content/comparisons";
+import { allFaqs } from "../../content/faqs";
 
 const SITE_URL = "https://grahaisystems.com";
 
@@ -34,11 +37,25 @@ Contact: support@grahai.com
 ## Case studies (engineering deep-dives)
 ${caseStudies.map((c) => line(c.title, `/case-studies/${c.slug}`, c.summary)).join("\n")}
 
-## AI solutions (by capability, industry & use case)
+## AI solutions (by capability & use case)
 ${solutions.map((s) => line(`${s.headline} ${s.keywordAccent}`.trim(), `/solutions/${s.slug}`, s.metaDescription)).join("\n")}
+
+## AI by industry
+${industries.map((s) => line(`AI for ${s.industry}`, `/industries/${s.slug}`, s.metaDescription)).join("\n")}
+
+## Buying guides & comparisons
+${comparisons.map((s) => line(`${s.headline} ${s.keywordAccent}`.trim(), `/compare/${s.slug}`, s.metaDescription)).join("\n")}
 
 ## Engineering writing
 ${allPosts.slice(0, 10).map((p) => line(p.title, `/blog/${p.slug}`, p.excerpt)).join("\n")}
+
+## Frequently asked questions
+${allFaqs.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}
+
+## Reference
+- [AI development FAQ](${SITE_URL}/faq): cost, timelines, process, security
+- [AI glossary](${SITE_URL}/glossary): plain-English definitions of agents, RAG, evals and more
+- [About GrahAI Systems](${SITE_URL}/about): the studio that operates its own AI products
 
 ## Contact
 - Book a discovery call or send a proposal: support@grahai.com

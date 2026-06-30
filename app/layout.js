@@ -19,7 +19,10 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: `${SITE_NAME} — ${SITE_TAGLINE}`,
-    template: `%s · ${SITE_NAME}`,
+    // Pages set their own fully-branded title (e.g. "… | GrahAI Systems"), so the
+    // template must NOT append the brand again — that produced duplicate-brand
+    // titles like "… | GrahAI Systems · GrahAI Systems" across every SEO page.
+    template: `%s`,
   },
   description: SITE_DESCRIPTION,
   keywords: [

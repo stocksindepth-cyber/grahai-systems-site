@@ -12,13 +12,17 @@ export default function Footer() {
     { label: "Workflow Automation", href: "/solutions/ai-workflow-automation-company" },
     { label: "Document Processing", href: "/solutions/ai-document-search" },
     { label: "Internal Copilots", href: "/solutions/internal-knowledge-chatbot" },
+    { label: "AI by Industry", href: "/industries" },
     { label: "All AI Solutions", href: "/solutions" },
   ];
 
   const company = [
+    { label: "About the Studio", href: "/about" },
     { label: "Case Studies", href: "/case-studies" },
-    { label: "The Studio", href: "/#company" },
+    { label: "Buying Guides", href: "/compare" },
     { label: "Engineering Blog", href: "/blog" },
+    { label: "FAQ", href: "/faq" },
+    { label: "AI Glossary", href: "/glossary" },
     { label: "Book a Discovery Call", href: "/#contact" },
   ];
 

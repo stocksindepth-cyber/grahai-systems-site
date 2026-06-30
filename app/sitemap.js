@@ -1,6 +1,8 @@
 import { allPosts } from "../content/allPosts";
 import { solutions } from "../content/solutions";
 import { caseStudies } from "../content/caseStudies";
+import { industries } from "../content/industries";
+import { comparisons } from "../content/comparisons";
 
 const SITE_URL = "https://grahaisystems.com";
 
@@ -20,6 +22,11 @@ export default function sitemap() {
     "/solutions",
     "/case-studies",
     "/blog",
+    "/industries",
+    "/compare",
+    "/faq",
+    "/about",
+    "/glossary",
     "/ai-agent-development",
     "/ai-chatbot-development",
     "/ai-automation-services",
@@ -61,5 +68,21 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
-  return [...routes, ...solutionRoutes, ...caseRoutes, ...blogRoutes];
+  // Industry pages
+  const industryRoutes = industries.map((s) => ({
+    url: `${SITE_URL}/industries/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
+
+  // Comparison / buying-guide pages
+  const compareRoutes = comparisons.map((s) => ({
+    url: `${SITE_URL}/compare/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...routes, ...solutionRoutes, ...caseRoutes, ...blogRoutes, ...industryRoutes, ...compareRoutes];
 }
