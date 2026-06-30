@@ -41,57 +41,55 @@ export default function Page() {
     <>
       <Header />
 
-      {/* Hero Section — lead with the business outcome */}
-      <section className="relative overflow-hidden border-b border-slate-200/50 pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20 lg:pb-32">
-        <div className="absolute inset-0 bg-grid pointer-events-none" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-azure-500/5 rounded-full blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* Hero Section — navy canvas, business-outcome first */}
+      <section className="relative overflow-hidden bg-navy-gradient pt-16 pb-24 sm:pt-20 sm:pb-32">
+        <div className="absolute top-0 left-0 h-96 w-96 rounded-full bg-azure-400/10 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-10 h-96 w-96 rounded-full bg-azure-500/10 blur-[140px] pointer-events-none" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-azure-200 bg-azure-50/50 px-3.5 py-1.5 text-xs font-semibold text-azure-600 backdrop-blur-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-azure-400/30 bg-azure-400/10 px-3.5 py-1.5 text-xs font-semibold text-azure-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-azure-400 animate-pulse" />
                 Production AI Systems · India and the World
               </div>
 
-              <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.06] tracking-tight text-slate-900 sm:text-5xl md:text-[56px] lg:text-[60px]">
-                We automate repetitive work with{" "}
-                <span className="text-brand-gradient">production-grade AI.</span>
+              <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[56px] lg:text-[60px]">
+                We build <span className="text-azure-400">production AI</span>, run it for you, and take the busywork off your team.
               </h1>
 
-              <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
+              <p className="mt-6 text-base leading-relaxed text-slate-300 sm:text-lg">
                 Customer support is expensive. Staff lose hours to manual work.
                 Thousands of documents get processed by hand. We design and run
-                AI systems that take that load off your team — and keep working
-                in production, not just in a demo.
+                AI systems that handle that load — and keep working in
+                production, not just in a demo.
               </p>
 
               {/* capability line */}
-              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold text-slate-700">
+              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold text-slate-200">
                 {["AI Agents", "Workflow Automation", "Internal Copilots", "Custom AI SaaS"].map((c, i) => (
                   <span key={c} className="inline-flex items-center gap-3">
-                    {i > 0 && <span className="h-1 w-1 rounded-full bg-slate-300" />}
+                    {i > 0 && <span className="h-1 w-1 rounded-full bg-slate-500" />}
                     {c}
                   </span>
                 ))}
               </div>
 
-              <p className="mt-5 text-sm font-semibold text-slate-400">
+              <p className="mt-5 text-sm font-medium text-slate-400">
                 We build AI products — and we run them ourselves.
               </p>
 
               <div className="mt-8 flex flex-col items-start justify-start gap-4 sm:flex-row sm:items-center">
                 <Link
                   href="/start"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 hover:shadow-xl hover:-translate-y-0.5 transition-all w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-azure-400 px-6 py-3.5 text-sm font-bold text-navy-900 shadow-lg shadow-azure-400/30 hover:bg-azure-300 hover:-translate-y-0.5 transition-all w-full sm:w-auto"
                 >
                   Get an Instant Quote
                   <ArrowUpRight size={16} />
                 </Link>
                 <Link
                   href="/case-studies"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/40 bg-transparent px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-all w-full sm:w-auto"
                 >
                   See Case Studies
                   <ArrowRight size={16} />
@@ -115,7 +113,7 @@ export default function Page() {
           <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
-                <div className="font-display text-2xl font-extrabold text-slate-900 sm:text-3xl">
+                <div className="font-display text-2xl font-extrabold text-navy-700 sm:text-3xl">
                   {s.value}
                 </div>
                 <div className="mt-1.5 text-xs font-semibold text-slate-700">{s.label}</div>
@@ -187,7 +185,7 @@ export default function Page() {
               <h3 className="font-display text-lg font-bold text-slate-900">{customOffer.name}</h3>
               <p className="mt-1 max-w-2xl text-sm text-slate-600">{customOffer.outcome}</p>
             </div>
-            <Link href="/start" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
+            <Link href="/start" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-navy-gradient px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
               Scope my project
               <ArrowUpRight size={15} />
             </Link>
@@ -196,7 +194,7 @@ export default function Page() {
       </section>
 
       {/* Case studies CTA */}
-      <section className="relative border-b border-slate-200/50 bg-slate-900 py-20 sm:py-24 overflow-hidden">
+      <section className="relative border-b border-slate-200/50 bg-navy-gradient py-20 sm:py-24 overflow-hidden">
         <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-azure-500/10 blur-[100px] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">

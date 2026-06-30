@@ -7,21 +7,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        // GrahAI Systems brand palette
-        // navy: primary surface
-        // azure: accent — links, primary CTAs
-        // gold: rare accent for emphasis (logo highlight, key stats)
+        // GrahAI Systems brand palette (re-themed to navy + teal — warm,
+        // business-friendly). `navy` = primary dark surfaces/headings;
+        // `azure` is now the TEAL accent (kept the name so every existing
+        // azure-* class re-skins automatically to teal).
+        navy: {
+          700: "#1f3a5f",
+          800: "#15293f",
+          900: "#0f1f30",
+        },
         ink: {
           950: "#050816",
           900: "#0a0f1f",
           800: "#0f172a",
           700: "#1e293b",
         },
+        // Teal accent scale. 600 is the primary CTA (good contrast on white).
         azure: {
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
+          50: "#f0fdfa",
+          100: "#ccfbf1",
+          200: "#99f6e4",
+          300: "#5eead4",
+          400: "#2dd4bf",
+          500: "#14b8a6",
+          600: "#0d9488",
+          700: "#0f766e",
         },
         gold: {
           300: "#fcd34d",

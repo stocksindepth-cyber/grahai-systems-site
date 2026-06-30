@@ -156,7 +156,7 @@ export default function CaseStudyPage({ params }) {
           </Section>
 
           {/* CTA */}
-          <div className="mt-14 rounded-3xl border border-slate-200 bg-slate-900 p-8 text-center shadow-sm sm:p-10">
+          <div className="mt-14 rounded-3xl border border-slate-200 bg-navy-gradient p-8 text-center shadow-sm sm:p-10">
             <h2 className="font-display text-2xl font-extrabold text-white">Planning something like this?</h2>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-300">
               We bring the same production discipline to client builds. Tell us

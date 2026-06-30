@@ -17,70 +17,55 @@
   }
 
   body {
-    background-color: #f8fafc;
-    color: #1e293b;
+    background-color: #f6f8fb; /* warm light canvas (navy/teal theme) */
+    color: #243447;
     font-family: var(--font-sans);
-    /* Subtle ambient glows for a premium light canvas */
-    background-image:
-      radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.03), transparent 35%),
-      radial-gradient(circle at 85% 60%, rgba(99, 102, 241, 0.02), transparent 40%),
-      radial-gradient(circle at 50% 100%, rgba(245, 158, 11, 0.01), transparent 50%);
-    background-attachment: fixed;
   }
 
   ::selection {
-    background-color: rgba(59, 130, 246, 0.2);
-    color: #1e3a8a;
+    background-color: rgba(45, 212, 191, 0.25);
+    color: #0f766e;
   }
 }
 
 @layer utilities {
-  /* Reusable light-theme glass card */
+  /* Clean white business card — no glassmorphism blur (de-techie). */
   .glass {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(15, 23, 42, 0.06);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+    background: #ffffff;
+    border: 1px solid #e3e9f1;
+    box-shadow: 0 1px 2px rgba(31, 58, 95, 0.04), 0 8px 24px rgba(31, 58, 95, 0.05);
   }
 
   .glass-hover {
     transition: transform 0.3s ease, border-color 0.3s ease,
-      background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow 0.3s ease;
   }
   .glass-hover:hover {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(59, 130, 246, 0.25);
-    box-shadow: 0 16px 40px -8px rgba(59, 130, 246, 0.08);
+    border-color: rgba(45, 212, 191, 0.45);
+    box-shadow: 0 16px 40px -8px rgba(31, 58, 95, 0.12);
     transform: translateY(-4px);
   }
 
-  /* Professional text gradient (royal blue to deep purple to amber gold) */
+  /* Brand highlight — navy → teal (matches the offer-page accent). */
   .text-brand-gradient {
-    background-image: linear-gradient(
-      120deg,
-      #2563eb 0%,
-      #7c3aed 35%,
-      #d97706 100%
-    );
+    background-image: linear-gradient(110deg, #1f3a5f 0%, #14b8a6 55%, #2dd4bf 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-size: 200% 200%;
-    animation: gradientX 8s ease-in-out infinite;
   }
 
-  /* Light blue grid background */
+  /* Almost-invisible texture — keep depth without the "techie grid" look. */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(37, 99, 235, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse at 50% 30%, black 0%, transparent 75%);
-    -webkit-mask-image: radial-gradient(
-      ellipse at 50% 30%,
-      black 0%,
-      transparent 75%
-    );
+      linear-gradient(to right, rgba(31, 58, 95, 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 58, 95, 0.015) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at 50% 20%, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 20%, black 0%, transparent 70%);
+  }
+
+  /* Navy gradient surface for hero / CTA / dark sections. */
+  .bg-navy-gradient {
+    background-image: linear-gradient(160deg, #1f3a5f 0%, #15293f 100%);
   }
 }
