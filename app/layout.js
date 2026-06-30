@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { AuthProvider } from "../components/AuthProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -169,7 +170,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-screen antialiased">
-        {children}
+        <AuthProvider>{children}</AuthProvider>
         {/* Microsoft Clarity — heatmaps + session recordings. Loads after the
             page is interactive so it never blocks render. */}
         <Script id="ms-clarity" strategy="afterInteractive">

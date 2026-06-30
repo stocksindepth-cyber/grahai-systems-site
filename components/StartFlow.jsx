@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   Check,
@@ -10,7 +11,10 @@ import {
   Clock,
   CalendarRange,
   RefreshCw,
+  LayoutDashboard,
 } from "lucide-react";
+import { auth } from "../lib/firebaseClient";
+import { useAuth } from "./AuthProvider";
 
 const USE_CASES = [
   "AI Agent",
@@ -34,6 +38,8 @@ const INTEGRATIONS = [
 const URGENCY = ["ASAP", "Within 1–3 months", "This quarter", "Just exploring"];
 
 export default function StartFlow() {
+  const router = useRouter();
+  const { user } = useAuth();
   const [step, setStep] = useState("form"); // form | quote | done
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -97,6 +103,34 @@ export default function StartFlow() {
       const data = await res.json();
       if (!res.ok || !data.url) throw new Error(data.error || "Could not start checkout.");
       window.location.href = data.url; // hosted on Razorpay; redirects back to /start/done
+    } catch (err) {
+      setError(err.message);
+      setBusy(false);
+    }
+  }
+
+  // Save the quote to the user's dashboard + kick off proposal generation.
+  // If not signed in, stash the quote and route to signup.
+  async function saveToDashboard() {
+    if (!quote) return;
+    const pending = { token: quote.token, quote };
+    if (!user) {
+      try { sessionStorage.setItem("ghs_pending_quote", JSON.stringify(pending)); } catch {}
+      router.push("/login?next=/dashboard");
+      return;
+    }
+    setError("");
+    setBusy(true);
+    try {
+      const idToken = await auth.currentUser.getIdToken();
+      const res = await fetch("/api/projects", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify(pending),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Could not save your project.");
+      router.push("/dashboard");
     } catch (err) {
       setError(err.message);
       setBusy(false);
@@ -189,13 +223,23 @@ export default function StartFlow() {
 
           {error && <p className="mt-4 text-sm font-medium text-red-600">{error}</p>}
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          {/* Primary: free — save it, get the full AI proposal, track delivery. */}
+          <button
+            onClick={saveToDashboard}
+            disabled={busy}
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-azure-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-azure-600/20 transition-all hover:bg-azure-700 hover:-translate-y-0.5 disabled:opacity-60"
+          >
+            {busy ? <Loader2 size={16} className="animate-spin" /> : <LayoutDashboard size={16} />}
+            Save &amp; get your full proposal — free
+          </button>
+
+          <div className="mt-3 flex flex-col gap-3 sm:flex-row">
             <button
               onClick={pay}
               disabled={busy}
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-azure-700/10 transition-all hover:from-azure-500 hover:to-azure-600 disabled:opacity-60"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-navy-700/20 bg-white px-6 py-3.5 text-sm font-semibold text-navy-700 transition-all hover:bg-slate-50 disabled:opacity-60"
             >
-              {busy ? <Loader2 size={16} className="animate-spin" /> : <ShieldCheck size={16} />}
+              <ShieldCheck size={16} />
               {quote.payNowLabel} — {quote.payNowDisplay}
             </button>
             <button
@@ -206,7 +250,7 @@ export default function StartFlow() {
               }}
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-semibold text-slate-600 hover:bg-slate-50"
             >
-              <RefreshCw size={15} /> Adjust requirements
+              <RefreshCw size={15} /> Adjust
             </button>
           </div>
           <p className="mt-3 text-center text-[11px] text-slate-400">

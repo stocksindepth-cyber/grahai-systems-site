@@ -4,9 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { useAuth } from "./AuthProvider";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user } = useAuth();
 
   const navigation = [
     { name: "Solutions", href: "/solutions" },
@@ -55,12 +57,12 @@ export default function Header() {
 
         {/* Desktop CTAs */}
         <div className="hidden items-center gap-5 lg:flex">
-          <a
-            href="mailto:support@grahai.com"
-            className="hidden text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors xl:inline"
+          <Link
+            href={user ? "/dashboard" : "/login"}
+            className="text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
           >
-            support@grahai.com
-          </a>
+            {user ? "Dashboard" : "Sign in"}
+          </Link>
           <a
             href="/start"
             className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-azure-700/10 hover:from-azure-500 hover:to-azure-600 transition-all"

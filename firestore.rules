@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // A signed-in user owns their profile + everything under it
+    // (their saved quotes / projects). The server (Admin SDK) bypasses
+    // these rules, so server-written records still work.
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      match /{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    // Raw leads are written and read only by the server (Admin SDK).
+    // No client access.
+    match /leads/{leadId} {
+      allow read, write: if false;
+    }
+
+    // Default deny everything else.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
