@@ -53,10 +53,10 @@ export const metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "/logo-square.png",
-        width: 1024,
-        height: 1024,
-        alt: "GrahAI Systems",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "GrahAI Systems — production-grade AI for India and the World",
         type: "image/png",
       },
     ],
@@ -65,7 +65,7 @@ export const metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
-    images: ["/logo-square.png"],
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [

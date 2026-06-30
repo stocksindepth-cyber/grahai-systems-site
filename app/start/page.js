@@ -9,6 +9,15 @@ export const metadata = {
   description:
     "Describe your problem and our AI Solutions Architect returns a scoped package, delivery timeline and price in seconds — then book your build. Production-grade AI for India and the World.",
   alternates: { canonical: `${SITE_URL}/start` },
+  openGraph: {
+    title: "Scope your AI build in 60 seconds | GrahAI Systems",
+    description:
+      "Describe your problem → instant package, delivery timeline and price from our AI Solutions Architect. Then book your build.",
+    url: `${SITE_URL}/start`,
+    type: "website",
+    images: [{ url: "/og-start.png", width: 1200, height: 630, alt: "GrahAI Systems AI Solutions Architect" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og-start.png"] },
 };
 
 export default function StartPage() {

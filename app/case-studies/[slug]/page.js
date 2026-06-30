@@ -26,7 +26,14 @@ export function generateMetadata({ params }) {
     title: `${cs.title} | GrahAI Systems Case Study`,
     description: cs.summary,
     alternates: { canonical: `${SITE_URL}/case-studies/${cs.slug}` },
-    openGraph: { title: cs.title, description: cs.summary, type: "article", url: `${SITE_URL}/case-studies/${cs.slug}` },
+    openGraph: {
+      title: cs.title,
+      description: cs.summary,
+      type: "article",
+      url: `${SITE_URL}/case-studies/${cs.slug}`,
+      images: [{ url: "/og-case-studies.png", width: 1200, height: 630, alt: cs.title }],
+    },
+    twitter: { card: "summary_large_image", images: ["/og-case-studies.png"] },
   };
 }
 

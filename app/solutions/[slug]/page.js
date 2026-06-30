@@ -20,7 +20,9 @@ export function generateMetadata({ params }) {
       description: s.metaDescription,
       url: `${SITE_URL}/solutions/${s.slug}`,
       type: "website",
+      images: [{ url: "/og-solutions.png", width: 1200, height: 630, alt: s.headline }],
     },
+    twitter: { card: "summary_large_image", images: ["/og-solutions.png"] },
   };
 }
 
