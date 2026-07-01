@@ -24,24 +24,39 @@ export const metadata = {
 };
 
 export default function LaunchPage() {
-  const productSchema = {
+  // Modeled as a Service with a priced OfferCatalog — NOT a Product. These are
+  // bespoke software-delivery packages, not shoppable retail goods, so Product
+  // schema would (wrongly) trigger Google merchant-listing validation and demand
+  // shipping/return-window fields that don't apply. Service keeps prices
+  // machine-readable without the merchant-listing evaluation.
+  const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
+    serviceType: "AI business launch — web app development & deployment",
     name: "AI Business Launch Package",
     description:
       "A production-ready AI-powered web application launched on your own domain in 7 days — domain, app, AI feature, admin dashboard, analytics, SEO and lead capture. By GrahAI Systems.",
     image: [`${SITE_URL}/og-image.png`],
-    brand: { "@type": "Brand", name: "GrahAI Systems" },
-    offers: launchTiers.map((t) => ({
-      "@type": "Offer",
-      name: `${t.name} launch package`,
-      price: t.priceUsd,
-      priceCurrency: "USD",
-      priceValidUntil: "2027-12-31",
-      url: `${SITE_URL}/launch`,
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-    })),
+    provider: { "@type": "Organization", name: "GrahAI Systems", url: SITE_URL },
+    areaServed: "Worldwide",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "AI Business Launch packages",
+      itemListElement: launchTiers.map((t) => ({
+        "@type": "Offer",
+        name: `${t.name} launch package`,
+        price: t.priceUsd,
+        priceCurrency: "USD",
+        priceValidUntil: "2027-12-31",
+        url: `${SITE_URL}/launch`,
+        availability: "https://schema.org/InStock",
+        itemOffered: {
+          "@type": "Service",
+          name: `${t.name} launch package`,
+          description: t.tagline,
+        },
+      })),
+    },
   };
 
   const faqSchema = {
@@ -65,7 +80,7 @@ export default function LaunchPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([productSchema, faqSchema, breadcrumbSchema]) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, faqSchema, breadcrumbSchema]) }} />
       <Header />
 
       {/* Hero */}
