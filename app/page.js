@@ -124,6 +124,34 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Flagship: Launch an AI business in 7 days */}
+      <section className="border-b border-slate-200/50 bg-navy-gradient py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-8 lg:flex-row lg:justify-between">
+            <div className="max-w-2xl text-center lg:text-left">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-azure-200 backdrop-blur">
+                New · Idea → live in 7 days
+              </span>
+              <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                Launch a whole AI business — from $999
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-slate-300">
+                Not a website. A production AI app on your own domain, with analytics, conversion tracking,
+                SEO and lead capture — deployed live in a week, at a fixed price.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-col items-center gap-3 sm:flex-row">
+              <a href="/launch" className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-xl bg-azure-400 px-6 py-3.5 text-sm font-bold text-navy-900 transition-all hover:bg-azure-300">
+                See launch packages
+              </a>
+              <a href="/start" className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-xl border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10">
+                Scope a custom build
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Products (proof we ship & operate) */}
       <ProductsSection />
 

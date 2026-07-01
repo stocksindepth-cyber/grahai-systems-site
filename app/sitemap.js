@@ -12,6 +12,7 @@ export default function sitemap() {
   // Core static + legacy SEO routes
   const routes = [
     "",
+    "/launch",
     "/start",
     "/pricing",
     "/contact",
@@ -41,7 +42,7 @@ export default function sitemap() {
     url: `${SITE_URL}${route}`,
     lastModified: now,
     changeFrequency: route === "" || route === "/blog" ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route === "/solutions" || route === "/case-studies" ? 0.9 : 0.8,
+    priority: route === "" ? 1.0 : route === "/launch" ? 0.95 : route === "/solutions" || route === "/case-studies" ? 0.9 : 0.8,
   }));
 
   // Long-tail solution pages

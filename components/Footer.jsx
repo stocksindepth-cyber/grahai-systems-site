@@ -7,6 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const services = [
+    { label: "Launch an AI Business — $999", href: "/launch" },
     { label: "AI Agent Development", href: "/solutions/ai-agent-development-company" },
     { label: "RAG & Private GPT", href: "/solutions/rag-development-company" },
     { label: "Workflow Automation", href: "/solutions/ai-workflow-automation-company" },

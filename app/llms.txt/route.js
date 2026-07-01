@@ -4,6 +4,7 @@ import { allPosts } from "../../content/allPosts";
 import { industries } from "../../content/industries";
 import { comparisons } from "../../content/comparisons";
 import { allFaqs } from "../../content/faqs";
+import { launchTiers } from "../../content/launchTiers";
 
 const SITE_URL = "https://grahaisystems.com";
 
@@ -21,6 +22,10 @@ What makes us different: we don't just consult on AI, we run four AI products in
 
 An engineer-led studio with 11+ years of production software experience.
 Contact: support@grahai.com
+
+## Launch an AI business in 7 days (fixed-price packages)
+Not software development — a production AI business on your own domain, live in 7 days: custom domain, web app, AI feature, admin dashboard, analytics, conversion tracking, SEO pages and lead capture. Optional Care plans ($99–$299/month) for hosting, patches and ongoing improvement. See ${SITE_URL}/launch
+${launchTiers.map((t) => `- ${t.name} — ${t.priceUsdDisplay} one-time, ${t.supportDays}-day support: ${t.tagline}`).join("\n")}
 
 ## Productized engagements
 - AI Customer Support Copilot — 30-day implementation, from $6,000

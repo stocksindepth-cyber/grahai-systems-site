@@ -11,11 +11,11 @@ export default function Header() {
   const { user } = useAuth();
 
   const navigation = [
+    { name: "Launch $999", href: "/launch" },
     { name: "Solutions", href: "/solutions" },
     { name: "Industries", href: "/industries" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "Guides", href: "/compare" },
-    { name: "Products", href: "/#products" },
     { name: "Blog", href: "/blog" },
   ];
 
