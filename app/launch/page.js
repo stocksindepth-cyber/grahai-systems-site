@@ -30,14 +30,17 @@ export default function LaunchPage() {
     name: "AI Business Launch Package",
     description:
       "A production-ready AI-powered web application launched on your own domain in 7 days — domain, app, AI feature, admin dashboard, analytics, SEO and lead capture. By GrahAI Systems.",
+    image: [`${SITE_URL}/og-image.png`],
     brand: { "@type": "Brand", name: "GrahAI Systems" },
     offers: launchTiers.map((t) => ({
       "@type": "Offer",
       name: `${t.name} launch package`,
       price: t.priceUsd,
       priceCurrency: "USD",
+      priceValidUntil: "2027-12-31",
       url: `${SITE_URL}/launch`,
       availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
     })),
   };
 
