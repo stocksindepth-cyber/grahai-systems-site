@@ -93,6 +93,10 @@ export default function AdminPage() {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+        <div className="mb-8 flex gap-2">
+          <span className="rounded-lg bg-navy-700 px-4 py-2 text-sm font-semibold text-white">Projects</span>
+          <Link href="/admin/leads" className="rounded-lg px-4 py-2 text-sm font-semibold text-slate-500 hover:bg-slate-100">Leads</Link>
+        </div>
         <div className="flex items-end justify-between">
           <div>
             <h1 className="font-display text-2xl font-extrabold text-navy-700 sm:text-3xl">All projects</h1>
