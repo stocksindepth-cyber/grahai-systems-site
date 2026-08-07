@@ -34,7 +34,7 @@ ${launchTiers.map((t) => `- ${t.name} — ${t.priceUsdDisplay} one-time, ${t.sup
 - Custom Production AI System — scoped per project
 
 ## Our products (proof we ship & operate)
-- [GrahAI](https://grahai.com): multilingual AI Vedic astrology platform (9 languages, RAG-grounded chat)
+- [GrahAI](https://www.grahai.com): multilingual AI Vedic astrology platform (9 languages, RAG-grounded chat)
 - [OptionsGyani](https://optionsgyani.com): NSE options analytics & backtesting on a self-built simulation engine
 - [AasanKhata](https://aasankhata.in): GST invoicing & accounting for Indian SMBs with document AI
 - [AgencyPitch](https://agencypitch.io): AI proposal generation for B2B agencies

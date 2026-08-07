@@ -8,7 +8,13 @@ export const products = [
     id: "grahai",
     name: "GrahAI",
     domain: "grahai.com",
-    url: "https://grahai.com?utm_source=grahaisystems.com",
+    // Clean www URL on purpose (2026-08-07): the old form was
+    // apex + ?utm_source. The apex 308s to www (a wasted redirect hop on the
+    // only followed link this domain sends), and the utm param mints yet
+    // another parameterized duplicate of grahai.com's homepage. This footer
+    // link renders on EVERY page of grahaisystems.com, so it is the single
+    // most repeated external link we control — keep it canonical.
+    url: "https://www.grahai.com",
     tagline: "AI Vedic astrology for India and the World",
     badge: "Flagship",
     blurb:

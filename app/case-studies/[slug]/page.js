@@ -77,6 +77,24 @@ export default function CaseStudyPage({ params }) {
             <a href={cs.liveUrl} target="_blank" rel="noopener noreferrer" className={`mt-5 inline-flex items-center gap-1.5 text-sm font-bold ${a.text} hover:underline`}>
               Visit the live product <ArrowUpRight size={15} />
             </a>
+            {/* Deep links into the surfaces the study describes — followed,
+                descriptive-anchor links (the study is more useful when the
+                reader can click into what each section is talking about). */}
+            {cs.deepLinks?.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5">
+                {cs.deepLinks.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-slate-900 hover:underline transition-colors"
+                  >
+                    {l.label} <ArrowUpRight size={12} />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Metrics */}

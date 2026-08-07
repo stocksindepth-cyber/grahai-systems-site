@@ -138,7 +138,7 @@ const orgSchema = {
     "AI SaaS Platform Development",
   ],
   brand: [
-    { "@type": "Brand", name: "GrahAI", url: "https://grahai.com" },
+    { "@type": "Brand", name: "GrahAI", url: "https://www.grahai.com" },
     { "@type": "Brand", name: "OptionsGyani", url: "https://optionsgyani.com" },
     { "@type": "Brand", name: "AasanKhata", url: "https://aasankhata.in" },
     { "@type": "Brand", name: "AgencyPitch", url: "https://agencypitch.io" },

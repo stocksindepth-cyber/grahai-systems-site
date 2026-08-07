@@ -7,7 +7,16 @@ export const caseStudies = [
   {
     slug: 'grahai-astrology-platform',
     product: 'GrahAI',
-    liveUrl: 'https://grahai.com',
+    liveUrl: 'https://www.grahai.com',
+    // Deep links into the product surfaces this case study actually describes.
+    // These are the only followed deep links grahai.com gets from anywhere —
+    // descriptive anchors, no tracking params.
+    deepLinks: [
+      { label: 'Free AI Kundli generator', href: 'https://www.grahai.com/kundli' },
+      { label: 'AI Jyotish chat', href: 'https://www.grahai.com/chat' },
+      { label: 'Premium report catalogue', href: 'https://www.grahai.com/reports' },
+      { label: 'Tamil jathagam (multilingual surface)', href: 'https://www.grahai.com/ta/jathagam' },
+    ],
     category: 'Consumer AI · Multilingual RAG',
     title:
       'How we built a multilingual AI astrology platform that grounds every answer in a real birth chart',
