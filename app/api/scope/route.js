@@ -97,7 +97,10 @@ export async function POST(request) {
   const country = detectCountry(request.headers, body.country);
   const currency = currencyForCountry(country);
 
+  const packageInterest = typeof body.packageInterest === "string" ? body.packageInterest.slice(0, 40) : "";
+
   const userMessage = [
+    packageInterest ? `Launch package they clicked on: ${packageInterest} (anchor the scope to this tier unless requirements clearly exceed it)` : "",
     `Use case: ${useCase || "unspecified"}`,
     `Scale / volume: ${scale || "unspecified"}`,
     `Key integrations: ${Array.isArray(integrations) && integrations.length ? integrations.join(", ") : "unspecified"}`,
@@ -139,7 +142,7 @@ export async function POST(request) {
     // the founder (best-effort — never blocks the quote from returning).
     await captureLead({
       email, name, company, useCase, scale, urgency, integrations, requirements,
-      country, quote, outreach: raw.outreach,
+      packageInterest, country, quote, outreach: raw.outreach,
     });
 
     return NextResponse.json({ success: true, quote });

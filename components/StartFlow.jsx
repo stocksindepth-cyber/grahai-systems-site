@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowRight,
   Check,
@@ -53,9 +53,21 @@ export default function StartFlow() {
     scale: "",
     urgency: "",
     integrations: [],
+    packageInterest: "",
   });
 
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
+
+  // Arriving from a /launch tier card ("Start with Scale") — remember which
+  // package they picked, and prefill the email for signed-in users.
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const pkg = searchParams.get("package");
+    if (pkg) setForm((f) => (f.packageInterest ? f : { ...f, packageInterest: pkg }));
+  }, [searchParams]);
+  useEffect(() => {
+    if (user?.email) setForm((f) => (f.email ? f : { ...f, email: user.email }));
+  }, [user]);
   const toggleIntegration = (i) =>
     setForm((f) => ({
       ...f,
@@ -266,6 +278,15 @@ export default function StartFlow() {
   return (
     <form onSubmit={generate} className="mx-auto max-w-2xl rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
       <div className="grid gap-5">
+        {form.packageInterest && (
+          <div className="flex items-center gap-2 rounded-xl border border-azure-100 bg-azure-50/50 px-4 py-2.5 text-xs text-slate-600">
+            <Sparkles size={13} className="shrink-0 text-azure-600" />
+            <span>
+              Starting from the <span className="font-bold capitalize text-slate-900">{form.packageInterest}</span> launch
+              package — tell us what you need and we&apos;ll confirm the exact plan with you.
+            </span>
+          </div>
+        )}
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Your name">
             <input className={inp} value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Jane Doe" />

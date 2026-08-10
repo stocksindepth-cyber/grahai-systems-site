@@ -1,5 +1,6 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { Suspense } from "react";
 import StartFlow from "../../components/StartFlow";
 
 const SITE_URL = "https://grahaisystems.com";
@@ -45,7 +46,9 @@ export default function StartPage() {
             </p>
           </div>
 
-          <StartFlow />
+          <Suspense fallback={null}>
+            <StartFlow />
+          </Suspense>
         </div>
       </main>
       <Footer />
