@@ -10,15 +10,24 @@ const inr = (usd) => `₹${Math.round(usd * USD_TO_INR).toLocaleString("en-IN")}
 export default function LaunchFlow() {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState("");
+  const [picked, setPicked] = useState(null);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
 
+  // Email is required before checkout opens: a ₹4L+ buyer once reached the
+  // Razorpay page anonymously and abandoned — with no way to follow up.
   async function book(tier) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Enter your work email so we can send the project brief and receipt.");
+      return;
+    }
     setError("");
     setLoading(tier.id);
     try {
       const res = await fetch("/api/launch-checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tier: tier.id }),
+        body: JSON.stringify({ tier: tier.id, email: email.trim(), name: name.trim() }),
       });
       const data = await res.json();
       if (!res.ok || !data.url) throw new Error(data.error || "Could not start checkout.");
@@ -54,7 +63,7 @@ export default function LaunchFlow() {
             <p className="mt-1 text-[11px] text-slate-400">≈ {inr(t.priceUsd)} for customers in India · {t.supportDays}-day support</p>
 
             <button
-              onClick={() => book(t)}
+              onClick={() => setPicked(picked === t.id ? null : t.id)}
               disabled={loading !== null}
               className={`mt-5 inline-flex w-full items-center justify-center gap-1.5 rounded-xl px-5 py-3 text-xs font-bold transition-all disabled:opacity-60 ${
                 t.highlight
@@ -65,6 +74,36 @@ export default function LaunchFlow() {
               {loading === t.id ? <Loader2 size={14} className="animate-spin" /> : <ArrowRight size={14} />}
               Book {t.name} — {t.priceUsdDisplay}
             </button>
+
+            {picked === t.id && (
+              <div className="mt-3 space-y-2 rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <input
+                  type="email"
+                  required
+                  autoFocus
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Work email (required)"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs text-slate-800 placeholder:text-slate-400 focus:border-azure-500 focus:outline-none"
+                />
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name (optional)"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs text-slate-800 placeholder:text-slate-400 focus:border-azure-500 focus:outline-none"
+                />
+                <button
+                  onClick={() => book(t)}
+                  disabled={loading !== null}
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-azure-600 px-4 py-2.5 text-xs font-bold text-white transition-all hover:bg-azure-700 disabled:opacity-60"
+                >
+                  {loading === t.id ? <Loader2 size={13} className="animate-spin" /> : <ArrowRight size={13} />}
+                  Continue to payment
+                </button>
+                <p className="text-center text-[10px] text-slate-400">We email your project brief & receipt here. No spam.</p>
+              </div>
+            )}
 
             <ul className="mt-6 space-y-2.5">
               {t.includes.map((f) => (

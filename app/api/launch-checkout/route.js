@@ -46,6 +46,12 @@ export async function POST(request) {
   const name = typeof body.name === "string" ? body.name.trim().slice(0, 120) : "";
   const company = typeof body.company === "string" ? body.company.trim().slice(0, 120) : "";
 
+  // Email is mandatory: an anonymous ₹4.3L Scale checkout was abandoned with
+  // zero recovery path. Every checkout click must be a followable lead.
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: "Please enter a valid email before checkout." }, { status: 400 });
+  }
+
   const referenceId = `gsl_${tier.id}_${Date.now()}_${crypto.randomBytes(4).toString("hex")}`;
   const auth = Buffer.from(`${id}:${secret}`).toString("base64");
 
@@ -55,7 +61,7 @@ export async function POST(request) {
     accept_partial: false,
     reference_id: referenceId,
     description: `GrahAI Systems — ${tier.name} launch package`,
-    reminder_enable: false,
+    reminder_enable: true,
     callback_url: `${SITE_URL}/start/done`,
     callback_method: "get",
     notes: {
@@ -92,5 +98,29 @@ export async function POST(request) {
   }
 
   const link = await res.json();
+
+  // Record the checkout attempt in the same inbox as /start leads, so an
+  // unpaid link still shows up in /admin/leads with a contactable email.
+  try {
+    const { adminDb } = await import("../../../lib/firebaseAdmin");
+    const { FieldValue } = await import("firebase-admin/firestore");
+    await adminDb().collection("leads").add({
+      email,
+      name,
+      company,
+      country,
+      packageName: `Launch — ${tier.name}`,
+      priceFromDisplay: `${currency} ${amountMajor.toLocaleString("en-IN")}`,
+      source: "launch-checkout",
+      referenceId,
+      paymentLink: link.short_url,
+      status: "new",
+      createdAt: FieldValue.serverTimestamp(),
+    });
+  } catch (e) {
+    // A lead-log failure must never block a paying customer.
+    console.error("[launch-checkout] lead log failed:", e?.message || e);
+  }
+
   return NextResponse.json({ url: link.short_url, referenceId, currency, amount: amountMajor });
 }
