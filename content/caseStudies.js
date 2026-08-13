@@ -81,10 +81,10 @@ export const caseStudies = [
   {
     slug: 'applyvita-ats-resume-platform',
     product: 'ApplyVita',
-    liveUrl: 'https://applyvita.com',
+    liveUrl: 'https://www.applyvita.com',
     deepLinks: [
-      { label: 'AI résumé builder', href: 'https://applyvita.com/builder' },
-      { label: 'ATS score checker', href: 'https://applyvita.com/ats' },
+      { label: 'AI résumé builder', href: 'https://www.applyvita.com/resume-builder' },
+      { label: 'ATS score checker', href: 'https://www.applyvita.com/ats-resume-checker' },
     ],
     category: 'Career AI · SEO · Cost-Smart Routing',
     title: 'How we built an ATS-optimising résumé platform with cost-smart AI routing and a programmatic SEO engine for India',

@@ -35,7 +35,7 @@ ${launchTiers.map((t) => `- ${t.name} — ${t.priceUsdDisplay} one-time, ${t.sup
 
 ## Our products (proof we ship & operate)
 - [GrahAI](https://www.grahai.com): multilingual AI Vedic astrology platform (9 languages, RAG-grounded chat)
-- [ApplyVita](https://applyvita.com): AI résumé builder with ATS optimisation and cost-smart Gemini + Claude routing
+- [ApplyVita](https://www.applyvita.com): AI career agent — scores a résumé on the real ATS rubric, rewrites weak lines, tailors to any job description, runs mock interviews and tracks applications. Free ATS check with no signup; one-time pricing, no subscription. Built for India and the World.
 
 ## Case studies (engineering deep-dives)
 ${caseStudies.map((c) => line(c.title, `/case-studies/${c.slug}`, c.summary)).join("\n")}

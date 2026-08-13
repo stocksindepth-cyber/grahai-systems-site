@@ -33,15 +33,17 @@ export const products = [
     id: "applyvita",
     name: "ApplyVita",
     domain: "applyvita.com",
-    url: "https://applyvita.com",
-    tagline: "AI résumé builder that beats ATS and lands interviews",
+    // www is the canonical host — the apex 308s, and pointing our own company
+    // site at the redirect wastes the one link we fully control.
+    url: "https://www.applyvita.com",
+    tagline: "AI career agent for résumés, applications and interviews",
     badge: "Career AI",
     blurb:
-      "An AI-powered résumé and career platform that optimises CVs for ATS systems, tailors applications to job descriptions, and helps job seekers in India and globally get past the first filter.",
+      "An AI career agent that scores a résumé on the real ATS rubric, rewrites the weak lines, tailors it to any job description, runs mock interviews and tracks every application. Free ATS check with no signup, and one-time pricing — no subscription.",
     features: [
-      "ATS-optimised résumé builder",
-      "Job-description tailoring & gap analysis",
-      "India & global formats supported",
+      "Free ATS score — no signup, no card",
+      "One-time pricing, nothing auto-renews",
+      "Naukri, sarkari & global formats",
     ],
     accent: {
       text: "text-violet-600",
