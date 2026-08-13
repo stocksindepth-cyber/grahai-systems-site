@@ -18,7 +18,7 @@ export function GET() {
 
 > GrahAI Systems is a production-grade AI software studio based in Bengaluru, India, building for India and the World. We design, build, and OPERATE our own AI products — and bring that same production discipline to client builds: AI agents, RAG systems, workflow automation, internal copilots, and custom AI SaaS.
 
-What makes us different: we don't just consult on AI, we run four AI products in production. That operating experience — latency, cost, evals, payments, reliability — is what we bring to every engagement.
+What makes us different: we don't just consult on AI, we run two AI products in production. That operating experience — latency, cost, evals, payments, reliability — is what we bring to every engagement.
 
 An engineer-led studio with 11+ years of production software experience.
 Contact: support@grahai.com
@@ -35,9 +35,7 @@ ${launchTiers.map((t) => `- ${t.name} — ${t.priceUsdDisplay} one-time, ${t.sup
 
 ## Our products (proof we ship & operate)
 - [GrahAI](https://www.grahai.com): multilingual AI Vedic astrology platform (9 languages, RAG-grounded chat)
-- [OptionsGyani](https://optionsgyani.com): NSE options analytics & backtesting on a self-built simulation engine
-- [AasanKhata](https://aasankhata.in): GST invoicing & accounting for Indian SMBs with document AI
-- [AgencyPitch](https://agencypitch.io): AI proposal generation for B2B agencies
+- [ApplyVita](https://applyvita.com): AI résumé builder with ATS optimisation and cost-smart Gemini + Claude routing
 
 ## Case studies (engineering deep-dives)
 ${caseStudies.map((c) => line(c.title, `/case-studies/${c.slug}`, c.summary)).join("\n")}

@@ -34,7 +34,7 @@ export default function ProductShowcase() {
         </div>
         <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-100 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-600">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          4 Live
+          {products.length} Live
         </span>
       </div>
 
