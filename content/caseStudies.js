@@ -88,10 +88,10 @@ export const caseStudies = [
     ],
     category: 'Career AI · SEO · Cost-Smart Routing',
     title: 'How we built an ATS-optimising résumé platform with cost-smart AI routing and a programmatic SEO engine for India',
-    summary: `A career AI product that runs Gemini for high-volume tasks and Claude for nuanced rewrites — cutting inference cost while delivering résumés that pass ATS filters — with a programmatic SEO layer capturing high-intent job-search traffic in India.`,
+    summary: `A career AI product that routes each task to the cheapest model tier that can do it well — cutting inference cost without degrading output — with a programmatic SEO layer capturing high-intent job-search traffic in India.`,
     accent: 'violet',
     metrics: [
-      { label: 'AI model routing', value: 'Gemini + Claude' },
+      { label: 'AI model routing', value: 'Tiered, by task complexity' },
       { label: 'ATS formats', value: 'India + global' },
       { label: 'SEO cluster', value: 'Naukri-ATS + company formats' },
       { label: 'Canonical host', value: 'WWW enforced' },
@@ -103,14 +103,14 @@ export const caseStudies = [
     ],
     architecture: [
       `Next.js (App Router) on Vercel, standalone from any sibling product — no shared backend, no proxy through other domains.`,
-      `A cost-smart routing layer selects Gemini 2.5 Flash for high-volume / lower-complexity tasks (ATS scoring, keyword extraction, formatting) and Claude for nuanced rewrites and cover letter generation, cutting per-request inference cost without degrading output quality.`,
+      `A cost-smart routing layer sends high-volume, lower-complexity work (ATS scoring, keyword extraction, formatting) to a fast, inexpensive model tier and reserves the frontier tier for nuanced rewrites and cover-letter generation, cutting per-request inference cost without degrading output quality. Routing is configurable per task without a deployment, which is what let the product consolidate onto a single vendor later without touching call sites.`,
       `A programmatic SEO engine generates keyword-specific landing pages targeting Naukri-ATS queries and company-format clusters — the proven high-intent demand surface for Indian job seekers.`,
       `Canonical host is enforced as WWW; all apex traffic 308-redirects. The robots.ts file was hardened to emit the www canonical, fixing an indexation stall caused by stripped-www canonicals being emitted during an earlier phase.`,
       `Payments run on Razorpay for international card checkout; OG images are rendered server-side on the nodejs runtime (not edge, which breaks font fetching) using a shared renderOgCard utility with bundled fonts.`,
     ],
     aiStack: [
-      'Gemini 2.5 Flash for high-volume ATS scoring & keyword extraction',
-      'Claude for nuanced rewrites & cover letter generation',
+      'Fast tier for high-volume ATS scoring & keyword extraction',
+      'Frontier tier for nuanced rewrites & cover-letter generation',
       'Cost-smart routing layer (task-type → model selection)',
       'Programmatic SEO: Naukri-ATS + company-format clusters',
       'Next.js App Router + Vercel serverless',
@@ -120,7 +120,7 @@ export const caseStudies = [
     challenges: [
       {
         title: "Routing between models without exposing it to users",
-        body: `Users care about output quality, not which model produced it. We built a routing layer that dispatches by task type — Gemini handles the fast, high-volume checks; Claude handles the rewrites where tone and nuance matter. The split is invisible to the user and configurable without a deployment.`,
+        body: `Users care about output quality, not which model produced it. We built a routing layer that dispatches by task type — a fast tier handles the high-volume checks, a frontier tier handles the rewrites where tone and nuance matter. The split is invisible to the user and configurable without a deployment, which is exactly why the product could later consolidate onto one vendor by changing config rather than code.`,
       },
       {
         title: "Capturing India-specific search intent",
