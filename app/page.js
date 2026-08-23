@@ -1,39 +1,39 @@
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  ArrowRight,
-  Check,
-  Cpu,
-  Sparkles,
-  ShieldCheck,
-  Clock,
-  Briefcase,
-  GitMerge,
-  FileText,
-  MessageSquare,
-  Globe2,
-  Layers,
-} from "lucide-react";
-
+import { ArrowUpRight, Sparkles, Globe2, Users, Languages } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ProductShowcase from "../components/ProductShowcase";
-import ProductsSection from "../components/ProductsSection";
-import ContactSection from "../components/ContactSection";
-import { stats } from "../content/stats";
-import { offers, customOffer } from "../content/offers";
+import { products } from "../content/products";
 
 export const metadata = {
-  title:
-    "GrahAI Systems — Production-Grade AI Systems for Business | India and the World",
+  title: "GrahAI Systems — AI Products for India and the World",
   description:
-    "We help companies automate repetitive work with production-grade AI — agents, workflow automation, internal copilots and custom AI SaaS. Built by a studio that ships and runs its own AI products. Book a discovery call.",
+    "GrahAI Systems builds AI-powered software products used by people across India and the World. Our products: GrahAI (AI Vedic astrology) and ApplyVita (AI career agent).",
 };
 
-const accentMap = {
-  azure: { text: "text-azure-600", dot: "bg-azure-500", btn: "bg-azure-600 hover:bg-azure-700", chip: "bg-azure-50 border-azure-100" },
-  purple: { text: "text-purple-600", dot: "bg-purple-500", btn: "bg-purple-600 hover:bg-purple-700", chip: "bg-purple-50 border-purple-100" },
-  emerald: { text: "text-emerald-600", dot: "bg-emerald-500", btn: "bg-emerald-600 hover:bg-emerald-700", chip: "bg-emerald-50 border-emerald-100" },
+const stats = [
+  { value: "10,000+", label: "Monthly users", icon: Users },
+  { value: "9", label: "Languages in production", icon: Languages },
+  { value: "2", label: "AI products live", icon: Sparkles },
+  { value: "India + World", label: "Where we build for", icon: Globe2 },
+];
+
+const productAccentMap = {
+  grahai: {
+    badge: "bg-teal-50 text-teal-700 border-teal-200",
+    dot: "bg-teal-500",
+    btn: "bg-teal-600 hover:bg-teal-700 shadow-teal-700/20",
+    ring: "ring-teal-500/20",
+    glow: "from-teal-500/5",
+    border: "hover:border-teal-200",
+  },
+  applyvita: {
+    badge: "bg-violet-50 text-violet-700 border-violet-200",
+    dot: "bg-violet-500",
+    btn: "bg-violet-600 hover:bg-violet-700 shadow-violet-700/20",
+    ring: "ring-violet-500/20",
+    glow: "from-violet-500/5",
+    border: "hover:border-violet-200",
+  },
 };
 
 export default function Page() {
@@ -41,318 +41,172 @@ export default function Page() {
     <>
       <Header />
 
-      {/* Hero Section — navy canvas, business-outcome first */}
-      <section className="relative overflow-hidden bg-navy-gradient pt-16 pb-24 sm:pt-20 sm:pb-32">
-        <div className="absolute top-0 left-0 h-96 w-96 rounded-full bg-azure-400/10 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 right-10 h-96 w-96 rounded-full bg-azure-500/10 blur-[140px] pointer-events-none" />
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-azure-400/30 bg-azure-400/10 px-3.5 py-1.5 text-xs font-semibold text-azure-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-azure-400 animate-pulse" />
-                Production AI Systems · India and the World
-              </div>
-
-              <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[56px] lg:text-[60px]">
-                We build <span className="text-azure-400">production AI</span>, run it for you, and take the busywork off your team.
-              </h1>
-
-              <p className="mt-6 text-base leading-relaxed text-slate-300 sm:text-lg">
-                Customer support is expensive. Staff lose hours to manual work.
-                Thousands of documents get processed by hand. We design and run
-                AI systems that handle that load — and keep working in
-                production, not just in a demo.
-              </p>
-
-              {/* capability line */}
-              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold text-slate-200">
-                {["AI Agents", "Workflow Automation", "Internal Copilots", "Custom AI SaaS"].map((c, i) => (
-                  <span key={c} className="inline-flex items-center gap-3">
-                    {i > 0 && <span className="h-1 w-1 rounded-full bg-slate-500" />}
-                    {c}
-                  </span>
-                ))}
-              </div>
-
-              <p className="mt-5 text-sm font-medium text-slate-400">
-                We build AI products — and we run them ourselves.
-              </p>
-
-              <div className="mt-8 flex flex-col items-start justify-start gap-4 sm:flex-row sm:items-center">
-                <Link
-                  href="/start"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-azure-400 px-6 py-3.5 text-sm font-bold text-navy-900 shadow-lg shadow-azure-400/30 hover:bg-azure-300 hover:-translate-y-0.5 transition-all w-full sm:w-auto"
-                >
-                  Get an Instant Quote
-                  <ArrowUpRight size={16} />
-                </Link>
-                <Link
-                  href="/case-studies"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/40 bg-transparent px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-all w-full sm:w-auto"
-                >
-                  See Case Studies
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <ProductShowcase />
-            </div>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-slate-950 pt-20 pb-28 sm:pt-28 sm:pb-36">
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-teal-500/5 blur-[120px]" />
+        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/20 bg-teal-500/10 px-3.5 py-1.5 text-xs font-semibold text-teal-400">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-teal-400" />
+            AI Products · Bengaluru, India
+          </div>
+          <h1 className="mt-8 font-display text-5xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-6xl md:text-7xl">
+            We build AI products<br />
+            <span className="text-teal-400">people actually use</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
+            GrahAI Systems is a product company based in Bengaluru, India. We ship AI-powered software
+            that solves real problems for real people — across India and around the world.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="#products"
+              className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/20 hover:bg-teal-500 transition-colors"
+            >
+              See our products
+              <ArrowUpRight size={15} />
+            </a>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+            >
+              About us
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Proof band */}
-      <section className="border-b border-slate-200/50 bg-white py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-            The proof is in what we run
-          </p>
-          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="font-display text-2xl font-extrabold text-navy-700 sm:text-3xl">
-                  {s.value}
-                </div>
-                <div className="mt-1.5 text-xs font-semibold text-slate-700">{s.label}</div>
-                <div className="mt-0.5 text-[11px] leading-snug text-slate-400">{s.sub}</div>
+      {/* Stats strip */}
+      <section className="border-y border-slate-100 bg-white">
+        <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            {stats.map(({ value, label, icon: Icon }) => (
+              <div key={label} className="flex flex-col items-center text-center">
+                <Icon size={18} className="text-teal-600 mb-2" />
+                <p className="font-display text-2xl font-extrabold text-slate-900 sm:text-3xl">{value}</p>
+                <p className="mt-1 text-xs font-medium text-slate-500">{label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Flagship: Launch an AI business in 7 days */}
-      <section className="border-b border-slate-200/50 bg-navy-gradient py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-8 lg:flex-row lg:justify-between">
-            <div className="max-w-2xl text-center lg:text-left">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-azure-200 backdrop-blur">
-                New · Idea → live in 7 days
-              </span>
-              <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                Launch a whole AI business — from $999
-              </h2>
-              <p className="mt-3 text-base leading-relaxed text-slate-300">
-                Not a website. A production AI app on your own domain, with analytics, conversion tracking,
-                SEO and lead capture — deployed live in a week, at a fixed price.
-              </p>
-            </div>
-            <div className="flex shrink-0 flex-col items-center gap-3 sm:flex-row">
-              <a href="/launch" className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-xl bg-azure-400 px-6 py-3.5 text-sm font-bold text-navy-900 transition-all hover:bg-azure-300">
-                See launch packages
-              </a>
-              <a href="/start" className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-xl border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10">
-                Scope a custom build
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Products (proof we ship & operate) */}
-      <ProductsSection />
-
-      {/* Productized AI engagements */}
-      <section id="offers" className="relative border-b border-slate-200/50 bg-slate-50 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-azure-600">
-              PRODUCTIZED AI ENGAGEMENTS
-            </span>
-            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              Fixed scope. Fixed timeline. In production.
+      {/* Products */}
+      <section id="products" className="bg-slate-50 py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 text-center">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Our Products</span>
+            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Built, run, and loved by thousands
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-600">
-              Not open-ended consulting — productized engagements with a clear
-              outcome, a delivery window, and a starting price. Every one ships
-              as a real system your team can rely on.
-            </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {offers.map((o) => {
-              const a = accentMap[o.accent] || accentMap.azure;
+          <div className="grid gap-8 lg:grid-cols-2">
+            {products.map((product) => {
+              const ac = productAccentMap[product.id] ?? productAccentMap.grahai;
               return (
-                <div key={o.id} className="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition-all hover:shadow-md">
-                  <div className="flex items-center justify-between">
-                    <span className={`text-[10px] font-bold uppercase tracking-widest ${a.text}`}>{o.timeline}</span>
-                    <span className="text-[11px] font-semibold text-slate-400">from</span>
+                <div
+                  key={product.id}
+                  className={`group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-200 hover:shadow-md ${ac.border}`}
+                >
+                  {/* glow */}
+                  <div className={`pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br ${ac.glow} to-transparent opacity-0 group-hover:opacity-100 transition-opacity`} />
+
+                  <div className="relative flex items-start justify-between gap-4">
+                    <div>
+                      <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${ac.badge}`}>
+                        {product.badge}
+                      </span>
+                      <h3 className="mt-3 font-display text-2xl font-extrabold text-slate-900">
+                        {product.name}
+                      </h3>
+                      <p className="mt-1 text-sm font-medium text-slate-500">{product.domain}</p>
+                    </div>
+                    <a
+                      href={product.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit ${product.name}`}
+                      className={`flex-shrink-0 rounded-xl ${ac.btn} px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition-colors inline-flex items-center gap-1.5`}
+                    >
+                      Visit <ArrowUpRight size={13} />
+                    </a>
                   </div>
-                  <h3 className="mt-2 font-display text-xl font-extrabold text-slate-900">{o.name}</h3>
-                  <div className="mt-1 font-display text-2xl font-extrabold text-slate-900">{o.priceFrom}</div>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{o.outcome}</p>
-                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 text-sm text-slate-600">
-                    {o.includes.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5">
-                        <Check size={15} className={`mt-0.5 shrink-0 ${a.text}`} />
-                        <span>{f}</span>
+
+                  <p className="relative mt-5 text-sm leading-relaxed text-slate-600">
+                    {product.blurb}
+                  </p>
+
+                  <ul className="relative mt-6 space-y-2.5">
+                    {product.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700">
+                        <span className={`mt-1 h-2 w-2 flex-shrink-0 rounded-full ${ac.dot}`} />
+                        {f}
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-5 text-xs text-slate-400">{o.idealFor}</p>
-                  <div className="mt-6 flex items-center gap-3 pt-1">
-                    <Link href="/start" className={`inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition-colors ${a.btn}`}>
-                      Get a quote
-                      <ArrowUpRight size={13} />
-                    </Link>
-                    <Link href={o.href} className="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors">
-                      Details
-                    </Link>
-                  </div>
+
+                  <a
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative mt-8 inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+                  >
+                    {product.url.replace("https://", "")} <ArrowUpRight size={12} />
+                  </a>
                 </div>
               );
             })}
           </div>
-
-          {/* custom catch-all */}
-          <div className="mt-6 flex flex-col items-start justify-between gap-4 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:flex-row sm:items-center">
-            <div>
-              <h3 className="font-display text-lg font-bold text-slate-900">{customOffer.name}</h3>
-              <p className="mt-1 max-w-2xl text-sm text-slate-600">{customOffer.outcome}</p>
-            </div>
-            <Link href="/start" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-navy-gradient px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition-colors">
-              Scope my project
-              <ArrowUpRight size={15} />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Case studies CTA */}
-      <section className="relative border-b border-slate-200/50 bg-navy-gradient py-20 sm:py-24 overflow-hidden">
-        <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-azure-500/10 blur-[100px] pointer-events-none" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-            <div className="max-w-2xl">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-azure-400">
-                ENGINEERING, IN THE OPEN
-              </span>
-              <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                Read how we actually build them
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-slate-300">
-                Deep technical case studies of our own products — the problem,
-                the architecture, the AI stack, the hard engineering calls, the
-                result, and the lessons. The kind of detail that tells a CTO
-                we can be trusted with a project that&apos;s too important to fail.
-              </p>
-            </div>
+      {/* Mission */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Our Mission</span>
+          <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            AI that works for everyone, not just enterprises
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
+            We started GrahAI Systems to build AI products that genuinely help everyday people — a student
+            writing their first resume, a family making an important life decision, someone in a small town
+            who has never had access to these tools before. We believe AI should be personal, accurate,
+            and available in your own language.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+            We are a small, focused team in Bengaluru. We ship fast, stay close to our users, and measure
+            everything that matters. On our way to ₹10 lakhs in monthly recurring revenue — and just getting started.
+          </p>
+          <div className="mt-10">
             <Link
-              href="/case-studies"
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 hover:bg-slate-100 transition-colors"
+              href="/about"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 transition-colors"
             >
-              Explore Case Studies
-              <ArrowUpRight size={16} />
+              More about GrahAI Systems <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* What we build for clients — outcome-led */}
-      <section id="build" className="relative border-b border-slate-200/50 bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-azure-600">
-              WHAT WE BUILD FOR YOU
-            </span>
-            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              Production AI, mapped to your bottleneck
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-600">
-              Start from the business problem. We design the system, choose the
-              right AI stack, and run it in production — with evals, monitoring
-              and cost control built in.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <ServiceCard href="/solutions/ai-agent-development-company" icon={Cpu} title="AI Agents" desc="Autonomous agents that reason, plan and execute real business tasks with safe tool-use." />
-            <ServiceCard href="/solutions/ai-workflow-automation-company" icon={GitMerge} title="Workflow Automation" desc="Connect your systems and remove the repetitive human steps between them." />
-            <ServiceCard href="/solutions/ai-document-search" icon={FileText} title="Document Intelligence" desc="Extract, structure and validate data from messy real-world documents." />
-            <ServiceCard href="/solutions/customer-support-automation" icon={MessageSquare} title="Support Copilots" desc="Deflect repetitive tickets with answers grounded in your own docs." />
-            <ServiceCard href="/solutions/internal-knowledge-chatbot" icon={Layers} title="Internal Copilots" desc="Private RAG over your wiki and SOPs, with cited answers staff can trust." />
-            <ServiceCard href="/solutions/custom-ai-agent-development" icon={Globe2} title="Custom AI SaaS" desc="Launch a proprietary AI product with a team that already runs four." />
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link href="/solutions" className="inline-flex items-center gap-1.5 text-sm font-semibold text-azure-600 hover:text-azure-700 transition-colors">
-              Browse all AI solutions
-              <ArrowRight size={15} />
-            </Link>
-          </div>
+      {/* Contact strip */}
+      <section className="bg-slate-950 py-16 sm:py-20">
+        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
+            Get in touch
+          </h2>
+          <p className="mt-3 text-sm text-slate-400">
+            Questions, partnerships, or just want to say hi — we read every email.
+          </p>
+          <a
+            href="mailto:support@grahai.com"
+            className="mt-7 inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/30 hover:bg-teal-500 transition-colors"
+          >
+            support@grahai.com
+          </a>
         </div>
       </section>
 
-      {/* Why GrahAI Systems */}
-      <section id="company" className="relative border-b border-slate-200/50 bg-slate-50 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-azure-600">
-                THE STUDIO
-              </span>
-              <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-                The team to call when the AI project can&apos;t fail
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-slate-600">
-                Over 11 years of software and product engineering goes into
-                everything we run. Because we live with our own products in
-                production, we build AI that stays online under load, fails
-                gracefully, and is honest about cost and accuracy.
-              </p>
-              <Link href="/case-studies" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-azure-600 hover:text-azure-700 transition-colors">
-                See how we build
-                <ArrowRight size={15} />
-              </Link>
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2">
-              <WhyCard icon={Briefcase} title="We Own What We Build" desc="We run commercial AI products ourselves — so we sweat latency, uptime, billing and accuracy because our own users depend on them daily." />
-              <WhyCard icon={Sparkles} title="Outcomes, Not Buzzwords" desc="Every system targets a measurable result — tickets deflected, hours saved, errors removed — not a model name on a slide." />
-              <WhyCard icon={ShieldCheck} title="Production-Grade by Default" desc="Evals, monitoring, retries, idempotent webhooks, cost controls. The unglamorous engineering that keeps AI alive in the real world." />
-              <WhyCard icon={Clock} title="Ship, Then Iterate" desc="We get a working system in front of real users fast, then improve from what they actually do — the way we run our own products." />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ContactSection />
       <Footer />
     </>
-  );
-}
-
-function ServiceCard({ href, icon: Icon, title, desc }) {
-  return (
-    <Link
-      href={href}
-      className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all hover:border-azure-500/20 hover:shadow-md"
-    >
-      <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-azure-100 bg-azure-50 text-azure-600 shadow-sm">
-        <Icon size={20} />
-      </div>
-      <h3 className="mt-5 font-display text-base font-bold text-slate-900 transition-colors group-hover:text-azure-600">
-        {title}
-      </h3>
-      <p className="mt-2.5 text-xs leading-relaxed text-slate-500">{desc}</p>
-      <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-azure-600">
-        Learn more <ArrowUpRight size={12} />
-      </span>
-    </Link>
-  );
-}
-
-function WhyCard({ icon: Icon, title, desc }) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <div className="mb-3 flex items-center gap-3">
-        <Icon size={18} className="text-azure-600" />
-        <h3 className="text-sm font-bold text-slate-900">{title}</h3>
-      </div>
-      <p className="text-xs leading-relaxed text-slate-500">{desc}</p>
-    </div>
   );
 }
