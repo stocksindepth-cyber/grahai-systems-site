@@ -5,16 +5,16 @@ import Footer from "../components/Footer";
 import { products } from "../content/products";
 
 export const metadata = {
-  title: "GrahAI Systems — AI Products for India and the World",
+  title: "GrahAI Systems — AI Intelligence for India and the World",
   description:
-    "GrahAI Systems builds AI-powered software products used by people across India and the World. Our products: GrahAI (AI Vedic astrology) and ApplyVita (AI career agent).",
+    "GrahAI Systems builds AI-powered software for India and the World. Our flagship product GrahAI brings AI-powered Vedic astrology to millions.",
 };
 
 const stats = [
   { value: "10,000+", label: "Monthly users", icon: Users },
   { value: "9", label: "Languages in production", icon: Languages },
-  { value: "2", label: "AI products live", icon: Sparkles },
   { value: "India + World", label: "Where we build for", icon: Globe2 },
+  { value: "Millions", label: "AI interactions / month", icon: Sparkles },
 ];
 
 const productAccentMap = {
@@ -90,75 +90,68 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Products */}
-      <section id="products" className="bg-slate-50 py-20 sm:py-28">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-14 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Our Products</span>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Built, run, and loved by thousands
-            </h2>
-          </div>
+      {/* Product — GrahAI flagship */}
+      {(() => {
+        const product = products.find((p) => p.id === "grahai");
+        return (
+          <section id="products" className="bg-slate-50 py-20 sm:py-28">
+            <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+              <div className="mb-12 text-center">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Our Flagship Product</span>
+                <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                  Built for India. Used by the World.
+                </h2>
+              </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            {products.map((product) => {
-              const ac = productAccentMap[product.id] ?? productAccentMap.grahai;
-              return (
-                <div
-                  key={product.id}
-                  className={`group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-200 hover:shadow-md ${ac.border}`}
-                >
-                  {/* glow */}
-                  <div className={`pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br ${ac.glow} to-transparent opacity-0 group-hover:opacity-100 transition-opacity`} />
+              <div className="group relative rounded-2xl border border-slate-200 bg-white p-10 shadow-sm transition-all duration-200 hover:shadow-md hover:border-teal-200">
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                  <div className="relative flex items-start justify-between gap-4">
-                    <div>
-                      <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${ac.badge}`}>
-                        {product.badge}
-                      </span>
-                      <h3 className="mt-3 font-display text-2xl font-extrabold text-slate-900">
-                        {product.name}
-                      </h3>
-                      <p className="mt-1 text-sm font-medium text-slate-500">{product.domain}</p>
-                    </div>
+                <div className="relative flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex-1">
+                    <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-semibold text-teal-700">
+                      {product.badge}
+                    </span>
+                    <h3 className="mt-4 font-display text-3xl font-extrabold text-slate-900 sm:text-4xl">
+                      {product.name}
+                    </h3>
+                    <p className="mt-1 text-sm font-medium text-slate-400">{product.domain}</p>
+                    <p className="mt-5 text-base leading-relaxed text-slate-600 max-w-xl">
+                      {product.blurb}
+                    </p>
+                    <ul className="mt-6 space-y-2.5">
+                      {product.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700">
+                          <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-teal-500" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex flex-col items-start gap-3 sm:items-end">
                     <a
                       href={product.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Visit ${product.name}`}
-                      className={`flex-shrink-0 rounded-xl ${ac.btn} px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition-colors inline-flex items-center gap-1.5`}
+                      className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors whitespace-nowrap"
                     >
-                      Visit <ArrowUpRight size={13} />
+                      Visit GrahAI <ArrowUpRight size={15} />
+                    </a>
+                    <a
+                      href={product.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-400 hover:text-slate-600 transition-colors"
+                    >
+                      {product.url.replace("https://", "")}
                     </a>
                   </div>
-
-                  <p className="relative mt-5 text-sm leading-relaxed text-slate-600">
-                    {product.blurb}
-                  </p>
-
-                  <ul className="relative mt-6 space-y-2.5">
-                    {product.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700">
-                        <span className={`mt-1 h-2 w-2 flex-shrink-0 rounded-full ${ac.dot}`} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative mt-8 inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors"
-                  >
-                    {product.url.replace("https://", "")} <ArrowUpRight size={12} />
-                  </a>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Mission */}
       <section className="bg-white py-20 sm:py-28">

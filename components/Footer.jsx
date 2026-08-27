@@ -60,17 +60,16 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">Our Products</h4>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 space-y-2.5">
               {products.map((p) => (
                 <li key={p.id}>
                   <a
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-sm text-slate-500 hover:text-slate-900 transition-colors"
+                    className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
                   >
-                    <span className="font-medium text-slate-700">{p.name}</span>
-                    <span className="block text-xs text-slate-400 mt-0.5">{p.tagline}</span>
+                    {p.name}
                   </a>
                 </li>
               ))}

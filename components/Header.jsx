@@ -58,17 +58,9 @@ export default function Header() {
             href="https://www.grahai.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:border-teal-300 hover:text-teal-700 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-teal-600 px-5 py-2.5 text-xs font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors"
           >
-            GrahAI <ArrowUpRight size={12} />
-          </a>
-          <a
-            href="https://www.applyvita.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white hover:bg-slate-700 transition-colors"
-          >
-            ApplyVita <ArrowUpRight size={12} />
+            Visit GrahAI <ArrowUpRight size={12} />
           </a>
         </div>
 
@@ -100,24 +92,15 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          <div className="pt-4 border-t border-slate-200/50 flex flex-col gap-3">
+          <div className="pt-4 border-t border-slate-200/50">
             <a
               href="https://www.grahai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700"
+              className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-teal-600 px-4 py-3 text-sm font-semibold text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               Visit GrahAI <ArrowUpRight size={14} />
-            </a>
-            <a
-              href="https://www.applyvita.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Visit ApplyVita <ArrowUpRight size={14} />
             </a>
           </div>
         </div>
