@@ -8,7 +8,7 @@ import { HowItWorks, MarketplaceCompare, FaqList, JsonLd, SectionHead, faqSchema
 import { hireSkills, skillBySlug } from "../../../content/hireSkills";
 import { categoryById } from "../../../content/jobCatalog";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const dynamicParams = false;
 

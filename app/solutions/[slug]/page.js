@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import SEOLandingTemplate from "../../../components/SEOLandingTemplate";
 import { solutions } from "../../../content/solutions";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export function generateStaticParams() {
   return solutions.map((s) => ({ slug: s.slug }));

@@ -6,7 +6,7 @@ import ContactSection from "../../components/ContactSection";
 import LaunchFlow from "../../components/LaunchFlow";
 import { launchTiers, launchTimeline, factoryModules, launchFaqs } from "../../content/launchTiers";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "Launch Your AI Business in 7 Days — from $999 | GrahAI Systems",

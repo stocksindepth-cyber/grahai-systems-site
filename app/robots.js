@@ -1,4 +1,4 @@
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export default function robots() {
   return {

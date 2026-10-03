@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, FileText, MessageSquare, ShieldCheck, CreditCard, PackageCheck, RotateCcw, BadgeCheck, Clock3 } from "lucide-react";
 import { categories } from "../../content/jobCatalog";
 
-export const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+export const cap = (t) => (/^n8n/.test(t) ? t : t.charAt(0).toUpperCase() + t.slice(1));
 
 export function HowItWorks({ dark = false }) {
   const steps = [
@@ -151,7 +151,7 @@ export const faqSchema = (faqs) => ({
 export const breadcrumbSchema = (items) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, item: `https://grahaisystems.com${it.path}` })),
+  itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, item: `https://www.grahaisystems.com${it.path}` })),
 });
 
 export function SectionHead({ eyebrow, title, sub, center = true, dark = false }) {

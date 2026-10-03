@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import ContactSection from "../../components/ContactSection";
 import { faqCategories, allFaqs } from "../../content/faqs";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "AI Development FAQ — Cost, Timelines & Process | GrahAI Systems",

@@ -1,6 +1,6 @@
 import LegalPage, { COMPANY } from "../../components/LegalPage";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "Contact Us | GrahAI Systems",

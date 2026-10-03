@@ -9,7 +9,7 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 const SITE_NAME = "GrahAI Systems";
 const SITE_TAGLINE = "AI Development Company India — Products & AI Services";
 const SITE_DESCRIPTION =

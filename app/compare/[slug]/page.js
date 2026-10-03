@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import SEOLandingTemplate from "../../../components/SEOLandingTemplate";
 import { comparisons } from "../../../content/comparisons";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export function generateStaticParams() {
   return comparisons.map((s) => ({ slug: s.slug }));

@@ -1,7 +1,7 @@
 import LegalPage from "../../components/LegalPage";
 import { offers, customOffer } from "../../content/offers";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "Pricing | GrahAI Systems",

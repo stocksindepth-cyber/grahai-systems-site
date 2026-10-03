@@ -8,7 +8,7 @@ import { launchTiers } from "../../content/launchTiers";
 import { hireSkills } from "../../content/hireSkills";
 import { alternatives } from "../../content/alternatives";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 // llms.txt — a discovery file for AI answer engines (ChatGPT, Perplexity,
 // Claude, Gemini). Generated from the same content as the site so it never

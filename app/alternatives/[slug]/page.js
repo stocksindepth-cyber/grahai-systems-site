@@ -7,7 +7,7 @@ import { HowItWorks, FaqList, JsonLd, SectionHead, faqSchema, breadcrumbSchema }
 import { alternatives } from "../../../content/alternatives";
 import { hireSkills } from "../../../content/hireSkills";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 const bySlug = (slug) => alternatives.find((a) => a.slug === slug);
 
 export const dynamicParams = false;

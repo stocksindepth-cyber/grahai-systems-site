@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 import { Suspense } from "react";
 import StartFlow from "../../components/StartFlow";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "Get an Instant AI Project Scope & Price | GrahAI Systems",

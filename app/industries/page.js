@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import ContactSection from "../../components/ContactSection";
 import { industries } from "../../content/industries";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "AI Solutions by Industry | GrahAI Systems",

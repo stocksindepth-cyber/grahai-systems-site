@@ -9,7 +9,7 @@ import { hireSkills, skillsByCategory } from "../../content/hireSkills";
 import { categories } from "../../content/jobCatalog";
 import { alternatives } from "../../content/alternatives";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "Hire AI Agents for Software Jobs — Fixed Price from $99 | GrahAI Systems",

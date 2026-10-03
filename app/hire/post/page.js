@@ -5,7 +5,7 @@ import MyJobs from "../../../components/hire/MyJobs";
 import { categories } from "../../../content/jobCatalog";
 import { Check } from "lucide-react";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "Post a Job — Get a Fixed-Price Proposal in a Minute | GrahAI Agents",

@@ -4,7 +4,7 @@ import { verifyQuoteToken } from "../../../lib/pricing";
 
 export const runtime = "nodejs";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 function keys() {
   return {

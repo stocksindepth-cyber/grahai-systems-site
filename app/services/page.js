@@ -6,7 +6,7 @@ import {
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "AI Agent Development Company India | Fixed Price, 14-Day Delivery | GrahAI Systems",

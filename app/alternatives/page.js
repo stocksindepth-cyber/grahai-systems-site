@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import { MarketplaceCompare, SectionHead, JsonLd, breadcrumbSchema } from "../../components/hire/HireBlocks";
 import { alternatives } from "../../content/alternatives";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
   title: "Upwork & Fiverr Alternatives for Software Jobs | GrahAI Systems",

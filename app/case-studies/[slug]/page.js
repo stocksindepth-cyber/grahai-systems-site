@@ -6,7 +6,7 @@ import Footer from "../../../components/Footer";
 import ContactSection from "../../../components/ContactSection";
 import { caseStudies } from "../../../content/caseStudies";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 const accent = {
   azure: { text: "text-azure-600", chip: "bg-azure-50 border-azure-100 text-azure-600", dot: "bg-azure-500" },

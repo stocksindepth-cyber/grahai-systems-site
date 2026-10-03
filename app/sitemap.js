@@ -6,7 +6,7 @@ import { comparisons } from "../content/comparisons";
 import { hireSkills } from "../content/hireSkills";
 import { alternatives } from "../content/alternatives";
 
-const SITE_URL = "https://grahaisystems.com";
+const SITE_URL = "https://www.grahaisystems.com";
 
 export default function sitemap() {
   const now = new Date().toISOString();
