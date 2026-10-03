@@ -27,6 +27,7 @@ export default function sitemap() {
     "/compare",
     "/faq",
     "/about",
+    "/services",
     "/glossary",
     "/ai-agent-development",
     "/ai-chatbot-development",
@@ -42,7 +43,7 @@ export default function sitemap() {
     url: `${SITE_URL}${route}`,
     lastModified: now,
     changeFrequency: route === "" || route === "/blog" ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route === "/launch" ? 0.95 : route === "/solutions" || route === "/case-studies" ? 0.9 : 0.8,
+    priority: route === "" ? 1.0 : route === "/services" ? 0.95 : route === "/solutions" || route === "/case-studies" ? 0.9 : 0.8,
   }));
 
   // Long-tail solution pages

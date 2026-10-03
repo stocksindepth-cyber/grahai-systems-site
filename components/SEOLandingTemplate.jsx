@@ -65,18 +65,18 @@ export default function SEOLandingTemplate({
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-azure-600 hover:bg-azure-700 px-5 py-3 text-xs font-semibold text-white transition-all hover:scale-[1.01] shadow-md shadow-azure-600/10"
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 px-5 py-3 text-xs font-semibold text-white transition-colors shadow-md shadow-teal-700/20"
               >
-                Book Discovery Meeting
+                View packages &amp; pricing
                 <ArrowRight size={14} />
-              </a>
+              </Link>
               <a
-                href="#faqs"
+                href="mailto:support@grahai.com?subject=AI Implementation Enquiry"
                 className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm"
               >
-                Read FAQs
+                Email us to scope
               </a>
             </div>
           </div>
