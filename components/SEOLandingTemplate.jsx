@@ -71,7 +71,7 @@ export default function SEOLandingTemplate({
                 <ArrowRight size={14} />
               </Link>
               <a
-                href="mailto:support@grahai.com?subject=AI Implementation Enquiry"
+                href="mailto:hello@grahaisystems.com?subject=AI Implementation Enquiry"
                 className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm"
               >
                 Email us to scope

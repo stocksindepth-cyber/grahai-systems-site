@@ -94,7 +94,7 @@ export async function POST(request) {
   if (!res.ok) {
     const detail = (await res.text()).slice(0, 300);
     console.error("[launch-checkout] razorpay error:", detail);
-    return NextResponse.json({ error: "Could not create a secure payment link. Please try again or email support@grahai.com." }, { status: 502 });
+    return NextResponse.json({ error: "Could not create a secure payment link. Please try again or email hello@grahaisystems.com." }, { status: 502 });
   }
 
   const link = await res.json();

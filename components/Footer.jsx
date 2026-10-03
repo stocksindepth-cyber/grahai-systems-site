@@ -34,7 +34,7 @@ const columns = [
       { label: "Blog", href: "/blog" },
       { label: "Case studies", href: "/case-studies" },
       ...products.map((p) => ({ label: p.name, href: p.url, external: true })),
-      { label: "Contact", href: "mailto:support@grahai.com", plain: true },
+      { label: "Contact", href: "mailto:hello@grahaisystems.com", plain: true },
     ],
   },
   {
@@ -83,7 +83,7 @@ export default function Footer() {
             <ul className="mt-6 space-y-2.5 text-sm text-slate-600">
               <li className="flex items-center gap-2.5">
                 <Mail size={15} className="shrink-0 text-slate-400" />
-                <a href="mailto:support@grahai.com" className="hover:text-slate-900">support@grahai.com</a>
+                <a href="mailto:hello@grahaisystems.com" className="hover:text-slate-900">hello@grahaisystems.com</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin size={15} className="shrink-0 text-slate-400" />

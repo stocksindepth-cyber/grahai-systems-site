@@ -209,7 +209,7 @@ const packages = [
       "30-day post-delivery support",
     ],
     cta: "Start a Sprint",
-    href: "mailto:support@grahai.com?subject=AI Agent Sprint — Let's scope it",
+    href: "mailto:hello@grahaisystems.com?subject=AI Agent Sprint — Let's scope it",
     highlight: true,
   },
   {
@@ -231,7 +231,7 @@ const packages = [
       "Model updates included",
     ],
     cta: "Book a scoping call",
-    href: "mailto:support@grahai.com?subject=Productized AI Service — scoping",
+    href: "mailto:hello@grahaisystems.com?subject=Productized AI Service — scoping",
     highlight: false,
   },
   {
@@ -253,7 +253,7 @@ const packages = [
       "Full code + infrastructure handoff",
     ],
     cta: "Scope your project",
-    href: "mailto:support@grahai.com?subject=Full AI System — scoping",
+    href: "mailto:hello@grahaisystems.com?subject=Full AI System — scoping",
     highlight: false,
   },
 ];
@@ -344,7 +344,7 @@ export default function ServicesPage() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href="mailto:support@grahai.com?subject=AI Development — Let's scope it"
+                  href="mailto:hello@grahaisystems.com?subject=AI Development — Let's scope it"
                   className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 transition-colors"
                 >
                   Get a free scope <ArrowUpRight size={14} />
@@ -461,7 +461,7 @@ export default function ServicesPage() {
 
             <p className="mt-10 text-center text-sm text-slate-500">
               All prices in USD.{" "}
-              <a href="mailto:support@grahai.com" className="font-semibold text-teal-600 hover:text-teal-700">
+              <a href="mailto:hello@grahaisystems.com" className="font-semibold text-teal-600 hover:text-teal-700">
                 Email us
               </a>{" "}
               to scope your project — we reply within 24 hours.
@@ -638,7 +638,7 @@ export default function ServicesPage() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
-                href="mailto:support@grahai.com?subject=AI Implementation — Let's scope it"
+                href="mailto:hello@grahaisystems.com?subject=AI Implementation — Let's scope it"
                 className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 transition-colors"
               >
                 Get a free scope <ArrowUpRight size={14} />
@@ -650,7 +650,7 @@ export default function ServicesPage() {
                 See case studies
               </Link>
             </div>
-            <p className="mt-4 text-xs text-slate-600">support@grahai.com · Reply within 24 hours · NDA on day one</p>
+            <p className="mt-4 text-xs text-slate-600">hello@grahaisystems.com · Reply within 24 hours · NDA on day one</p>
           </div>
         </section>
       </main>

@@ -195,7 +195,7 @@ export default function JobRoom({ id }) {
         <h1 className="mt-4 font-display text-xl font-bold text-slate-900">{state === "missing" ? "This job room is private" : "Couldn't load this job"}</h1>
         <p className="mt-2 text-sm text-slate-600">
           {state === "missing"
-            ? "Open it with the link from your email (the one with the “View your proposal” button). If you can't find it, email support@grahai.com from the address you posted with."
+            ? "Open it with the link from your email (the one with the “View your proposal” button). If you can't find it, email hello@grahaisystems.com from the address you posted with."
             : error}
         </p>
         <Link href="/hire/post" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-3 text-sm font-semibold text-white hover:bg-teal-500">Post a new job</Link>
@@ -535,7 +535,7 @@ export default function JobRoom({ id }) {
                     ? "Bigger builds get a proper scoping call and a fixed-scope proposal from our project team."
                     : "Our agents focus on software, automation, data and AI work. Try reframing the job, or tell us more by email."}
                 </p>
-                <a href={`mailto:support@grahai.com?subject=${encodeURIComponent(`About my job: ${job.title}`)}`} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+                <a href={`mailto:hello@grahaisystems.com?subject=${encodeURIComponent(`About my job: ${job.title}`)}`} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
                   Email the team
                 </a>
               </>

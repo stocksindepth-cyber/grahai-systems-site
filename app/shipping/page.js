@@ -45,7 +45,7 @@ export default function ShippingPage() {
         {
           heading: "Contact",
           paragraphs: [
-            `Questions about delivery? Email <a href="mailto:support@grahai.com" class="text-azure-600 font-semibold">support@grahai.com</a>.`,
+            `Questions about delivery? Email <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a>.`,
           ],
         },
       ]}

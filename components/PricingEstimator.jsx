@@ -145,7 +145,7 @@ export default function PricingEstimator() {
       activeAddonsText || "None"
     }\n\nEstimated Total Project Cost: $${totalEstimate}\n\nPlease reach back to schedule a discovery call.\n\nBest regards,`;
 
-    window.location.href = `mailto:support@grahai.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:hello@grahaisystems.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
   };

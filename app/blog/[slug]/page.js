@@ -220,7 +220,7 @@ export default function BlogPostPage({ params }) {
               </p>
             </div>
             <a
-              href="mailto:support@grahai.com?subject=AI%20Integration%20Consultation"
+              href="mailto:hello@grahaisystems.com?subject=AI%20Integration%20Consultation"
               className="inline-flex items-center gap-1.5 rounded-xl bg-azure-600 hover:bg-azure-700 px-5 py-3 text-xs font-semibold text-white transition-colors shadow-sm"
             >
               Get In Touch

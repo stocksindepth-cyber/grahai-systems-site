@@ -46,7 +46,7 @@ export async function POST(request, { params }) {
 
   if (preSale) {
     if ((job.clientMessageCount || 0) >= PRE_PAYMENT_LIMIT) {
-      return NextResponse.json({ error: "You've reached the message limit for this proposal. Email support@grahai.com and a person will pick it up." }, { status: 429 });
+      return NextResponse.json({ error: "You've reached the message limit for this proposal. Email hello@grahaisystems.com and a person will pick it up." }, { status: 429 });
     }
     const history = await loadMessages(job.id);
     await addMessage(job.id, "client", text);

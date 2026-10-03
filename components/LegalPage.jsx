@@ -53,7 +53,7 @@ export default function LegalPage({ title, updated, intro, sections, children })
 
           <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50/60 p-5 text-sm text-slate-600">
             Questions about this policy? Email{" "}
-            <a href="mailto:support@grahai.com" className="font-semibold text-azure-600">support@grahai.com</a> and
+            <a href="mailto:hello@grahaisystems.com" className="font-semibold text-azure-600">hello@grahaisystems.com</a> and
             we&apos;ll respond within 1–2 business days.
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function LegalPage({ title, updated, intro, sections, children })
 // Reused across pages so the legal entity reads identically everywhere.
 export const COMPANY = {
   name: "GrahAI Systems",
-  email: "support@grahai.com",
+  email: "hello@grahaisystems.com",
   city: "Bengaluru",
   region: "Karnataka",
   country: "India",

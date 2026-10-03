@@ -17,7 +17,7 @@ export default function ContactSection() {
       const body = `Hi Grah AI Systems team,\n\nI would like to request an ${
         activeForm === "roadmap" ? "AI Roadmap Blueprint" : "AI Project Estimate"
       }.\n\nMessage: ${message}\n\nBest regards,\n${email}`;
-      window.location.href = `mailto:support@grahai.com?subject=${encodeURIComponent(
+      window.location.href = `mailto:hello@grahaisystems.com?subject=${encodeURIComponent(
         subject
       )}&body=${encodeURIComponent(body)}`;
       
@@ -48,7 +48,7 @@ export default function ContactSection() {
           {/* Primary Action Buttons */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="mailto:support@grahai.com?subject=Discovery%20Call%20Request"
+              href="mailto:hello@grahaisystems.com?subject=Discovery%20Call%20Request"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-azure-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:from-azure-500 hover:to-azure-600 transition-all hover:scale-[1.02]"
             >
               <Calendar size={16} />
@@ -142,10 +142,10 @@ export default function ContactSection() {
               Or write to us directly
             </span>
             <a
-              href="mailto:support@grahai.com"
+              href="mailto:hello@grahaisystems.com"
               className="text-xl font-display font-bold text-azure-600 hover:text-azure-700 transition-colors"
             >
-              support@grahai.com
+              hello@grahaisystems.com
             </a>
             <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-slate-400">
               <MapPin size={12} />

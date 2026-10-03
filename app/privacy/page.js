@@ -63,7 +63,7 @@ export default function PrivacyPage() {
         {
           heading: "6. Your rights",
           paragraphs: [
-            `You may request access to, correction of, or deletion of your personal information by emailing <a href="mailto:support@grahai.com" class="text-azure-600 font-semibold">support@grahai.com</a>. We'll respond within a reasonable time and as required by applicable law.`,
+            `You may request access to, correction of, or deletion of your personal information by emailing <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a>. We'll respond within a reasonable time and as required by applicable law.`,
           ],
         },
         {
@@ -75,7 +75,7 @@ export default function PrivacyPage() {
         {
           heading: "8. Contact",
           paragraphs: [
-            `${COMPANY.name}, ${COMPANY.addressLine}. Questions about privacy? Email <a href="mailto:support@grahai.com" class="text-azure-600 font-semibold">support@grahai.com</a>.`,
+            `${COMPANY.name}, ${COMPANY.addressLine}. Questions about privacy? Email <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a>.`,
           ],
         },
       ]}

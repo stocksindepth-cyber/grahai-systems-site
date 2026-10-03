@@ -23,10 +23,10 @@ const friendly = (code) =>
     "auth/invalid-credential": "Email or password is incorrect.",
     "auth/wrong-password": "Email or password is incorrect.",
     "auth/user-not-found": "No account with that email — create one below.",
-    "auth/operation-not-allowed": "Sign-in isn't enabled yet. Please email support@grahai.com.",
+    "auth/operation-not-allowed": "Sign-in isn't enabled yet. Please email hello@grahaisystems.com.",
     "auth/account-exists-with-different-credential": "You already have an account with this email — sign in with your password.",
     "auth/popup-blocked": "Your browser blocked the popup. Allow popups and try again.",
-    "auth/unauthorized-domain": "This domain isn't authorized yet. Please email support@grahai.com.",
+    "auth/unauthorized-domain": "This domain isn't authorized yet. Please email hello@grahaisystems.com.",
   }[code] || "Something went wrong. Please try again.");
 
 export default function LoginPage() {

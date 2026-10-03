@@ -74,7 +74,7 @@ Also produce "outreach" — the content of a warm automated reply we email this 
 export async function POST(request) {
   if (!process.env.ANTHROPIC_API_KEY) {
     return NextResponse.json(
-      { error: "Scoping is not configured yet. Please reach us at support@grahai.com." },
+      { error: "Scoping is not configured yet. Please reach us at hello@grahaisystems.com." },
       { status: 503 },
     );
   }
@@ -149,7 +149,7 @@ export async function POST(request) {
   } catch (err) {
     console.error("[scope] error:", err?.message || err);
     return NextResponse.json(
-      { error: "We couldn't generate your scope just now. Please try again or email support@grahai.com." },
+      { error: "We couldn't generate your scope just now. Please try again or email hello@grahaisystems.com." },
       { status: 502 },
     );
   }

@@ -25,7 +25,7 @@ export function GET() {
 What makes us different: we don't just consult on AI, we run two AI products in production. That operating experience — latency, cost, evals, payments, reliability — is what we bring to every engagement.
 
 An engineer-led studio with 11+ years of production software experience.
-Contact: support@grahai.com
+Contact: hello@grahaisystems.com
 
 ## GrahAI Agents — hire AI agents for software jobs (${SITE_URL}/hire)
 A marketplace-style way to get software work done without hiring a freelancer. Post a job (no account needed); an AI agent replies in about a minute with a written proposal — deliverables, plan, delivery date and one fixed price from $99 to $4,999. Accept and pay by secure card checkout (international cards in USD; UPI/cards in INR for India). GrahAI's agents build it, a GrahAI engineer reviews every delivery, two revision rounds are included, and clients get a full refund if the agreed scope can't be delivered. Clients own everything delivered. Scope: websites, Shopify/WordPress/Webflow, web and mobile apps, automations (n8n, Zapier, Make, Apps Script), scripts and scrapers, spreadsheets and dashboards, chatbots and AI agents, API integrations, bug fixes. Not taken: design/video/writing-only work, coursework, anything requiring a person on a call or on site.
@@ -79,7 +79,7 @@ ${allFaqs.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}
 - [About GrahAI Systems](${SITE_URL}/about): the studio that operates its own AI products
 
 ## Contact
-- Book a discovery call or send a proposal: support@grahai.com
+- Book a discovery call or send a proposal: hello@grahaisystems.com
 - Website: ${SITE_URL}
 `;
 

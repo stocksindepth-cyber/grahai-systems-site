@@ -25,7 +25,7 @@ export default function RefundPage() {
         {
           heading: "Cancelling before work begins",
           paragraphs: [
-            `If you cancel <strong>before your discovery call or before any work has begun</strong>, your booking deposit is fully refundable. Email <a href="mailto:support@grahai.com" class="text-azure-600 font-semibold">support@grahai.com</a> with your order reference and we'll process the refund.`,
+            `If you cancel <strong>before your discovery call or before any work has begun</strong>, your booking deposit is fully refundable. Email <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a> with your order reference and we'll process the refund.`,
           ],
         },
         {
@@ -49,7 +49,7 @@ export default function RefundPage() {
         {
           heading: "How to request a refund",
           list: [
-            `Email <a href="mailto:support@grahai.com" class="text-azure-600 font-semibold">support@grahai.com</a> with the email used at checkout and your order/payment reference.`,
+            `Email <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a> with the email used at checkout and your order/payment reference.`,
             `Approved refunds are issued to your original payment method via Razorpay, typically within <strong>5–7 business days</strong> (your bank may take a little longer to reflect it).`,
           ],
         },

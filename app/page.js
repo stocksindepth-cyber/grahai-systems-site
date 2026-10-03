@@ -478,7 +478,7 @@ export default function Page() {
               <p className="mt-3 text-base text-slate-400">We scope it, give you a fixed price, and deliver in 14 days. US, UK, EU and India companies welcome.</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="mailto:support@grahai.com?subject=AI Development Enquiry — Let's scope it" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
+              <a href="mailto:hello@grahaisystems.com?subject=AI Development Enquiry — Let's scope it" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
                 Email us to start <ArrowUpRight size={15} />
               </a>
               <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
@@ -486,7 +486,7 @@ export default function Page() {
               </Link>
             </div>
           </div>
-          <p className="mx-auto max-w-6xl px-4 pb-10 text-xs text-slate-500 sm:px-6 lg:px-8">support@grahai.com · We reply within 24 hours</p>
+          <p className="mx-auto max-w-6xl px-4 pb-10 text-xs text-slate-500 sm:px-6 lg:px-8">hello@grahaisystems.com · We reply within 24 hours</p>
         </section>
       </main>
 

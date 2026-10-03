@@ -267,7 +267,7 @@ export default function StartFlow() {
           </div>
           <p className="mt-3 text-center text-[11px] text-slate-400">
             Prefer to talk first? Email{" "}
-            <a href="mailto:support@grahai.com" className="font-semibold text-azure-600">support@grahai.com</a>.
+            <a href="mailto:hello@grahaisystems.com" className="font-semibold text-azure-600">hello@grahaisystems.com</a>.
           </p>
         </div>
       </div>

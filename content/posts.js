@@ -44,7 +44,7 @@ Implementing autonomous agents results in:
 - **Accuracy:** Eliminates data entry typos and compliance slip-ups.
 - **Scale:** Handle 10x lead volume or invoice counts without increasing headcount.
 
-Ready to integrate AI agents into your business operations? Contact Grah AI Systems at [support@grahai.com](mailto:support@grahai.com) for a free discovery call.
+Ready to integrate AI agents into your business operations? Contact Grah AI Systems at [hello@grahaisystems.com](mailto:hello@grahaisystems.com) for a free discovery call.
     `
   },
   {
@@ -111,7 +111,7 @@ If your project requires parsing massive 500-page booklets or doing visual extra
 If you are building an autonomous system that plans its own actions, calls APIs, and outputs strict JSON configurations to run code, **Claude 3.5** is the winner.
 If you need a reliable, cost-effective core for a SaaS application with high-traffic user dashboards, **GPT-4o** remains a superb choice.
 
-Need assistance choosing or configuring these model endpoints safely? Reach out to Grah AI Systems engineers at [support@grahai.com](mailto:support@grahai.com) to request a custom audit.
+Need assistance choosing or configuring these model endpoints safely? Reach out to Grah AI Systems engineers at [hello@grahaisystems.com](mailto:hello@grahaisystems.com) to request a custom audit.
     `
   },
   {
@@ -168,7 +168,7 @@ When building enterprise document processing systems, we implement several safet
 
 If your company spends more than 10 hours a week transcribing invoices, custom AI document pipelines can save you thousands of dollars monthly. 
 
-Contact our product engineering team at Grah AI Systems ([support@grahai.com](mailto:support@grahai.com)) to get a free proof-of-concept estimate.
+Contact our product engineering team at Grah AI Systems ([hello@grahaisystems.com](mailto:hello@grahaisystems.com)) to get a free proof-of-concept estimate.
     `
   }
 ];

@@ -5,7 +5,7 @@ const SITE_URL = "https://www.grahaisystems.com";
 export const metadata = {
   title: "Contact Us | GrahAI Systems",
   description:
-    "Get in touch with GrahAI Systems — email support@grahai.com. Based in Bengaluru, Karnataka, India. Building production-grade AI for India and the World.",
+    "Get in touch with GrahAI Systems — email hello@grahaisystems.com. Based in Bengaluru, Karnataka, India. Building production-grade AI for India and the World.",
   alternates: { canonical: `${SITE_URL}/contact` },
 };
 
@@ -19,7 +19,7 @@ export default function ContactPage() {
         {
           heading: "Reach us",
           list: [
-            `<strong>Email:</strong> <a href="mailto:support@grahai.com" class="text-azure-600 font-semibold">support@grahai.com</a> (fastest — we reply within 1–2 business days)`,
+            `<strong>Email:</strong> <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a> (fastest — we reply within 1–2 business days)`,
             `<strong>Phone:</strong> <a href="tel:+919619698372" class="text-azure-600 font-semibold">+91 96196 98372</a>`,
             `<strong>Business name:</strong> ${COMPANY.name}`,
             `<strong>Registered location:</strong> ${COMPANY.addressLine}`,
@@ -35,7 +35,7 @@ export default function ContactPage() {
         {
           heading: "Support for existing engagements",
           paragraphs: [
-            `If you're an existing client, email <a href="mailto:support@grahai.com" class="text-azure-600 font-semibold">support@grahai.com</a> with your project name and we'll route you to your delivery contact.`,
+            `If you're an existing client, email <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a> with your project name and we'll route you to your delivery contact.`,
           ],
         },
       ]}

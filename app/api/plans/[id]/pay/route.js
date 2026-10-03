@@ -32,6 +32,6 @@ export async function POST(request, { params }) {
     return NextResponse.json({ url });
   } catch (e) {
     console.error("[plans] payment link failed:", e?.message || e);
-    return NextResponse.json({ error: "Couldn't open secure checkout. Please try again or email support@grahai.com." }, { status: 502 });
+    return NextResponse.json({ error: "Couldn't open secure checkout. Please try again or email hello@grahaisystems.com." }, { status: 502 });
   }
 }

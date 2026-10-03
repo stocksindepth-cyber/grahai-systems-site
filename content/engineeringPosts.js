@@ -66,7 +66,7 @@ export const engineeringPosts = [
       "AI cost does not show up as a line item until the invoice arrives, by which point it is a surprise. We attach token usage to every generation event and roll it up to cost-per-request and cost-per-paying-user. Once you can see that a single SKU is eating margin, you can route it to a cheaper model, cache it, or trim its context. Without per-request attribution, 'our AI bill is high' is a feeling, not a plan.\n\n" +
       "## What actually scaled us\n\n" +
       "None of this is exotic. The pattern is: keep the synchronous path tiny, make every side effect idempotent, never trust a fire-and-forget on serverless, give dropped work a self-healing path, and put a number on every request. Demos optimize for the happy path; production is the sum of all the unhappy ones.\n\n" +
-      "If you are planning a production AI build and want it to survive contact with real users, GrahAI Systems can help — reach us at support@grahai.com.\n",
+      "If you are planning a production AI build and want it to survive contact with real users, GrahAI Systems can help — reach us at hello@grahaisystems.com.\n",
   },
 
   {
@@ -109,7 +109,7 @@ export const engineeringPosts = [
       "With several products on one logging substrate, every event carries a `product` tag from the start. Without it, a spike in failures is unattributable. With it, the daily digest can say 'AasanKhata had 4 generation failures, everyone else was clean.' Tag your telemetry by product before you have a second product, not after.\n\n" +
       "## What we would tell another studio\n\n" +
       "Run the shared layer like a platform team runs a platform: small, stable, well-tested, and identical everywhere. Run the product layer like product teams: fast, divergent, and free to break its own rules. The mistake is mixing them — sharing what should diverge (prompts, domain logic) and duplicating what should be shared (payments, auth, idempotency). And if you ever share a payment account, guard every webhook by brand before you ship.\n\n" +
-      "If you are weighing whether to build several AI products on shared infrastructure, GrahAI Systems has done it across four and can help you avoid the bleed — reach us at support@grahai.com.\n",
+      "If you are weighing whether to build several AI products on shared infrastructure, GrahAI Systems has done it across four and can help you avoid the bleed — reach us at hello@grahaisystems.com.\n",
   },
 
   {
@@ -165,7 +165,7 @@ export const engineeringPosts = [
       "Secrets live in the platform's env, read at module scope, never shipped to the client. Geo-aware behavior (currency, sometimes content) is decided server-side from a geo signal plus a cookie, with a pre-paint cookie read so visitors never see the wrong currency flash. Runtime selection matters too: node runtime where we need fonts or Chromium for PDF rendering, edge only where the function is light and latency-sensitive — bundled fonts on edge tend to break, so OG and PDF stay on node.\n\n" +
       "## The throughline\n\n" +
       "Compute what you can, ground the model on it, route to the cheapest model that clears the bar, cache aggressively, bound your retries, and gate every change behind an eval. That is the whole architecture. The intelligence is in the data you feed the model, not in the model alone.\n\n" +
-      "If you want a reference architecture like this designed around your domain, GrahAI Systems can help — reach us at support@grahai.com.\n",
+      "If you want a reference architecture like this designed around your domain, GrahAI Systems can help — reach us at hello@grahaisystems.com.\n",
   },
 
   {
@@ -217,7 +217,7 @@ export const engineeringPosts = [
       "## What the 70% was actually made of\n\n" +
       "No single tactic got us there. Roughly: model tiering was the largest share, output and prompt caching together were the next, context trimming and structured outputs were the rest. The meta-lesson is that LLM cost is a portfolio problem. Instrument first, then stack reductions, and re-measure after each one so you know what actually worked rather than what felt clever.\n\n" +
       "And keep quality gated the whole way — every one of these changes ran against our eval harness so we knew we were cutting cost, not corners.\n\n" +
-      "If your AI bill is climbing faster than your revenue, GrahAI Systems can help you find the 70% — reach us at support@grahai.com.\n",
+      "If your AI bill is climbing faster than your revenue, GrahAI Systems can help you find the 70% — reach us at hello@grahaisystems.com.\n",
   },
 
   {
@@ -275,7 +275,7 @@ export const engineeringPosts = [
       "A small but real footgun: running `next build` while the dev server is running can corrupt `.next` and produce a false 'Cannot find module for page' failure. Our fix is mechanical — stop the dev server and `rm -rf .next` before a production build. It is the kind of thing that wastes an afternoon if you do not know it.\n\n" +
       "## The summary\n\n" +
       "Keep the handler thin, stream what the user watches, push everything else into `after()` or a job, pick node when you touch fonts or Chromium, and let file conventions carry your SEO. Next.js gives you the primitives; the discipline is in respecting the serverless clock.\n\n" +
-      "If you are architecting an AI product on Next.js and want to skip the expensive lessons, GrahAI Systems can help — reach us at support@grahai.com.\n",
+      "If you are architecting an AI product on Next.js and want to skip the expensive lessons, GrahAI Systems can help — reach us at hello@grahaisystems.com.\n",
   },
 
   {
@@ -320,6 +320,6 @@ export const engineeringPosts = [
       "Whichever path you take, gate it behind evals. For RAG, test retrieval quality and faithfulness — does the answer actually use the retrieved facts, and only those? For fine-tuning, test that behavior improved without knowledge or reasoning regressing. We run deterministic structural checks plus sampled content checks on every change; a 'better' prompt or model that regresses the eval does not ship. Decide with numbers, not with whichever technique sounds more impressive.\n\n" +
       "## The short version\n\n" +
       "Start with RAG. Compute what is computable and retrieve what is knowable, because that is cheaper, fresher, auditable, and per-user. Reach for fine-tuning only when prompting plus retrieval cannot deliver the format, voice, latency, or cost you need — and even then, keep knowledge in retrieval.\n\n" +
-      "If you are deciding between RAG and fine-tuning for a real product, GrahAI Systems can help you frame it around your domain — reach us at support@grahai.com.\n",
+      "If you are deciding between RAG and fine-tuning for a real product, GrahAI Systems can help you frame it around your domain — reach us at hello@grahaisystems.com.\n",
   },
 ];

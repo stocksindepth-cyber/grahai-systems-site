@@ -47,7 +47,7 @@ export default function AboutPage() {
     url: SITE_URL,
     description:
       "AI product company building software for India and the World. Products: GrahAI (AI Vedic astrology) and ApplyVita (AI career agent).",
-    email: "support@grahai.com",
+    email: "hello@grahaisystems.com",
     foundingLocation: {
       "@type": "Place",
       address: { "@type": "PostalAddress", addressLocality: "Bengaluru", addressCountry: "IN" },
@@ -152,10 +152,10 @@ export default function AboutPage() {
               Questions, ideas, partnerships — we read every email.
             </p>
             <a
-              href="mailto:support@grahai.com"
+              href="mailto:hello@grahaisystems.com"
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-3 text-xs font-semibold text-white shadow-sm hover:bg-teal-500 transition-colors"
             >
-              support@grahai.com
+              hello@grahaisystems.com
             </a>
           </div>
         </div>

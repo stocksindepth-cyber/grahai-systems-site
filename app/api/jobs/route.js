@@ -12,7 +12,7 @@ const ids = (arr) => arr.map((x) => x.id);
 
 export async function POST(request) {
   if (!process.env.ANTHROPIC_API_KEY) {
-    return NextResponse.json({ error: "Job posting is offline right now. Email support@grahai.com and we'll reply fast." }, { status: 503 });
+    return NextResponse.json({ error: "Job posting is offline right now. Email hello@grahaisystems.com and we'll reply fast." }, { status: 503 });
   }
   let body;
   try {
@@ -42,7 +42,7 @@ export async function POST(request) {
     const okIp = await allow(`jobs:ip:${ip}`, 6, 3600);
     const okEmail = await allow(`jobs:email:${email}`, 12, 86400);
     if (!okIp || !okEmail) {
-      return NextResponse.json({ error: "You've posted several jobs in a short time. Please wait a little, or email support@grahai.com." }, { status: 429 });
+      return NextResponse.json({ error: "You've posted several jobs in a short time. Please wait a little, or email hello@grahaisystems.com." }, { status: 429 });
     }
   } catch (e) {
     console.error("[jobs] rate limit check failed:", e?.message || e);

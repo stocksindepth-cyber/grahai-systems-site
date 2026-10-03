@@ -135,7 +135,7 @@ export default function PlanRoom({ id }) {
       <div className="mx-auto max-w-lg px-4 py-24 text-center">
         <Lock className="mx-auto text-slate-300" size={36} />
         <h1 className="mt-4 font-display text-xl font-bold text-slate-900">This plan room is private</h1>
-        <p className="mt-2 text-sm text-slate-600">{state === "missing" ? "Open it from the link in your email. Can't find it? Email support@grahai.com from the address you signed up with." : error}</p>
+        <p className="mt-2 text-sm text-slate-600">{state === "missing" ? "Open it from the link in your email. Can't find it? Email hello@grahaisystems.com from the address you signed up with." : error}</p>
       </div>
     );
   }

@@ -45,7 +45,7 @@ export default function DonePage({ searchParams }) {
       icon: AlertTriangle,
       color: "slate",
       title: "Nothing to confirm here",
-      body: "We couldn't find a completed payment for this page. If you just paid and were charged, email support@grahai.com with your payment reference and we'll sort it out right away.",
+      body: "We couldn't find a completed payment for this page. If you just paid and were charged, email hello@grahaisystems.com with your payment reference and we'll sort it out right away.",
     },
   }[state];
 
@@ -74,8 +74,8 @@ export default function DonePage({ searchParams }) {
                   Back to scoping
                 </Link>
               )}
-              <a href="mailto:support@grahai.com" className="text-sm font-semibold text-azure-600 hover:text-azure-700">
-                support@grahai.com
+              <a href="mailto:hello@grahaisystems.com" className="text-sm font-semibold text-azure-600 hover:text-azure-700">
+                hello@grahaisystems.com
               </a>
             </div>
           </div>
