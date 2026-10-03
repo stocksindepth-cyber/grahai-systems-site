@@ -249,7 +249,7 @@ export default function PlanRoom({ id }) {
                 <label htmlFor="plan-phone" className="mt-5 block text-xs font-semibold text-slate-700">Phone (with country code)</label>
                 <input id="plan-phone" type="tel" autoComplete="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1 415 555 0123" className={`mt-1.5 ${field}`} />
                 <p className="mt-1 text-[11px] text-slate-400">Needed by the payment provider for your receipt.</p>
-                <button onClick={pay} disabled={paying} className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 px-5 py-3.5 text-sm font-bold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 disabled:opacity-60">
+                <button onClick={pay} disabled={paying} className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 px-5 py-3.5 text-sm font-bold text-white shadow-sm hover:bg-teal-500 disabled:opacity-60">
                   {paying ? <Loader2 size={16} className="animate-spin" /> : <CreditCard size={16} />} {payLabel}
                 </button>
                 <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[11px] text-slate-400">

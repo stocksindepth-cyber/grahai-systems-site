@@ -114,7 +114,6 @@ export default function InteractiveHeroDemo() {
   return (
     <div className="glass rounded-2xl border border-slate-200/80 p-6 shadow-xl relative overflow-hidden bg-white">
       {/* Decorative ambient lights */}
-      <div className="absolute top-0 right-0 w-48 h-48 bg-azure-500/5 rounded-full blur-[60px] pointer-events-none" />
 
       {/* Demo Controls */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-6">

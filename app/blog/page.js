@@ -18,8 +18,6 @@ export default function BlogListing() {
       <main className="relative overflow-hidden pt-12 pb-24 sm:pt-16 sm:pb-32 min-h-screen bg-slate-50/20">
         {/* Background ambient grids */}
         <div className="absolute inset-0 bg-grid pointer-events-none -z-10" />
-        <div className="absolute top-10 right-10 w-96 h-96 bg-azure-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb / Back Link */}
@@ -49,7 +47,6 @@ export default function BlogListing() {
           {/* Featured Post */}
           {blogPosts.length > 0 && (
             <div className="mb-16 glass rounded-3xl p-6 sm:p-10 border border-slate-200 bg-white relative overflow-hidden group shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-azure-500/5 rounded-full blur-[80px] pointer-events-none" />
               
               <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
                 <div>
@@ -87,7 +84,7 @@ export default function BlogListing() {
                   <div className="mt-8">
                     <Link
                       href={`/blog/${blogPosts[0].slug}`}
-                      className="inline-flex items-center gap-2 rounded-xl bg-azure-600 hover:bg-azure-700 px-5 py-3 text-xs font-semibold text-white transition-colors shadow-md shadow-azure-600/10"
+                      className="inline-flex items-center gap-2 rounded-xl bg-azure-600 hover:bg-azure-700 px-5 py-3 text-xs font-semibold text-white transition-colors shadow-sm"
                     >
                       Read Article
                       <ArrowRight size={14} />
@@ -97,7 +94,6 @@ export default function BlogListing() {
                 
                 {/* Visual placeholder */}
                 <div className="h-64 sm:h-80 bg-slate-900 rounded-2xl border border-slate-950 flex flex-col items-center justify-center p-6 text-center text-white/30 relative">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15)_0,transparent_100%)]" />
                   <span className="text-xs font-mono uppercase text-azure-400/60 mb-2">// GRAPH_SCHEMA_LOG</span>
                   <div className="font-mono text-2xl font-bold text-white/10 animate-pulse tracking-widest uppercase">
                     &lt; AI_AGENT_SYSTEM &gt;

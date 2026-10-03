@@ -97,7 +97,7 @@ export default function PlanStart({ defaultPlan = "retainer" }) {
         <input tabIndex={-1} autoComplete="off" value={form.website} onChange={set("website")} />
       </div>
       {error && <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">{error}</p>}
-      <button disabled={busy} className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 disabled:opacity-60">
+      <button disabled={busy} className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-bold text-white shadow-sm hover:bg-teal-500 disabled:opacity-60">
         {busy ? <Loader2 size={16} className="animate-spin" /> : null} Start {chosen?.name} — ${chosen?.priceUsd}/mo <ArrowRight size={16} />
       </button>
       <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[11px] text-slate-400">

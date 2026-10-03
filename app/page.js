@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Check, ChevronDown, Sparkles, Globe2, Users, Languages, Clock, DollarSign, Zap, ShieldCheck, Code2, BarChart3 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ChevronDown, Clock, Zap, Code2, BarChart3 } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { products } from "../content/products";
@@ -92,13 +92,6 @@ const faqSchema = {
   ],
 };
 
-const stats = [
-  { value: "100,000+", label: "Users on GrahAI", icon: Users },
-  { value: "9", label: "Languages", icon: Languages },
-  { value: "6M+", label: "Google search impressions (90 days)", icon: Sparkles },
-  { value: "India + World", label: "Where we operate", icon: Globe2 },
-];
-
 const services = [
   {
     title: "AI Agent Sprint",
@@ -185,294 +178,257 @@ const faqs = [
   },
 ];
 
+const proof = [
+  { value: "100,000+", label: "People using GrahAI" },
+  { value: "6M+", label: "Google search impressions, last 90 days" },
+  { value: "9", label: "Languages in production" },
+  { value: "11+", label: "Years of production engineering" },
+];
+
+const lines = [
+  {
+    kicker: "Product",
+    title: "GrahAI",
+    body: "Our flagship AI product — multilingual Vedic astrology used by 100,000+ people across 9 languages.",
+    cta: "Visit grahai.com",
+    href: "https://www.grahai.com",
+    external: true,
+  },
+  {
+    kicker: "Marketplace",
+    title: "GrahAI Agents",
+    body: "Post a software job and an AI agent replies with a fixed-price proposal in about a minute. From $99.",
+    cta: "Post a job",
+    href: "/hire",
+  },
+  {
+    kicker: "Services",
+    title: "AI for your business",
+    body: "Custom AI agents, chatbots and automation, built and handed over at a fixed price from $3,000.",
+    cta: "See services & pricing",
+    href: "/services",
+  },
+];
+
+function SectionHeading({ eyebrow, title, sub, align = "left", dark = false }) {
+  return (
+    <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
+      <p className={`eyebrow ${dark ? "!text-teal-400" : ""}`}>{eyebrow}</p>
+      <h2 className={`mt-3 font-display text-3xl font-semibold leading-tight sm:text-4xl ${dark ? "text-white" : "text-slate-900"}`}>{title}</h2>
+      {sub && <p className={`mt-4 text-base leading-relaxed ${dark ? "text-slate-400" : "text-slate-600"}`}>{sub}</p>}
+    </div>
+  );
+}
+
 export default function Page() {
   const grahai = products.find((p) => p.id === "grahai");
 
   return (
     <>
       <Header />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-slate-950 pt-20 pb-28 sm:pt-28 sm:pb-36">
-        <div className="pointer-events-none absolute -top-32 left-1/2 h-[700px] w-[1000px] -translate-x-1/2 rounded-full bg-teal-500/5 blur-[140px]" />
-        <div className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full bg-teal-500/3 blur-[100px]" />
-        <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/20 bg-teal-500/10 px-3.5 py-1.5 text-xs font-semibold text-teal-400">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-teal-400" />
-            AI Development Company · Bengaluru, India
-          </div>
-          <h1 className="mt-8 font-display text-5xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-6xl md:text-7xl">
-            We build AI products<br />
-            <span className="text-teal-400">people actually use</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
-            GrahAI Systems is a product company and AI development studio in Bengaluru. We ship our own AI
-            to 100,000+ users — and we build production AI systems for businesses worldwide.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="#products"
-              className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/20 hover:bg-teal-500 transition-colors"
-            >
-              Our products <ArrowUpRight size={15} />
-            </a>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-300 hover:border-teal-500/50 hover:text-white transition-colors"
-            >
-              Build AI with us →
-            </Link>
-          </div>
-          {/* Micro-proof */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-500">
-            <span className="flex items-center gap-1.5"><Check size={12} className="text-teal-500" /> From $3,000 fixed price</span>
-            <span className="flex items-center gap-1.5"><Check size={12} className="text-teal-500" /> 14-day delivery</span>
-            <span className="flex items-center gap-1.5"><Check size={12} className="text-teal-500" /> US, UK, EU & India</span>
-            <span className="flex items-center gap-1.5"><Check size={12} className="text-teal-500" /> You own all code</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats strip */}
-      <section className="border-y border-slate-100 bg-white">
-        <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            {stats.map(({ value, label, icon: Icon }) => (
-              <div key={label} className="flex flex-col items-center text-center">
-                <Icon size={18} className="text-teal-600 mb-2" />
-                <p className="font-display text-2xl font-extrabold text-slate-900 sm:text-3xl">{value}</p>
-                <p className="mt-1 text-xs font-medium text-slate-500">{label}</p>
+      <main className="bg-white">
+        {/* Hero */}
+        <section className="bg-slate-950">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 pb-16 pt-16 sm:px-6 sm:pt-24 lg:grid-cols-[1.15fr_1fr] lg:items-end lg:gap-16 lg:px-8 lg:pb-24">
+            <div>
+              <p className="eyebrow !text-teal-400">AI development company · Bengaluru, India</p>
+              <h1 className="mt-5 font-display text-[2.6rem] font-semibold leading-[1.04] text-white sm:text-6xl">
+                We build AI products <span className="text-teal-400">people actually use.</span>
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400">
+                GrahAI Systems is a product company and AI development studio. We ship our own AI to 100,000+ users — and we build production AI systems for businesses worldwide.
+              </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <a href="#products" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
+                  Our products <ArrowRight size={15} />
+                </a>
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
+                  Build AI with us
+                </Link>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <ul className="mt-8 grid max-w-lg grid-cols-2 gap-x-6 gap-y-2 text-sm text-slate-400">
+                {["From $3,000 fixed price", "14-day delivery", "US, UK, EU & India", "You own all code"].map((t) => (
+                  <li key={t} className="flex items-center gap-2"><Check size={15} className="shrink-0 text-teal-400" />{t}</li>
+                ))}
+              </ul>
+            </div>
 
-      {/* Product — GrahAI flagship */}
-      <section id="products" className="bg-slate-50 py-20 sm:py-28">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Our Flagship Product</span>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Built for India. Used by the World.
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-slate-500">
-              Our own AI products are proof of execution — not a pitch deck. Serving real users at scale, every day.
-            </p>
+            <div className="rounded-2xl border border-white/10 p-2">
+              <dl className="grid grid-cols-2 gap-2">
+                {proof.map((p) => (
+                  <div key={p.label} className="rounded-xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:p-6">
+                    <dd className="font-display text-3xl font-semibold text-white sm:text-[2.1rem]">{p.value}</dd>
+                    <dt className="mt-1.5 text-[13px] leading-snug text-slate-400">{p.label}</dt>
+                  </div>
+                ))}
+              </dl>
+              <p className="px-3 pb-2 pt-3 text-xs text-slate-500">Live numbers from products we build and run ourselves.</p>
+            </div>
           </div>
+        </section>
 
-          <div className="group relative rounded-2xl border border-slate-200 bg-white p-8 sm:p-10 shadow-sm transition-all duration-200 hover:shadow-md hover:border-teal-200">
-            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-              <div className="flex-1">
-                <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-semibold text-teal-700">
-                  {grahai.badge}
-                </span>
-                <h3 className="mt-4 font-display text-3xl font-extrabold text-slate-900 sm:text-4xl">
-                  {grahai.name}
-                </h3>
-                <p className="mt-1 text-sm font-medium text-slate-400">{grahai.domain}</p>
-                <p className="mt-5 text-base leading-relaxed text-slate-600 max-w-xl">{grahai.blurb}</p>
-                <ul className="mt-6 space-y-2.5">
+        {/* What we do */}
+        <section className="bg-slate-50 py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading eyebrow="What we do" title="One company, three ways to work with us" />
+            <div className="mt-12 grid overflow-hidden rounded-2xl border border-slate-200 bg-white md:grid-cols-3">
+              {lines.map((l, i) => {
+                const Tag = l.external ? "a" : Link;
+                const extra = l.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+                return (
+                  <div key={l.title} className={`flex flex-col p-7 sm:p-8 ${i > 0 ? "border-t border-slate-200 md:border-l md:border-t-0" : ""}`}>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">{l.kicker}</p>
+                    <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">{l.title}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{l.body}</p>
+                    <Tag href={l.href} {...extra} className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">
+                      {l.cta} {l.external ? <ArrowUpRight size={14} /> : <ArrowRight size={14} />}
+                    </Tag>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Flagship product */}
+        <section id="products" className="scroll-mt-20 py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading eyebrow="Our flagship product" title="Built for India. Used by the World." sub="Our own AI products are proof of execution — not a pitch deck. Serving real users at scale, every day." />
+            <div className="mt-12 grid overflow-hidden rounded-2xl border border-slate-200 lg:grid-cols-[1.4fr_1fr]">
+              <div className="p-8 sm:p-10">
+                <div className="flex items-center gap-3">
+                  <span className="rounded-md bg-teal-50 px-2 py-1 text-xs font-semibold text-teal-700 ring-1 ring-teal-100">{grahai.badge}</span>
+                  <span className="text-sm text-slate-500">{grahai.domain}</span>
+                </div>
+                <h3 className="mt-4 font-display text-3xl font-semibold text-slate-900 sm:text-4xl">{grahai.name}</h3>
+                <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600">{grahai.blurb}</p>
+                <ul className="mt-6 grid gap-2.5 sm:grid-cols-1">
                   {grahai.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700">
-                      <Check size={14} className="mt-0.5 flex-shrink-0 text-teal-600" />
-                      {f}
-                    </li>
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700"><Check size={15} className="mt-0.5 shrink-0 text-teal-600" />{f}</li>
                   ))}
                 </ul>
-              </div>
-              <div className="flex flex-col items-start gap-3 sm:items-end sm:pt-2">
-                <div className="text-right">
-                  <p className="text-xs text-slate-500">Users</p>
-                  <p className="font-display text-2xl font-extrabold text-teal-600">100,000+</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-slate-500">Languages</p>
-                  <p className="font-display text-2xl font-extrabold text-slate-900">9</p>
-                </div>
-                <a
-                  href={grahai.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors whitespace-nowrap"
-                >
+                <a href={grahai.url} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
                   Visit GrahAI <ArrowUpRight size={15} />
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* GrahAI Agents — hire AI agents for software jobs */}
-      <section className="bg-slate-950 py-20 sm:py-24">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-teal-400">New · GrahAI Agents</p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              Post a job. An AI agent replies in a minute — and delivers it.
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-400">
-              Like a freelance marketplace, minus the freelancer hunt. Describe a software job — a Shopify fix, a scraper,
-              an automation, a chatbot, an app — and get a fixed-price proposal from one of our agents. Engineer-reviewed
-              delivery, two revisions, from $99.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/hire/post?from=home" className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white hover:bg-teal-500 transition-colors">
-                Post a job <ArrowUpRight size={15} />
-              </Link>
-              <Link href="/hire" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-300 hover:border-teal-500/50 hover:text-white transition-colors">
-                How it works →
-              </Link>
-            </div>
-          </div>
-          <ul className="grid grid-cols-2 gap-3 text-sm">
-            {[
-              ["Proposal in", "~1 minute"],
-              ["Fixed price", "from $99"],
-              ["Every delivery", "engineer-reviewed"],
-              ["If we can't deliver", "full refund"],
-            ].map(([k, v]) => (
-              <li key={k} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-xs text-slate-500">{k}</p>
-                <p className="mt-1 font-display text-lg font-bold text-white">{v}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* AI Services for Businesses */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">AI Services</span>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              We build production AI for your business
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-slate-500">
-              Fixed scope, fixed price, real delivery. We've built AI for our own users — now we build it for yours.
-            </p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-3">
-            {services.map(({ title, price, unit, delivery, desc, icon: Icon, highlight }) => (
-              <div
-                key={title}
-                className={`relative rounded-2xl border p-6 transition-shadow hover:shadow-md ${
-                  highlight
-                    ? "border-teal-200 bg-teal-50/50 ring-1 ring-teal-500/10"
-                    : "border-slate-200 bg-white"
-                }`}
-              >
-                {highlight && (
-                  <span className="absolute -top-3 left-4 rounded-full bg-teal-600 px-3 py-0.5 text-xs font-bold text-white">
-                    Most Popular
-                  </span>
-                )}
-                <Icon size={20} className={highlight ? "text-teal-600" : "text-slate-600"} />
-                <h3 className="mt-3 font-display text-lg font-extrabold text-slate-900">{title}</h3>
-                <div className="mt-2">
-                  <span className="font-display text-2xl font-extrabold text-slate-900">{price}</span>
-                  {unit && <span className="ml-1.5 text-xs text-slate-500">{unit}</span>}
-                </div>
-                <div className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-teal-600">
-                  <Clock size={11} /> {delivery}
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-700/20 hover:bg-teal-500 transition-colors"
-            >
-              View all packages & pricing <ArrowUpRight size={14} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* How we work */}
-      <section className="bg-slate-950 py-20 sm:py-28">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-400">Process</span>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              How we work
-            </h2>
-          </div>
-          <div className="grid gap-0 md:grid-cols-3">
-            {process.map(({ step, title, body, time }, i) => (
-              <div key={step} className="relative flex flex-col items-start">
-                {i < process.length - 1 && (
-                  <div className="absolute top-6 left-10 right-0 hidden h-px border-t border-dashed border-teal-500/20 md:block" />
-                )}
-                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-600 text-sm font-bold text-white shadow-lg shadow-teal-700/30">
-                  {step}
-                </div>
-                <div className="mt-5 pr-8">
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-teal-500/10 px-2.5 py-0.5 text-xs font-semibold text-teal-400 mb-2">
-                    <Clock size={10} /> {time}
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-white">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why trust us */}
-      <section className="bg-slate-50 py-20 sm:py-28">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Why us</span>
-              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                We don't pitch AI.<br />We run AI.
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-slate-600">
-                Most AI agencies have never operated AI at scale. We have. Our products serve 100,000+ users
-                in 9 languages and earned 6M+ Google search impressions in the last 90 days. We feel the cost, latency, and reliability
-                tradeoffs before you do.
-              </p>
-              <ul className="mt-6 space-y-3">
+              <dl className="grid grid-cols-2 border-t border-slate-200 bg-slate-50 lg:grid-cols-1 lg:border-l lg:border-t-0">
                 {[
-                  "11+ years of production engineering",
-                  "Real LLM cost & latency experience",
-                  "Fixed price — no hourly billing",
-                  "You own 100% of the code",
-                  "US, UK, EU & India clients",
-                ].map((point) => (
-                  <li key={point} className="flex items-center gap-3 text-sm text-slate-700">
-                    <ShieldCheck size={15} className="flex-shrink-0 text-teal-600" />
-                    {point}
-                  </li>
+                  ["100,000+", "Users"],
+                  ["9", "Languages"],
+                  ["6M+", "Google search impressions (90 days)"],
+                ].map(([v, l], i) => (
+                  <div key={l} className={`flex flex-col justify-center p-6 sm:p-8 ${i > 0 ? "border-l border-slate-200 lg:border-l-0 lg:border-t" : ""} ${i === 2 ? "col-span-2 border-l-0 border-t lg:col-span-1" : ""}`}>
+                    <dd className="font-display text-3xl font-semibold text-slate-900">{v}</dd>
+                    <dt className="mt-1 text-sm text-slate-500">{l}</dt>
+                  </div>
                 ))}
-              </ul>
-              <div className="mt-8">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors"
-                >
-                  See what we build <ArrowUpRight size={14} />
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        {/* GrahAI Agents */}
+        <section className="bg-slate-950 py-20 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
+            <div>
+              <SectionHeading dark eyebrow="New · GrahAI Agents" title="Post a job. An AI agent replies in a minute — and delivers it." />
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-400">
+                Like a freelance marketplace, minus the freelancer hunt. Describe a software job — a Shopify fix, a scraper, an automation, a chatbot, an app — and get a fixed-price proposal from one of our agents. Engineer-reviewed delivery, two revisions, from $99.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/hire/post?from=home" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
+                  Post a job <ArrowRight size={15} />
+                </Link>
+                <Link href="/hire" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
+                  How it works
                 </Link>
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <p className="text-xs font-bold uppercase tracking-widest text-teal-600 mb-6">Live proof</p>
-              <div className="space-y-5">
+            <dl className="grid grid-cols-2 overflow-hidden rounded-2xl border border-white/10">
+              {[
+                ["Proposal in", "~1 minute"],
+                ["Fixed price", "from $99"],
+                ["Every delivery", "Engineer-reviewed"],
+                ["If we can't deliver", "Full refund"],
+              ].map(([k, v], i) => (
+                <div key={k} className={`p-6 ${i % 2 === 1 ? "border-l border-white/10" : ""} ${i > 1 ? "border-t border-white/10" : ""}`}>
+                  <dt className="text-xs text-slate-400">{k}</dt>
+                  <dd className="mt-1.5 font-display text-lg font-semibold text-white">{v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        {/* AI services */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <SectionHeading eyebrow="AI services" title="We build production AI for your business" sub="Fixed scope, fixed price, real delivery. We've built AI for our own users — now we build it for yours." />
+              <Link href="/services" className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">
+                View all packages & pricing <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="mt-12 grid gap-5 md:grid-cols-3">
+              {services.map(({ title, price, unit, delivery, desc, icon: Icon, highlight }) => (
+                <div key={title} className={`flex flex-col rounded-2xl border bg-white p-7 ${highlight ? "border-teal-600 ring-1 ring-teal-600" : "border-slate-200"}`}>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-700"><Icon size={18} /></span>
+                    {highlight && <span className="text-xs font-semibold text-teal-700">Most popular</span>}
+                  </div>
+                  <h3 className="mt-5 font-display text-lg font-semibold text-slate-900">{title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{desc}</p>
+                  <div className="mt-6 border-t border-slate-100 pt-5">
+                    <div className="font-display text-2xl font-semibold text-slate-900">{price}{unit && <span className="ml-1.5 text-sm font-normal text-slate-500">{unit}</span>}</div>
+                    <div className="mt-1 flex items-center gap-1.5 text-sm text-slate-500"><Clock size={13} /> {delivery}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section className="border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading eyebrow="Process" title="How we work" />
+            <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+              {process.map(({ step, title, body, time }) => (
+                <li key={step} className="border-t-2 border-slate-900 pt-6">
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-display text-sm font-semibold text-slate-900">{step}</span>
+                    <span className="text-xs font-medium text-slate-500">{time}</span>
+                  </div>
+                  <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Why us */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-start lg:px-8">
+            <div>
+              <SectionHeading eyebrow="Why us" title="We don't pitch AI. We run AI." />
+              <p className="mt-5 text-base leading-relaxed text-slate-600">
+                Most AI agencies have never operated AI at scale. We have. Our products serve 100,000+ users in 9 languages and earned 6M+ Google search impressions in the last 90 days. We feel the cost, latency, and reliability tradeoffs before you do.
+              </p>
+              <ul className="mt-7 space-y-3">
+                {["11+ years of production engineering", "Real LLM cost & latency experience", "Fixed price — no hourly billing", "You own 100% of the code", "US, UK, EU & India clients"].map((point) => (
+                  <li key={point} className="flex items-center gap-3 text-sm text-slate-700"><Check size={15} className="shrink-0 text-teal-600" />{point}</li>
+                ))}
+              </ul>
+              <Link href="/services" className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">
+                See what we build <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="rounded-2xl border border-slate-200">
+              <p className="border-b border-slate-200 px-7 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Live proof</p>
+              <dl>
                 {[
                   { label: "Users on GrahAI", value: "100,000+" },
                   { label: "Google search impressions, last 90 days", value: "6M+" },
@@ -481,72 +437,58 @@ export default function Page() {
                   { label: "Countries where users live", value: "India + World" },
                   { label: "Years of production engineering", value: "11+" },
                 ].map(({ label, value }) => (
-                  <div key={label} className="flex items-center justify-between border-b border-slate-100 pb-4 last:border-0 last:pb-0">
-                    <span className="text-sm text-slate-600">{label}</span>
-                    <span className="font-display text-lg font-extrabold text-slate-900">{value}</span>
+                  <div key={label} className="flex items-center justify-between gap-4 border-b border-slate-100 px-7 py-4 last:border-0">
+                    <dt className="text-sm text-slate-600">{label}</dt>
+                    <dd className="font-display text-base font-semibold text-slate-900">{value}</dd>
                   </div>
                 ))}
-              </div>
+              </dl>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">FAQ</span>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Common questions
-            </h2>
+        {/* FAQ */}
+        <section className="border-t border-slate-200 bg-slate-50 py-20 sm:py-24">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.6fr] lg:px-8">
+            <div>
+              <SectionHeading eyebrow="FAQ" title="Common questions" />
+              <Link href="/services#faqs" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">
+                All questions about our AI services <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+              {faqs.map(({ q, a }) => (
+                <details key={q} className="group px-6">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-5 text-[15px] font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    {q}
+                    <ChevronDown size={17} className="mt-0.5 shrink-0 text-slate-400 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <p className="-mt-1 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                </details>
+              ))}
+            </div>
           </div>
-          <div className="divide-y divide-slate-100">
-            {faqs.map(({ q, a }) => (
-              <details key={q} className="group py-5">
-                <summary className="flex cursor-pointer items-start justify-between gap-4 text-sm font-semibold text-slate-900 hover:text-teal-600 transition-colors list-none">
-                  {q}
-                  <ChevronDown size={16} className="mt-0.5 flex-shrink-0 text-slate-400 transition-transform group-open:rotate-180" />
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{a}</p>
-              </details>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Link href="/services#faqs" className="text-sm font-semibold text-teal-600 hover:text-teal-700 transition-colors">
-              See all questions about our AI services →
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section className="bg-slate-950 py-16 sm:py-20">
-        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
-            Tell us what you want to build
-          </h2>
-          <p className="mt-3 text-sm text-slate-400">
-            We scope it, give you a fixed price, and deliver in 14 days.
-            US, UK, EU and India companies welcome.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <a
-              href="mailto:support@grahai.com?subject=AI Development Enquiry — Let's scope it"
-              className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/30 hover:bg-teal-500 transition-colors"
-            >
-              Email us to start <ArrowUpRight size={14} />
-            </a>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
-            >
-              See packages & pricing
-            </Link>
+        {/* CTA */}
+        <section className="bg-slate-950">
+          <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:py-20">
+            <div className="max-w-xl">
+              <h2 className="font-display text-3xl font-semibold text-white">Tell us what you want to build</h2>
+              <p className="mt-3 text-base text-slate-400">We scope it, give you a fixed price, and deliver in 14 days. US, UK, EU and India companies welcome.</p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a href="mailto:support@grahai.com?subject=AI Development Enquiry — Let's scope it" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
+                Email us to start <ArrowUpRight size={15} />
+              </a>
+              <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
+                See packages & pricing
+              </Link>
+            </div>
           </div>
-          <p className="mt-4 text-xs text-slate-600">support@grahai.com · We reply within 24 hours</p>
-        </div>
-      </section>
+          <p className="mx-auto max-w-6xl px-4 pb-10 text-xs text-slate-500 sm:px-6 lg:px-8">support@grahai.com · We reply within 24 hours</p>
+        </section>
+      </main>
 
       <Footer />
     </>

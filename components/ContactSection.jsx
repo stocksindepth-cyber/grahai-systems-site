@@ -31,7 +31,6 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative py-24 sm:py-32 overflow-hidden bg-slate-50 border-t border-slate-200/50">
       {/* Background Gradients */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-azure-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
       
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="glass rounded-3xl p-8 sm:p-16 text-center relative border border-slate-200/80 shadow-xl bg-white/80">
@@ -50,7 +49,7 @@ export default function ContactSection() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href="mailto:support@grahai.com?subject=Discovery%20Call%20Request"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-azure-700/20 hover:from-azure-500 hover:to-azure-600 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-azure-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:from-azure-500 hover:to-azure-600 transition-all hover:scale-[1.02]"
             >
               <Calendar size={16} />
               Book Free Discovery Call

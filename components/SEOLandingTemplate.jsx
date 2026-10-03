@@ -34,8 +34,6 @@ export default function SEOLandingTemplate({
       <main className="relative overflow-hidden pt-12 pb-24 sm:pt-16 sm:pb-32 min-h-screen bg-slate-50/30">
         {/* Background grids */}
         <div className="absolute inset-0 bg-grid pointer-events-none -z-10" />
-        <div className="absolute top-10 left-10 w-96 h-96 bg-azure-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
-        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
@@ -67,7 +65,7 @@ export default function SEOLandingTemplate({
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 px-5 py-3 text-xs font-semibold text-white transition-colors shadow-md shadow-teal-700/20"
+                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 px-5 py-3 text-xs font-semibold text-white transition-colors shadow-sm"
               >
                 View packages &amp; pricing
                 <ArrowRight size={14} />

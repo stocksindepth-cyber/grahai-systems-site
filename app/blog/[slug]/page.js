@@ -163,8 +163,6 @@ export default function BlogPostPage({ params }) {
       <main className="relative overflow-hidden pt-12 pb-24 sm:pt-16 sm:pb-32 min-h-screen bg-white">
         {/* Background ambient lights */}
         <div className="absolute inset-0 bg-grid pointer-events-none -z-10" />
-        <div className="absolute top-10 right-10 w-96 h-96 bg-azure-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
@@ -223,7 +221,7 @@ export default function BlogPostPage({ params }) {
             </div>
             <a
               href="mailto:support@grahai.com?subject=AI%20Integration%20Consultation"
-              className="inline-flex items-center gap-1.5 rounded-xl bg-azure-600 hover:bg-azure-700 px-5 py-3 text-xs font-semibold text-white transition-colors shadow-md shadow-azure-600/10"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-azure-600 hover:bg-azure-700 px-5 py-3 text-xs font-semibold text-white transition-colors shadow-sm"
             >
               Get In Touch
               <ArrowLeft className="rotate-185" size={14} />

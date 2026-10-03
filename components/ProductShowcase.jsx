@@ -20,7 +20,6 @@ export default function ProductShowcase() {
 
   return (
     <div className="glass rounded-2xl border border-slate-200/80 p-5 shadow-xl relative overflow-hidden bg-white sm:p-6">
-      <div className="absolute top-0 right-0 h-48 w-48 rounded-full bg-azure-500/5 blur-[60px] pointer-events-none" />
 
       {/* Header */}
       <div className="flex items-center justify-between border-b border-slate-100 pb-4">

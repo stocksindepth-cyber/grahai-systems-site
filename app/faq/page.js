@@ -70,7 +70,7 @@ export default function FaqPage() {
             </p>
             <a
               href="/start"
-              className="mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl bg-azure-600 px-5 py-3 text-xs font-semibold text-white shadow-md shadow-azure-600/10 transition-all hover:bg-azure-700"
+              className="mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl bg-azure-600 px-5 py-3 text-xs font-semibold text-white shadow-sm transition-all hover:bg-azure-700"
             >
               Scope my project <ArrowRight size={14} />
             </a>

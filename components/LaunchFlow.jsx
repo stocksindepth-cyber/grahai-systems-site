@@ -48,7 +48,7 @@ export default function LaunchFlow() {
               onClick={() => start(t)}
               className={`mt-5 inline-flex w-full items-center justify-center gap-1.5 rounded-xl px-5 py-3 text-xs font-bold transition-all ${
                 t.highlight
-                  ? "bg-azure-600 text-white hover:bg-azure-700 shadow-md shadow-azure-600/10"
+                  ? "bg-azure-600 text-white hover:bg-azure-700 shadow-sm"
                   : "border border-slate-300 bg-white text-slate-800 hover:bg-slate-50"
               }`}
             >

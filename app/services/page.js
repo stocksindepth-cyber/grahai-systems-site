@@ -321,7 +321,6 @@ export default function ServicesPage() {
       <main className="bg-white">
         {/* Hero */}
         <section className="relative overflow-hidden bg-slate-950 pt-16 pb-24 sm:pt-24 sm:pb-32">
-          <div className="pointer-events-none absolute -top-32 left-1/2 h-[700px] w-[1000px] -translate-x-1/2 rounded-full bg-teal-500/5 blur-[140px]" />
           <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <Link
               href="/"
@@ -346,7 +345,7 @@ export default function ServicesPage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="mailto:support@grahai.com?subject=AI Development — Let's scope it"
-                  className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-700/20 hover:bg-teal-500 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 transition-colors"
                 >
                   Get a free scope <ArrowUpRight size={14} />
                 </a>
@@ -451,7 +450,7 @@ export default function ServicesPage() {
                   <a
                     href={s.href}
                     className={`mt-8 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors ${
-                      s.highlight ? "bg-teal-600 hover:bg-teal-500 shadow-teal-700/20" : "bg-slate-900 hover:bg-slate-700"
+                      s.highlight ? "bg-teal-600 hover:bg-teal-500" : "bg-slate-900 hover:bg-slate-700"
                     }`}
                   >
                     {s.cta} <ArrowUpRight size={14} />
@@ -640,7 +639,7 @@ export default function ServicesPage() {
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
                 href="mailto:support@grahai.com?subject=AI Implementation — Let's scope it"
-                className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-700/30 hover:bg-teal-500 transition-colors"
+                className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 transition-colors"
               >
                 Get a free scope <ArrowUpRight size={14} />
               </a>

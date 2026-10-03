@@ -119,7 +119,6 @@ export default function HirePage() {
       <main>
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-gradient pb-20 pt-14 sm:pt-20">
-          <div className="absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-teal-500/10 blur-[120px]" />
           <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:px-8">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-3.5 py-1.5 text-xs font-bold text-teal-200">

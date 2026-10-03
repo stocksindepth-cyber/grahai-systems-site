@@ -170,7 +170,7 @@ export default function PostJobForm({
 
       {error && <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">{error}</p>}
 
-      <button type="submit" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-teal-700/20 transition-colors hover:bg-teal-500">
+      <button type="submit" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-teal-500">
         Get my fixed-price proposal <ArrowRight size={16} />
       </button>
       <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[11px] text-slate-400">

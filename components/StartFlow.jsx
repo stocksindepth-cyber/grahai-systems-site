@@ -239,7 +239,7 @@ export default function StartFlow() {
           <button
             onClick={saveToDashboard}
             disabled={busy}
-            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-azure-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-azure-600/20 transition-all hover:bg-azure-700 hover:-translate-y-0.5 disabled:opacity-60"
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-azure-600 px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-azure-700 hover:-translate-y-0.5 disabled:opacity-60"
           >
             {busy ? <Loader2 size={16} className="animate-spin" /> : <LayoutDashboard size={16} />}
             Save &amp; get your full proposal — free
@@ -344,7 +344,7 @@ export default function StartFlow() {
         <button
           type="submit"
           disabled={busy}
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-azure-700/10 transition-all hover:from-azure-500 hover:to-azure-600 disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-azure-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:from-azure-500 hover:to-azure-600 disabled:opacity-60"
         >
           {busy ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
           {busy ? "Scoping your build…" : "Get my instant scope & price"}

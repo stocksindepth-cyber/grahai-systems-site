@@ -334,7 +334,7 @@ export default function PricingEstimator() {
               <div className="mt-8">
                 <button
                   onClick={handleEstimateSubmit}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-azure-600 to-azure-700 px-6 py-4 text-sm font-semibold text-white shadow-md shadow-azure-700/20 hover:from-azure-500 hover:to-azure-600 transition-all hover:scale-[1.01]"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-azure-600 px-6 py-4 text-sm font-semibold text-white shadow-sm hover:from-azure-500 hover:to-azure-600 transition-all hover:scale-[1.01]"
                 >
                   <FileText size={16} />
                   Email Estimate & Book Call

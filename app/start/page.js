@@ -27,8 +27,6 @@ export default function StartPage() {
       <Header />
       <main className="relative overflow-hidden bg-slate-50/40 pt-12 pb-24 sm:pt-16 sm:pb-28">
         <div className="absolute inset-0 bg-grid pointer-events-none -z-10" />
-        <div className="absolute top-10 left-10 h-80 w-80 rounded-full bg-azure-500/5 blur-[120px] pointer-events-none -z-10" />
-        <div className="absolute bottom-10 right-10 h-96 w-96 rounded-full bg-purple-500/5 blur-[140px] pointer-events-none -z-10" />
 
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">

@@ -58,7 +58,7 @@ export default function AlternativePage({ params }) {
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">{a.intro}</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href={`/hire/post?from=${encodeURIComponent(`alternatives/${a.slug}`)}`} className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-3 text-sm font-bold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500">
+              <Link href={`/hire/post?from=${encodeURIComponent(`alternatives/${a.slug}`)}`} className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-teal-500">
                 Post a job — proposal in a minute <ArrowRight size={15} />
               </Link>
               <Link href="/hire" className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
