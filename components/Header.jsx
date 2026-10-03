@@ -10,9 +10,10 @@ export default function Header() {
 
   const navigation = [
     { name: "Products", href: "/#products" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
+    { name: "AI Services", href: "/services" },
+    { name: "Case Studies", href: "/case-studies" },
     { name: "Blog", href: "/blog" },
+    { name: "About", href: "/about" },
   ];
 
   return (
@@ -62,11 +63,17 @@ export default function Header() {
           >
             GrahAI ↗
           </a>
+          <a
+            href="mailto:support@grahai.com?subject=AI Development — Let's scope it"
+            className="text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+          >
+            Get a free scope
+          </a>
           <Link
             href="/services"
             className="inline-flex items-center gap-1.5 rounded-xl bg-teal-600 px-5 py-2.5 text-xs font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors"
           >
-            Work with us <ArrowUpRight size={12} />
+            AI Services <ArrowUpRight size={12} />
           </Link>
         </div>
 
@@ -104,7 +111,7 @@ export default function Header() {
               className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-teal-600 px-4 py-3 text-sm font-semibold text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Work with us <ArrowUpRight size={14} />
+              AI Services <ArrowUpRight size={14} />
             </Link>
             <a
               href="https://www.grahai.com"

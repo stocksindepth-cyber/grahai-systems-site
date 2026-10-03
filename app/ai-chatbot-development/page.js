@@ -1,9 +1,9 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
-  title: "AI Chatbot Development Services | Custom Data Chatbots | Grah AI",
+  title: "AI Chatbot Development Company India | Custom AI Chatbots from $3,000 | GrahAI Systems",
   description:
-    "Build custom AI chatbots trained on your business data. RAG systems, multi-language support, and CRM handoff integrations. Developed by Grah AI Systems.",
+    "GrahAI Systems builds custom AI chatbots for businesses — RAG-powered, multilingual, integrated with your data. Fixed price from $3,000, delivered in 14 days. India-based, serving US, UK & EU clients.",
 };
 
 export default function page() {

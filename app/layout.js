@@ -11,9 +11,9 @@ const inter = Inter({
 
 const SITE_URL = "https://grahaisystems.com";
 const SITE_NAME = "GrahAI Systems";
-const SITE_TAGLINE = "Production-Grade AI Systems for Business.";
+const SITE_TAGLINE = "AI Development Company India — Products & AI Services";
 const SITE_DESCRIPTION =
-  "GrahAI Systems builds production-grade AI for business — AI agents, RAG, workflow automation, internal copilots and custom AI SaaS. We bring real operating experience: we also build and run our own AI products (GrahAI, OptionsGyani, AasanKhata, AgencyPitch). Bengaluru-based, building for India and the World.";
+  "GrahAI Systems is an AI development company in Bengaluru, India. We build AI agents, chatbots, and automation systems for businesses (from $3,000, 14-day delivery) — and we run our own AI products serving 10,000+ monthly users. Fixed price, you own all code. US, UK, EU & India.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,16 +26,18 @@ export const metadata = {
   },
   description: SITE_DESCRIPTION,
   keywords: [
+    "AI development company India",
+    "AI agent development",
+    "AI chatbot development India",
+    "AI automation services India",
+    "custom AI development services",
+    "hire AI developers India",
+    "LLM development services",
+    "AI implementation services",
     "GrahAI Systems",
-    "GrahAI",
-    "AI company India",
-    "Indian AI startup",
-    "Vedic astrology AI",
-    "AI Kundli",
-    "AI Jyotish",
     "Bengaluru AI company",
-    "Indian language AI",
-    "practical AI",
+    "AI company India",
+    "production AI India",
   ],
   authors: [{ name: "GrahAI Systems", url: SITE_URL }],
   creator: "GrahAI Systems",

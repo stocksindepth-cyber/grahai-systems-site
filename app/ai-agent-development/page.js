@@ -1,9 +1,9 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
-  title: "AI Agent Development Services | Autonomous Systems | Grah AI",
+  title: "AI Agent Development Company India | Build AI Agents from $3,000 | GrahAI Systems",
   description:
-    "Design and build autonomous AI agents that plan, reason, and execute workflows using custom tools. Specialist AI engineers at Grah AI Systems.",
+    "GrahAI Systems builds production AI agents for businesses — tool calling, RAG, multi-step workflows. Fixed price from $3,000, 14-day delivery. India-based, serving US, UK & EU. We run our own AI (10K+ monthly users).",
 };
 
 export default function page() {

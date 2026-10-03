@@ -1,9 +1,9 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
-  title: "AI Automation Services | Workflow & API Integration | Grah AI",
+  title: "AI Automation Services India | Business Workflow Automation | GrahAI Systems",
   description:
-    "Connect legacy systems and eliminate manual business processes with custom AI-powered workflow automations. Product engineers at Grah AI Systems.",
+    "GrahAI Systems automates business workflows with AI — document processing, lead qualification, data extraction, API integrations. Fixed price, 14-day delivery. India-based, serving US, UK & EU clients from $3,000.",
 };
 
 export default function page() {
