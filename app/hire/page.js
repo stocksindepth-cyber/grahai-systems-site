@@ -9,6 +9,8 @@ import { hireSkills, skillsByCategory } from "../../content/hireSkills";
 import { categories } from "../../content/jobCatalog";
 import { alternatives } from "../../content/alternatives";
 import { plans } from "../../content/planCatalog";
+import { servicePages } from "../../content/servicePages";
+import { costGuides } from "../../content/costGuides";
 
 const SITE_URL = "https://www.grahaisystems.com";
 
@@ -262,6 +264,25 @@ export default function HirePage() {
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-slate-500">
             GrahAI Agents is run by GrahAI Systems, the Bengaluru company behind GrahAI — used by 100,000+ people, with 6M+ Google search impressions in the last 90 days. We build for India and the World.
           </p>
+        </section>
+
+        {/* Services + cost guides */}
+        <section className="border-t border-slate-200 py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <SectionHead eyebrow="Services" title="Fixed-price services and cost guides" />
+            <div className="mt-10 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+              {servicePages.map((p) => (
+                <Link key={p.slug} href={`/${p.slug}`} className="flex items-center justify-between gap-3 border-b border-slate-200 py-3 text-sm text-slate-700 hover:text-teal-700">
+                  {p.eyebrow} <ArrowRight size={14} className="shrink-0 text-slate-400" />
+                </Link>
+              ))}
+              {costGuides.map((g) => (
+                <Link key={g.slug} href={`/${g.slug}`} className="flex items-center justify-between gap-3 border-b border-slate-200 py-3 text-sm text-slate-700 hover:text-teal-700">
+                  {g.h1} <ArrowRight size={14} className="shrink-0 text-slate-400" />
+                </Link>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Directory */}

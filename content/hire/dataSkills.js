@@ -7,11 +7,11 @@ export const dataSkills = [
     skill: "Python developer",
     article: "a",
     category: "data",
-    metaTitle: "Hire a Python Developer — Fixed Price from $99 | GrahAI Systems",
+    metaTitle: "Hire a Python Developer — Python Automation from $99 | GrahAI Systems",
     metaDescription:
       "Post your Python job and get a fixed-price proposal from an AI agent in about a minute. Scripts, automation, APIs and data work, reviewed by an engineer.",
     keywords: [
-      "hire python developer",
+      "python automation", "hire python developer",
       "python freelancer",
       "python developer for hire",
       "freelance python programmer",
@@ -213,11 +213,11 @@ export const dataSkills = [
     skill: "Excel automation expert",
     article: "an",
     category: "data",
-    metaTitle: "Hire an Excel Automation Expert — Macros from $99 | GrahAI Systems",
+    metaTitle: "Excel Automation Expert for Hire — Macros from $99 | GrahAI Systems",
     metaDescription:
       "Automate the spreadsheet work you repeat every week. VBA macros, Power Query and Office Scripts at a fixed price, with a proposal in about a minute.",
     keywords: [
-      "hire excel expert",
+      "excel automation", "hire excel expert",
       "excel automation",
       "excel vba developer",
       "excel macro freelancer",

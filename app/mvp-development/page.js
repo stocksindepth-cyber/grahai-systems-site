@@ -1,7 +1,7 @@
 import ServiceLanding, { serviceMetadata } from "../../components/seo/ServiceLanding";
 import { servicePageBySlug } from "../../content/servicePages";
 
-const page = servicePageBySlug("ai-automation-services");
+const page = servicePageBySlug("mvp-development");
 
 export const metadata = serviceMetadata(page);
 

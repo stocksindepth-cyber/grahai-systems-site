@@ -4,14 +4,14 @@
 export const webSkills = [
   {
     slug: "website-developer",
-    skill: "website developer",
+    skill: "web developer",
     article: "a",
     category: "web",
-    metaTitle: "Hire a Website Developer — Fixed Price from $99 | GrahAI Systems",
+    metaTitle: "Hire a Web Developer — Website Builds from $99 | GrahAI Systems",
     metaDescription:
       "Need a business website built or rebuilt? Post the job, get a fixed-price proposal from an AI agent in about a minute, and an engineer reviews the delivery.",
     keywords: [
-      "hire website developer",
+      "hire web developer", "freelance web developer", "hire website developer",
       "website developer for hire",
       "freelance web developer",
       "hire someone to build a website",
@@ -76,11 +76,11 @@ export const webSkills = [
     skill: "WordPress developer",
     article: "a",
     category: "web",
-    metaTitle: "Hire a WordPress Developer — Fixes & Builds from $99 | GrahAI Systems",
+    metaTitle: "WordPress Developer for Hire — Websites from $99 | GrahAI Systems",
     metaDescription:
       "Hire a WordPress developer for plugin conflicts, custom blocks, speed fixes or a theme build. Fixed-price proposal in about a minute, reviewed by an engineer.",
     keywords: [
-      "hire wordpress developer",
+      "wordpress website design", "hire wordpress developer",
       "wordpress developer for hire",
       "wordpress expert",
       "freelance wordpress developer",

@@ -7,6 +7,7 @@ import PostJobForm from "../../../components/hire/PostJobForm";
 import { HowItWorks, MarketplaceCompare, FaqList, JsonLd, SectionHead, faqSchema, breadcrumbSchema } from "../../../components/hire/HireBlocks";
 import { hireSkills, skillBySlug } from "../../../content/hireSkills";
 import { categoryById } from "../../../content/jobCatalog";
+import { serviceForCategory, pageTitleForPath } from "../../../content/seoIndex";
 
 const SITE_URL = "https://www.grahaisystems.com";
 
@@ -38,6 +39,8 @@ export default function HireSkillPage({ params }) {
   const cat = categoryById(s.category);
   const prices = s.tasks.map((t) => t.price);
   const related = s.related.map(skillBySlug).filter(Boolean);
+  const servicePath = serviceForCategory[s.category];
+  const serviceLabel = pageTitleForPath(servicePath);
   const Hire = `Hire ${s.article} ${s.skill}`;
 
   return (
@@ -192,6 +195,11 @@ export default function HireSkillPage({ params }) {
                     Hire {r.article} {r.skill}
                   </Link>
                 ))}
+                {serviceLabel && (
+                  <Link href={servicePath} className="rounded-full border border-teal-200 bg-teal-50 px-3.5 py-1.5 text-sm font-medium text-teal-800 hover:border-teal-300">
+                    {serviceLabel}
+                  </Link>
+                )}
                 <Link href="/hire" className="rounded-full px-3.5 py-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">All skills →</Link>
               </div>
             </div>

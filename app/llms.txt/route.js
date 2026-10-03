@@ -7,6 +7,8 @@ import { allFaqs } from "../../content/faqs";
 import { launchTiers } from "../../content/launchTiers";
 import { hireSkills } from "../../content/hireSkills";
 import { alternatives } from "../../content/alternatives";
+import { servicePages } from "../../content/servicePages";
+import { costGuides } from "../../content/costGuides";
 
 const SITE_URL = "https://www.grahaisystems.com";
 
@@ -30,6 +32,12 @@ A marketplace-style way to get software work done without hiring a freelancer. P
 - [Post a job](${SITE_URL}/hire/post)
 - [Monthly plans](${SITE_URL}/hire/retainer): Retainer $399/mo (unlimited requests, one at a time), Retainer Plus $799/mo (two at a time, priority), Care plan $79/mo (fixes + 2 small changes a month for something we built). Month to month, cancel anytime.
 ${hireSkills.map((s) => line(`Hire ${s.article} ${s.skill}`, `/hire/${s.slug}`, s.metaDescription)).join("\n")}
+
+## Services (fixed prices, delivered by AI agents, engineer-reviewed)
+${servicePages.map((p) => line(p.h1, `/${p.slug}`, p.metaDescription)).join("\n")}
+
+## Cost guides
+${costGuides.map((g) => line(g.h1, `/${g.slug}`, g.metaDescription)).join("\n")}
 
 ## Freelance marketplace comparisons
 ${alternatives.map((a) => line(a.slug === "fiverr-vs-upwork" ? "Fiverr vs Upwork" : `${a.competitor} alternative`, `/alternatives/${a.slug}`, a.metaDescription)).join("\n")}

@@ -211,14 +211,14 @@ export const aiSkills = [
   },
   {
     slug: "whatsapp-bot-developer",
-    skill: "WhatsApp bot developer",
+    skill: "WhatsApp chatbot developer",
     article: "a",
     category: "ai",
-    metaTitle: "Hire a WhatsApp Bot Developer — Fixed Price from $99 | GrahAI Systems",
+    metaTitle: "WhatsApp Chatbot Developer for Hire — From $99 | GrahAI Systems",
     metaDescription:
       "Hire a WhatsApp bot developer for the official Cloud API: auto-replies, order updates, template messages and AI answers. Fixed price, engineer-reviewed.",
     keywords: [
-      "hire whatsapp bot developer",
+      "whatsapp chatbot", "hire whatsapp bot developer",
       "whatsapp chatbot developer",
       "whatsapp business api integration",
       "whatsapp cloud api developer",
@@ -418,14 +418,14 @@ export const aiSkills = [
   },
   {
     slug: "n8n-expert",
-    skill: "n8n expert",
+    skill: "n8n automation expert",
     article: "an",
     category: "automation",
-    metaTitle: "Hire an n8n Expert — Fixed Price Workflows from $99 | GrahAI Systems",
+    metaTitle: "n8n Automation Expert for Hire — Fixed Price from $99 | GrahAI Systems",
     metaDescription:
       "Hire an n8n expert to build, fix or self-host your workflows: credentials, error handling, AI steps and Zapier migrations. Fixed price in about a minute.",
     keywords: [
-      "hire n8n expert",
+      "n8n automation", "hire n8n expert",
       "n8n developer",
       "n8n automation freelancer",
       "n8n workflow automation",

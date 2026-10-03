@@ -11,16 +11,20 @@ const columns = [
       { label: "How it works", href: "/hire" },
       { label: "Monthly retainer", href: "/hire/retainer" },
       { label: "vs Upwork & Fiverr", href: "/alternatives" },
+      { label: "Website cost guide", href: "/website-cost" },
+      { label: "App cost guide", href: "/app-development-cost" },
     ],
   },
   {
-    title: "AI services",
+    title: "Services",
     links: [
-      { label: "Services & pricing", href: "/services" },
-      { label: "AI agents", href: "/ai-agent-development" },
-      { label: "AI chatbots", href: "/ai-chatbot-development" },
+      { label: "Website design", href: "/website-design-services" },
+      { label: "Mobile apps", href: "/mobile-app-development" },
+      { label: "Custom software", href: "/custom-software-development" },
+      { label: "MVP development", href: "/mvp-development" },
       { label: "AI automation", href: "/ai-automation-services" },
-      { label: "Case studies", href: "/case-studies" },
+      { label: "Website maintenance", href: "/website-maintenance-services" },
+      { label: "All services & pricing", href: "/services" },
     ],
   },
   {
@@ -28,6 +32,7 @@ const columns = [
     links: [
       { label: "About", href: "/about" },
       { label: "Blog", href: "/blog" },
+      { label: "Case studies", href: "/case-studies" },
       ...products.map((p) => ({ label: p.name, href: p.url, external: true })),
       { label: "Contact", href: "mailto:support@grahai.com", plain: true },
     ],

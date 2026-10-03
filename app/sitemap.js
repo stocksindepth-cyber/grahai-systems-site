@@ -5,6 +5,8 @@ import { industries } from "../content/industries";
 import { comparisons } from "../content/comparisons";
 import { hireSkills } from "../content/hireSkills";
 import { alternatives } from "../content/alternatives";
+import { servicePages } from "../content/servicePages";
+import { costGuides } from "../content/costGuides";
 
 const SITE_URL = "https://www.grahaisystems.com";
 
@@ -106,5 +108,9 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  return [...routes, ...hireRoutes, ...alternativeRoutes, ...solutionRoutes, ...caseRoutes, ...blogRoutes, ...industryRoutes, ...compareRoutes];
+  const serviceRoutes = [...servicePages.map((p) => p.slug), ...costGuides.map((g) => g.slug)]
+    .filter((slug) => !routes.some((r) => r.url === `${SITE_URL}/${slug}`))
+    .map((slug) => ({ url: `${SITE_URL}/${slug}`, lastModified: now, changeFrequency: "weekly", priority: 0.9 }));
+
+  return [...routes, ...serviceRoutes, ...hireRoutes, ...alternativeRoutes, ...solutionRoutes, ...caseRoutes, ...blogRoutes, ...industryRoutes, ...compareRoutes];
 }
