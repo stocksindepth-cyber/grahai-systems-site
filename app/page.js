@@ -5,9 +5,9 @@ import Footer from "../components/Footer";
 import { products } from "../content/products";
 
 export const metadata = {
-  title: "GrahAI Systems — AI Intelligence for India and the World",
+  title: "GrahAI Systems — AI Products for India and the World",
   description:
-    "GrahAI Systems builds AI-powered software for India and the World. Our flagship product GrahAI brings AI-powered Vedic astrology to millions.",
+    "GrahAI Systems builds AI-powered software products used by people across India and the World. Flagship product: GrahAI, AI Vedic astrology.",
 };
 
 const stats = [
@@ -17,26 +17,9 @@ const stats = [
   { value: "Millions", label: "AI interactions / month", icon: Sparkles },
 ];
 
-const productAccentMap = {
-  grahai: {
-    badge: "bg-teal-50 text-teal-700 border-teal-200",
-    dot: "bg-teal-500",
-    btn: "bg-teal-600 hover:bg-teal-700 shadow-teal-700/20",
-    ring: "ring-teal-500/20",
-    glow: "from-teal-500/5",
-    border: "hover:border-teal-200",
-  },
-  applyvita: {
-    badge: "bg-violet-50 text-violet-700 border-violet-200",
-    dot: "bg-violet-500",
-    btn: "bg-violet-600 hover:bg-violet-700 shadow-violet-700/20",
-    ring: "ring-violet-500/20",
-    glow: "from-violet-500/5",
-    border: "hover:border-violet-200",
-  },
-};
-
 export default function Page() {
+  const grahai = products.find((p) => p.id === "grahai");
+
   return (
     <>
       <Header />
@@ -91,67 +74,55 @@ export default function Page() {
       </section>
 
       {/* Product — GrahAI flagship */}
-      {(() => {
-        const product = products.find((p) => p.id === "grahai");
-        return (
-          <section id="products" className="bg-slate-50 py-20 sm:py-28">
-            <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-              <div className="mb-12 text-center">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Our Flagship Product</span>
-                <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                  Built for India. Used by the World.
-                </h2>
+      <section id="products" className="bg-slate-50 py-20 sm:py-28">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">Our Flagship Product</span>
+            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Built for India. Used by the World.
+            </h2>
+          </div>
+
+          <div className="group relative rounded-2xl border border-slate-200 bg-white p-10 shadow-sm transition-all duration-200 hover:shadow-md hover:border-teal-200">
+            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+            <div className="relative flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex-1">
+                <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-semibold text-teal-700">
+                  {grahai.badge}
+                </span>
+                <h3 className="mt-4 font-display text-3xl font-extrabold text-slate-900 sm:text-4xl">
+                  {grahai.name}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-slate-400">{grahai.domain}</p>
+                <p className="mt-5 text-base leading-relaxed text-slate-600 max-w-xl">
+                  {grahai.blurb}
+                </p>
+                <ul className="mt-6 space-y-2.5">
+                  {grahai.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-teal-500" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="group relative rounded-2xl border border-slate-200 bg-white p-10 shadow-sm transition-all duration-200 hover:shadow-md hover:border-teal-200">
-                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                <div className="relative flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-                  <div className="flex-1">
-                    <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-semibold text-teal-700">
-                      {product.badge}
-                    </span>
-                    <h3 className="mt-4 font-display text-3xl font-extrabold text-slate-900 sm:text-4xl">
-                      {product.name}
-                    </h3>
-                    <p className="mt-1 text-sm font-medium text-slate-400">{product.domain}</p>
-                    <p className="mt-5 text-base leading-relaxed text-slate-600 max-w-xl">
-                      {product.blurb}
-                    </p>
-                    <ul className="mt-6 space-y-2.5">
-                      {product.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2.5 text-sm text-slate-700">
-                          <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-teal-500" />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-col items-start gap-3 sm:items-end">
-                    <a
-                      href={product.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors whitespace-nowrap"
-                    >
-                      Visit GrahAI <ArrowUpRight size={15} />
-                    </a>
-                    <a
-                      href={product.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-slate-400 hover:text-slate-600 transition-colors"
-                    >
-                      {product.url.replace("https://", "")}
-                    </a>
-                  </div>
-                </div>
+              <div className="flex flex-col items-start gap-3 sm:items-end">
+                <a
+                  href={grahai.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors whitespace-nowrap"
+                >
+                  Visit GrahAI <ArrowUpRight size={15} />
+                </a>
+                <span className="text-xs text-slate-400">{grahai.url.replace("https://", "")}</span>
               </div>
             </div>
-          </section>
-        );
-      })()}
+          </div>
+        </div>
+      </section>
 
       {/* Mission */}
       <section className="bg-white py-20 sm:py-28">
@@ -177,6 +148,32 @@ export default function Page() {
             >
               More about GrahAI Systems <ArrowUpRight size={14} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services teaser */}
+      <section className="bg-slate-50 py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-teal-200 bg-white p-8 sm:p-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600">New Vertical</span>
+              <h2 className="mt-2 font-display text-xl font-extrabold text-slate-900 sm:text-2xl">
+                We also build production AI for businesses
+              </h2>
+              <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate-600">
+                AI agents, workflow automation, and custom AI systems — fixed price, 14-day delivery.
+                US, UK, EU and India companies welcome.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors whitespace-nowrap"
+              >
+                See AI services <ArrowUpRight size={14} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

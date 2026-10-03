@@ -10,9 +10,9 @@ export default function Header() {
 
   const navigation = [
     { name: "Products", href: "/#products" },
+    { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "mailto:support@grahai.com" },
   ];
 
   return (
@@ -53,15 +53,21 @@ export default function Header() {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a
             href="https://www.grahai.com"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+          >
+            GrahAI ↗
+          </a>
+          <Link
+            href="/services"
             className="inline-flex items-center gap-1.5 rounded-xl bg-teal-600 px-5 py-2.5 text-xs font-semibold text-white shadow-md shadow-teal-700/20 hover:bg-teal-500 transition-colors"
           >
-            Visit GrahAI <ArrowUpRight size={12} />
-          </a>
+            Work with us <ArrowUpRight size={12} />
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -92,15 +98,22 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          <div className="pt-4 border-t border-slate-200/50">
+          <div className="pt-4 border-t border-slate-200/50 flex flex-col gap-3">
+            <Link
+              href="/services"
+              className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-teal-600 px-4 py-3 text-sm font-semibold text-white"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Work with us <ArrowUpRight size={14} />
+            </Link>
             <a
               href="https://www.grahai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-teal-600 px-4 py-3 text-sm font-semibold text-white"
+              className="text-center text-sm font-medium text-slate-500 hover:text-slate-900"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Visit GrahAI <ArrowUpRight size={14} />
+              Visit GrahAI ↗
             </a>
           </div>
         </div>
