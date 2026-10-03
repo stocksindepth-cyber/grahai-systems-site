@@ -8,6 +8,9 @@ export default function Footer() {
 
   const company = [
     { label: "About", href: "/about" },
+    { label: "Hire AI Agents", href: "/hire" },
+    { label: "Post a job", href: "/hire/post" },
+    { label: "Upwork & Fiverr alternatives", href: "/alternatives" },
     { label: "AI Services", href: "/services" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "mailto:support@grahai.com" },

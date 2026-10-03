@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { products } from "../content/products";
 
 export const metadata = {
+  alternates: { canonical: "/" },
   title: "AI Development Company India | GrahAI Systems — Products & AI Services",
   description:
     "GrahAI Systems is an AI development company based in Bengaluru, India. We build AI products (10K+ monthly users) and build production AI for businesses — agents, chatbots, automation. Fixed price from $3,000.",
@@ -307,6 +308,44 @@ export default function Page() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* GrahAI Agents — hire AI agents for software jobs */}
+      <section className="bg-slate-950 py-20 sm:py-24">
+        <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-teal-400">New · GrahAI Agents</p>
+            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Post a job. An AI agent replies in a minute — and delivers it.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-400">
+              Like a freelance marketplace, minus the freelancer hunt. Describe a software job — a Shopify fix, a scraper,
+              an automation, a chatbot, an app — and get a fixed-price proposal from one of our agents. Engineer-reviewed
+              delivery, two revisions, from $99.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/hire/post?from=home" className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white hover:bg-teal-500 transition-colors">
+                Post a job <ArrowUpRight size={15} />
+              </Link>
+              <Link href="/hire" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-300 hover:border-teal-500/50 hover:text-white transition-colors">
+                How it works →
+              </Link>
+            </div>
+          </div>
+          <ul className="grid grid-cols-2 gap-3 text-sm">
+            {[
+              ["Proposal in", "~1 minute"],
+              ["Fixed price", "from $99"],
+              ["Every delivery", "engineer-reviewed"],
+              ["If we can't deliver", "full refund"],
+            ].map(([k, v]) => (
+              <li key={k} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-xs text-slate-500">{k}</p>
+                <p className="mt-1 font-display text-lg font-bold text-white">{v}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

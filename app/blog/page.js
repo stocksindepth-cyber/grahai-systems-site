@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import { allPosts as blogPosts } from "../../content/allPosts";
 
 export const metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog & AI Insights | Grah AI Systems",
   description: "Technical guides, implementation walkthroughs, and executive strategies on building autonomous AI agents, workflow automations, and LLM systems.",
 };

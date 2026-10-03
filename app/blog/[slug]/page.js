@@ -18,6 +18,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `${post.title} | Grah AI Systems`,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
   };
 }
 

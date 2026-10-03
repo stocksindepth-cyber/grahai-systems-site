@@ -1,6 +1,7 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
+  alternates: { canonical: "/enterprise-ai-solutions" },
   title: "Enterprise AI Solutions | Transformation & Consulting | Grah AI",
   description:
     "Accelerate operations, build custom models, and deploy secure AI architectures with our enterprise-grade consulting services. Grah AI Systems.",

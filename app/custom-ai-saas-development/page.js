@@ -1,6 +1,7 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
+  alternates: { canonical: "/custom-ai-saas-development" },
   title: "Custom AI SaaS Development Services | Grah AI",
   description:
     "We build and launch enterprise-grade commercial AI web applications, from authentication and Stripe billing to LLM pipelines. Developed by Grah AI Systems.",

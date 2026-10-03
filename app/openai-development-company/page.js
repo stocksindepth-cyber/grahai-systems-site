@@ -1,6 +1,7 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
+  alternates: { canonical: "/openai-development-company" },
   title: "OpenAI Development Company | GPT-4 Integration | Grah AI",
   description:
     "Expert OpenAI integration services. We build custom applications using GPT-4o, o1, and fine-tuned OpenAI model endpoints. Grah AI Systems.",

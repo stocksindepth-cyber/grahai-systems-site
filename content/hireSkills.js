@@ -1,0 +1,12 @@
+import { webSkills } from "./hire/webSkills";
+import { aiSkills } from "./hire/aiSkills";
+import { dataSkills } from "./hire/dataSkills";
+
+export const hireSkills = [...webSkills, ...aiSkills, ...dataSkills];
+
+export const skillBySlug = (slug) => hireSkills.find((s) => s.slug === slug);
+
+export const skillsByCategory = hireSkills.reduce((acc, s) => {
+  (acc[s.category] ||= []).push(s);
+  return acc;
+}, {});

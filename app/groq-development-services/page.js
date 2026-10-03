@@ -1,6 +1,7 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
+  alternates: { canonical: "/groq-development-services" },
   title: "Groq Development Services | Ultra-Fast AI Integrations | Grah AI",
   description:
     "Deploy ultra-low latency AI pipelines using Groq LPU hardware. We build sub-100ms response systems for speech, search, and chat. Grah AI Systems.",

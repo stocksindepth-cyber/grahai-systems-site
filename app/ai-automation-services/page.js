@@ -1,6 +1,7 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
+  alternates: { canonical: "/ai-automation-services" },
   title: "AI Automation Services India | Business Workflow Automation | GrahAI Systems",
   description:
     "GrahAI Systems automates business workflows with AI — document processing, lead qualification, data extraction, API integrations. Fixed price, 14-day delivery. India-based, serving US, UK & EU clients from $3,000.",

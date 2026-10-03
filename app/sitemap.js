@@ -3,6 +3,8 @@ import { solutions } from "../content/solutions";
 import { caseStudies } from "../content/caseStudies";
 import { industries } from "../content/industries";
 import { comparisons } from "../content/comparisons";
+import { hireSkills } from "../content/hireSkills";
+import { alternatives } from "../content/alternatives";
 
 const SITE_URL = "https://grahaisystems.com";
 
@@ -28,6 +30,9 @@ export default function sitemap() {
     "/faq",
     "/about",
     "/services",
+    "/hire",
+    "/hire/post",
+    "/alternatives",
     "/glossary",
     "/ai-agent-development",
     "/ai-chatbot-development",
@@ -43,7 +48,7 @@ export default function sitemap() {
     url: `${SITE_URL}${route}`,
     lastModified: now,
     changeFrequency: route === "" || route === "/blog" ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route === "/services" ? 0.95 : route === "/solutions" || route === "/case-studies" ? 0.9 : 0.8,
+    priority: route === "" ? 1.0 : route === "/hire" ? 0.95 : route === "/services" ? 0.95 : route === "/solutions" || route === "/case-studies" ? 0.9 : 0.8,
   }));
 
   // Long-tail solution pages
@@ -86,5 +91,19 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...routes, ...solutionRoutes, ...caseRoutes, ...blogRoutes, ...industryRoutes, ...compareRoutes];
+  // Hire-an-agent skill pages + marketplace comparisons
+  const hireRoutes = hireSkills.map((s) => ({
+    url: `${SITE_URL}/hire/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+  const alternativeRoutes = alternatives.map((a) => ({
+    url: `${SITE_URL}/alternatives/${a.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...routes, ...hireRoutes, ...alternativeRoutes, ...solutionRoutes, ...caseRoutes, ...blogRoutes, ...industryRoutes, ...compareRoutes];
 }

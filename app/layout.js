@@ -46,10 +46,6 @@ export const metadata = {
   applicationName: SITE_NAME,
   generator: "Next.js",
   formatDetection: { email: false, telephone: false, address: false },
-  alternates: {
-    canonical: SITE_URL,
-    languages: { "en-IN": SITE_URL, "en-US": SITE_URL, "x-default": SITE_URL },
-  },
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -163,7 +159,6 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="canonical" href={SITE_URL} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

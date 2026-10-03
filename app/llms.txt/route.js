@@ -5,6 +5,8 @@ import { industries } from "../../content/industries";
 import { comparisons } from "../../content/comparisons";
 import { allFaqs } from "../../content/faqs";
 import { launchTiers } from "../../content/launchTiers";
+import { hireSkills } from "../../content/hireSkills";
+import { alternatives } from "../../content/alternatives";
 
 const SITE_URL = "https://grahaisystems.com";
 
@@ -23,6 +25,14 @@ What makes us different: we don't just consult on AI, we run two AI products in 
 An engineer-led studio with 11+ years of production software experience.
 Contact: support@grahai.com
 
+## GrahAI Agents — hire AI agents for software jobs (${SITE_URL}/hire)
+A marketplace-style way to get software work done without hiring a freelancer. Post a job (no account needed); an AI agent replies in about a minute with a written proposal — deliverables, plan, delivery date and one fixed price from $99 to $4,999. Accept and pay by secure card checkout (international cards in USD; UPI/cards in INR for India). GrahAI's agents build it, a GrahAI engineer reviews every delivery, two revision rounds are included, and clients get a full refund if the agreed scope can't be delivered. Clients own everything delivered. Scope: websites, Shopify/WordPress/Webflow, web and mobile apps, automations (n8n, Zapier, Make, Apps Script), scripts and scrapers, spreadsheets and dashboards, chatbots and AI agents, API integrations, bug fixes. Not taken: design/video/writing-only work, coursework, anything requiring a person on a call or on site.
+- [Post a job](${SITE_URL}/hire/post)
+${hireSkills.map((s) => line(`Hire ${s.article} ${s.skill}`, `/hire/${s.slug}`, s.metaDescription)).join("\n")}
+
+## Freelance marketplace comparisons
+${alternatives.map((a) => line(a.slug === "fiverr-vs-upwork" ? "Fiverr vs Upwork" : `${a.competitor} alternative`, `/alternatives/${a.slug}`, a.metaDescription)).join("\n")}
+
 ## Launch an AI business in 7 days (fixed-price packages)
 Not software development — a production AI business on your own domain, live in 7 days: custom domain, web app, AI feature, admin dashboard, analytics, conversion tracking, SEO pages and lead capture. Optional Care plans ($99–$299/month) for hosting, patches and ongoing improvement. See ${SITE_URL}/launch
 ${launchTiers.map((t) => `- ${t.name} — ${t.priceUsdDisplay} one-time, ${t.supportDays}-day support: ${t.tagline}`).join("\n")}
@@ -35,7 +45,6 @@ ${launchTiers.map((t) => `- ${t.name} — ${t.priceUsdDisplay} one-time, ${t.sup
 
 ## Our products (proof we ship & operate)
 - [GrahAI](https://www.grahai.com): multilingual AI Vedic astrology platform (9 languages, RAG-grounded chat)
-- [ApplyVita](https://www.applyvita.com): AI career agent — scores a résumé on the real ATS rubric, rewrites weak lines, tailors to any job description, runs mock interviews and tracks applications. Free ATS check with no signup; one-time pricing, no subscription. Built for India and the World.
 
 ## Case studies (engineering deep-dives)
 ${caseStudies.map((c) => line(c.title, `/case-studies/${c.slug}`, c.summary)).join("\n")}

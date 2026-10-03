@@ -1,6 +1,7 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
+  alternates: { canonical: "/gemini-ai-development" },
   title: "Gemini AI Development Company | Google Gemini API | Grah AI",
   description:
     "Leverage the 2-million context window and native multimodal visual parsing of Gemini 1.5 Pro. Google Gemini engineers at Grah AI Systems.",

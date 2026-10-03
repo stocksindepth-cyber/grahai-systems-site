@@ -1,6 +1,7 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
+  alternates: { canonical: "/document-processing-ai" },
   title: "AI Document Processing Services | Advanced OCR & Parsing | Grah AI",
   description:
     "Extract tables, classify records, and audit invoices automatically using Gemini and Claude Visual-Language models. Custom AI pipelines by Grah AI Systems.",

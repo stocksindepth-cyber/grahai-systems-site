@@ -1,6 +1,7 @@
 import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
+  alternates: { canonical: "/claude-ai-development" },
   title: "Claude AI Development Company | Anthropic Integration | Grah AI",
   description:
     "Design and build reasoning workflows and custom chatbots using Anthropic Claude 3.5 Sonnet and Haiku. Senior AI engineers at Grah AI Systems.",
