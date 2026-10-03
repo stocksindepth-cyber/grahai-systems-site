@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Mail, MapPin, ShieldCheck } from "lucide-react";
 import { products } from "../content/products";
+import { COMPANY } from "../content/company";
 
 const columns = [
   {
@@ -111,8 +112,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} GrahAI Systems Private Limited. All rights reserved.</p>
-          <p>Registered in Bengaluru, Karnataka, India</p>
+          <p>© {year} {COMPANY.legalName}. All rights reserved.</p>
+          <p>CIN {COMPANY.cin} · Registered office: {COMPANY.registeredAddress}</p>
         </div>
       </div>
     </footer>

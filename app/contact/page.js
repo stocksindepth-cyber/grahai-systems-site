@@ -21,8 +21,8 @@ export default function ContactPage() {
           list: [
             `<strong>Email:</strong> <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a> (fastest — we reply within 1–2 business days)`,
             `<strong>Phone:</strong> <a href="tel:+919619698372" class="text-azure-600 font-semibold">+91 96196 98372</a>`,
-            `<strong>Business name:</strong> ${COMPANY.name}`,
-            `<strong>Registered location:</strong> ${COMPANY.addressLine}`,
+            `<strong>Business name:</strong> ${COMPANY.name} (${COMPANY.legalName}, CIN ${COMPANY.cin})`,
+            `<strong>Registered office:</strong> ${COMPANY.registeredAddress}`,
             `<strong>Hours:</strong> Monday–Friday, 10:00–18:00 IST`,
           ],
         },

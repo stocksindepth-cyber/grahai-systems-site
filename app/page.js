@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, ChevronDown, Clock, Zap, Code2, BarChart3 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ChevronDown, Clock, Headphones, FileText, Target, BookOpen, Puzzle } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { products } from "../content/products";
@@ -8,7 +8,7 @@ export const metadata = {
   alternates: { canonical: "/" },
   title: "AI Development Company India | GrahAI Systems — Products & AI Services",
   description:
-    "GrahAI Systems is an AI development company based in Bengaluru, India. We build AI products (100K+ users) and build production AI for businesses — agents, chatbots, automation. Fixed price from $3,000.",
+    "Production AI agents built in 14 days, fixed price from $3,000. GrahAI Systems runs its own AI products for 100,000+ users and builds support, document, sales and knowledge agents for businesses in India and the World.",
   keywords: [
     "AI development company India",
     "AI agent development",
@@ -21,104 +21,70 @@ export const metadata = {
   ],
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What does GrahAI Systems do?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "GrahAI Systems is an AI development company based in Bengaluru, India. We build our own AI products (like GrahAI, serving 100,000+ users across 9 languages) and we build production AI systems for businesses — AI agents, chatbots, workflow automation, and custom AI SaaS.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How much does it cost to build an AI agent?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our AI Agent Sprint starts at $3,000 and is delivered in 14 days. This includes a production-ready AI agent with tool calling, integrations, admin dashboard, and deployment. For larger systems, our Full AI System package starts from $5,000. All prices are fixed — no hourly billing surprises.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How long does AI development take?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our AI Agent Sprint is delivered in 14 days. Larger custom AI systems take 3–6 weeks depending on scope. We scope the project first (2–3 days), agree on a fixed price, then build. We work fast because we've built AI in production before.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you work with international clients?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. We work with companies in the US, UK, EU, and India. Our products serve users worldwide and we're comfortable working across time zones. All communication is in English.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What makes GrahAI Systems different from other AI agencies?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We run our own AI products in production — 100,000+ users, 9 languages, and 6M+ Google search impressions in the last 90 days. When we build your AI system, we bring real operating experience: we understand production costs, latency tradeoffs, and reliability requirements because we live with them every day.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What AI models and technology do you use?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We work with Claude (Anthropic), GPT-4o (OpenAI), Gemini (Google), and open-source models like Llama. We pick the right model for your use case, cost, and latency requirements — not the most expensive one. We also build RAG systems, tool-calling agents, and multi-modal pipelines.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I see examples of AI you've built?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Our flagship product GrahAI (grahai.com) is an AI Vedic astrology platform serving 100,000+ users in 9 Indian and global languages. It uses real-time chart calculations, RAG grounding, and multilingual LLM outputs. Visit grahai.com to see a live AI system we built and operate.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you offer ongoing support after delivery?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Our Productized AI Service includes monthly improvements and monitoring for $750/mo. For sprint and project clients, we offer a 30-day post-delivery support period. You own everything we build — code, prompts, data, and infrastructure.",
-      },
-    },
-  ],
-};
-
-const services = [
+const agents = [
   {
+    title: "AI customer-support agent",
+    body: "Answers tier-1 questions from your help center and policies, and hands off to a person with the full conversation attached.",
+    icon: Headphones,
+    href: "/ai-chatbot-development",
+  },
+  {
+    title: "Document-processing workflow",
+    body: "Reads PDFs, forms and emails, pulls out the fields you need and routes them into your systems, with a review step for anything uncertain.",
+    icon: FileText,
+    href: "/document-processing-ai",
+  },
+  {
+    title: "Sales and lead agent",
+    body: "Qualifies inbound leads, researches each company and drafts the follow-up for your team to approve before it goes out.",
+    icon: Target,
+    href: "/ai-automation-services",
+  },
+  {
+    title: "Internal knowledge assistant",
+    body: "Answers staff questions from your docs, SOPs and policies, and shows the source behind every answer.",
+    icon: BookOpen,
+    href: "/ai-agent-development",
+  },
+  {
+    title: "AI feature for your SaaS",
+    body: "Adds AI inside the product you already sell: search, summaries, drafting or an in-app assistant, built on your data.",
+    icon: Puzzle,
+    href: "/custom-ai-saas-development",
+  },
+];
+
+const ladder = [
+  {
+    step: "Start small",
+    title: "Fixed-price jobs",
+    price: "$99–$999",
+    unit: "per job",
+    delivery: "1–8 days",
+    body: "One job, quoted in about a minute: a fix, an automation, a bot, a page. A low-risk way to see how we work.",
+    cta: "Get a fixed quote",
+    href: "/hire/post?from=home-ladder",
+  },
+  {
+    step: "Core build",
     title: "AI Agent Sprint",
     price: "$3,000",
-    unit: "one-time",
+    unit: "fixed price",
     delivery: "14 days",
-    desc: "One production-ready AI agent — scoped, built, deployed, handed off.",
-    icon: Zap,
+    body: "One production-ready agent, scoped, built, deployed and handed over, with a working demo at day 7 and 30 days of support.",
+    cta: "Scope my agent",
+    href: "mailto:hello@grahaisystems.com?subject=AI Agent Sprint — let's scope it",
     highlight: true,
   },
   {
-    title: "Productized AI Service",
-    price: "$2,000 + $750/mo",
-    unit: "",
-    delivery: "Ongoing",
-    desc: "Pick one workflow — we automate it end-to-end and operate it monthly.",
-    icon: BarChart3,
-    highlight: false,
-  },
-  {
-    title: "Full AI System",
-    price: "From $5,000",
-    unit: "",
-    delivery: "3–6 weeks",
-    desc: "End-to-end AI product — internal tool, customer app, or automation platform.",
-    icon: Code2,
-    highlight: false,
+    step: "Keep improving",
+    title: "Monthly retainer",
+    price: "$399 or $799",
+    unit: "per month",
+    delivery: "Cancel anytime",
+    body: "Tuning, new tools, integrations and fixes as requests, each reviewed by an engineer. Retainer Plus runs two at once.",
+    cta: "See monthly plans",
+    href: "/hire/retainer",
   },
 ];
 
@@ -146,19 +112,23 @@ const process = [
 const faqs = [
   {
     q: "What does GrahAI Systems do?",
-    a: "We're an AI development company in Bengaluru. We build our own AI products (GrahAI, 100K+ users) and build production AI for businesses — agents, chatbots, automation systems, and custom AI SaaS. Fixed price, 14-day delivery.",
+    a: "We build production AI agents for businesses: customer support, document processing, sales and lead handling, internal knowledge and AI features inside SaaS products. We also build and run our own AI products, including GrahAI, used by 100,000+ people.",
   },
   {
     q: "How much does it cost to build an AI agent?",
-    a: "Our AI Agent Sprint starts at $3,000 fixed price, delivered in 14 days. This includes a production-ready agent with integrations, admin dashboard, and deployment. Larger systems start from $5,000. We scope before you commit — no surprises.",
+    a: "Our AI Agent Sprint is $3,000 fixed, delivered in 14 days, including integrations, an admin dashboard and deployment. Smaller jobs start at $99 with a fixed quote in about a minute. Larger systems start from $5,000. We scope before you commit, so there are no surprises.",
   },
   {
     q: "How long does AI development take?",
-    a: "Our Sprint is 14 days. Full systems take 3–6 weeks. We scope first (2–3 days), agree on price and timeline, then build. We work fast because we've shipped production AI before — we know what decisions to make quickly.",
+    a: "A Sprint is 14 days, with a working demo at day 7. Full systems take 3–6 weeks. We scope first (2–3 days), agree on price and timeline, then build.",
+  },
+  {
+    q: "Can you do smaller jobs before a full agent?",
+    a: "Yes. Post the job at grahaisystems.com/hire and get a fixed price in about a minute, from $99: a fix, an automation, a bot, a page. It's a low-risk way to see how we work before committing to a Sprint.",
   },
   {
     q: "Do you work with US, UK, or EU companies?",
-    a: "Yes. We work with companies globally — US, UK, EU, and India. We're comfortable with async communication and time zones. All pricing is in USD.",
+    a: "Yes. We work with companies in India and the World, async and across time zones. All pricing is in USD.",
   },
   {
     q: "What AI models do you use?",
@@ -170,44 +140,25 @@ const faqs = [
   },
   {
     q: "Who maintains the AI after delivery?",
-    a: "You get all the code, prompts, and infra — you own it fully. We include a 30-day support window post-delivery. For ongoing operations, our Productized AI Service includes monthly monitoring and improvements for $750/mo.",
+    a: "You own all the code, prompts and infrastructure. Every Sprint includes 30 days of support after delivery. After that, a monthly retainer ($399, or $799 for two requests at once) covers tuning, new tools, integrations and fixes. Cancel anytime.",
   },
   {
-    q: "What industries do you serve?",
-    a: "We've worked across SaaS, fintech, logistics, HR/recruitment, real estate, professional services, and e-commerce. If you have a repetitive workflow that touches text, documents, or data — we can likely automate it.",
+    q: "What industries do you build for?",
+    a: "Any business with a repetitive workflow that touches text, documents or data: SaaS, fintech, logistics, HR and recruitment, real estate, professional services and e-commerce.",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ q, a }) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+};
 
 const proof = [
   { value: "100,000+", label: "People using GrahAI" },
   { value: "6M+", label: "Google search impressions, last 90 days" },
   { value: "9", label: "Languages in production" },
   { value: "11+", label: "Years of production engineering" },
-];
-
-const lines = [
-  {
-    kicker: "Product",
-    title: "GrahAI",
-    body: "Our flagship AI product — multilingual Vedic astrology used by 100,000+ people across 9 languages.",
-    cta: "Visit grahai.com",
-    href: "https://www.grahai.com",
-    external: true,
-  },
-  {
-    kicker: "Marketplace",
-    title: "GrahAI Agents",
-    body: "Post a software job and an AI agent replies with a fixed-price proposal in about a minute. From $99.",
-    cta: "Post a job",
-    href: "/hire",
-  },
-  {
-    kicker: "Services",
-    title: "AI for your business",
-    body: "Custom AI agents, chatbots and automation, built and handed over at a fixed price from $3,000.",
-    cta: "See services & pricing",
-    href: "/services",
-  },
 ];
 
 function SectionHeading({ eyebrow, title, sub, align = "left", dark = false }) {
@@ -235,24 +186,27 @@ export default function Page() {
             <div>
               <p className="eyebrow !text-teal-400">AI development company · Bengaluru, India</p>
               <h1 className="mt-5 font-display text-[2.6rem] font-semibold leading-[1.04] text-white sm:text-6xl">
-                We build AI products <span className="text-teal-400">people actually use.</span>
+                Production AI agents, <span className="text-teal-400">built in 14 days.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400">
-                GrahAI Systems is a product company and AI development studio. We ship our own AI to 100,000+ users — and we build production AI systems for businesses worldwide.
+                Fixed price from $3,000. We run our own AI products for 100,000+ people in 9 languages, and we build the same kind of system for your business.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href="#products" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
-                  Our products <ArrowRight size={15} />
+                <a href="mailto:hello@grahaisystems.com?subject=AI Agent Sprint — let's scope it" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
+                  Scope my agent <ArrowRight size={15} />
                 </a>
-                <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
-                  Build AI with us
-                </Link>
+                <a href="#build" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
+                  See what we build
+                </a>
               </div>
               <ul className="mt-8 grid max-w-lg grid-cols-2 gap-x-6 gap-y-2 text-sm text-slate-400">
-                {["From $3,000 fixed price", "14-day delivery", "US, UK, EU & India", "You own all code"].map((t) => (
+                {["$3,000 fixed price", "Working demo by day 7", "You own all code", "India and the World"].map((t) => (
                   <li key={t} className="flex items-center gap-2"><Check size={15} className="shrink-0 text-teal-400" />{t}</li>
                 ))}
               </ul>
+              <Link href="/hire/post?from=home-hero" className="mt-7 inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white">
+                Smaller job? Get a fixed quote from $99 <ArrowRight size={14} />
+              </Link>
             </div>
 
             <div className="rounded-2xl border border-white/10 p-2">
@@ -269,31 +223,123 @@ export default function Page() {
           </div>
         </section>
 
-        {/* What we do */}
-        <section className="bg-slate-50 py-20 sm:py-24">
+        {/* What we build */}
+        <section id="build" className="scroll-mt-20 py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <SectionHeading eyebrow="What we do" title="One company, three ways to work with us" />
-            <div className="mt-12 grid overflow-hidden rounded-2xl border border-slate-200 bg-white md:grid-cols-3">
-              {lines.map((l, i) => {
-                const Tag = l.external ? "a" : Link;
-                const extra = l.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+            <SectionHeading eyebrow="What we build" title="Five agents we build in a 14-day sprint" sub="Each one is scoped to a single workflow, connected to the tools you already use, and handed over with the code." />
+            <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-3">
+              {agents.map(({ title, body, icon: Icon, href }) => (
+                <Link key={title} href={href} className="group flex flex-col bg-white p-7 transition-colors hover:bg-slate-50">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-50 text-teal-700"><Icon size={18} /></span>
+                  <h3 className="mt-5 font-display text-lg font-semibold text-slate-900">{title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{body}</p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 group-hover:text-teal-800">Learn more <ArrowRight size={14} /></span>
+                </Link>
+              ))}
+              <div className="flex flex-col justify-between bg-slate-950 p-7">
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-white">Something else?</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-400">If a workflow is repetitive and touches text, documents or data, we can likely automate it. Tell us about it and we&apos;ll scope it.</p>
+                </div>
+                <a href="mailto:hello@grahaisystems.com?subject=AI workflow — can you build this?" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-400 hover:text-teal-300">
+                  Describe your workflow <ArrowUpRight size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing ladder */}
+        <section id="pricing" className="scroll-mt-20 border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading eyebrow="Pricing" title="Start small. Scale when it works." sub="Every price is fixed and agreed before work starts. The path we recommend: try one small job, then commission an agent, then keep it improving." />
+            <ol className="mt-12 grid gap-5 md:grid-cols-3">
+              {ladder.map(({ step, title, price, unit, delivery, body, cta, href, highlight }, i) => {
+                const external = href.startsWith("mailto:");
+                const Tag = external ? "a" : Link;
                 return (
-                  <div key={l.title} className={`flex flex-col p-7 sm:p-8 ${i > 0 ? "border-t border-slate-200 md:border-l md:border-t-0" : ""}`}>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">{l.kicker}</p>
-                    <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">{l.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{l.body}</p>
-                    <Tag href={l.href} {...extra} className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">
-                      {l.cta} {l.external ? <ArrowUpRight size={14} /> : <ArrowRight size={14} />}
+                  <li key={title} className={`flex flex-col rounded-2xl border bg-white p-7 ${highlight ? "border-teal-600 ring-1 ring-teal-600" : "border-slate-200"}`}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Step {i + 1} · {step}</span>
+                      {highlight && <span className="text-xs font-semibold text-teal-700">Most popular</span>}
+                    </div>
+                    <h3 className="mt-4 font-display text-xl font-semibold text-slate-900">{title}</h3>
+                    <div className="mt-3 font-display text-3xl font-semibold text-slate-900">{price}<span className="ml-1.5 text-sm font-normal text-slate-500">{unit}</span></div>
+                    <div className="mt-1 flex items-center gap-1.5 text-sm text-slate-500"><Clock size={13} /> {delivery}</div>
+                    <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-600">{body}</p>
+                    <Tag href={href} className={`mt-6 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors ${highlight ? "bg-teal-600 text-white hover:bg-teal-500" : "border border-slate-300 text-slate-800 hover:border-slate-400"}`}>
+                      {cta} <ArrowRight size={14} />
                     </Tag>
-                  </div>
+                  </li>
                 );
               })}
+            </ol>
+            <p className="mt-6 text-sm text-slate-600">
+              Bigger build? Full AI systems start from $5,000 and take 3–6 weeks.{" "}
+              <Link href="/services" className="font-semibold text-teal-700 hover:text-teal-800">See all packages</Link>
+            </p>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section className="border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading eyebrow="How a sprint works" title="Scope, build, ship in 14 days" />
+            <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+              {process.map(({ step, title, body, time }) => (
+                <li key={step} className="border-t-2 border-slate-900 pt-6">
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-display text-sm font-semibold text-slate-900">{step}</span>
+                    <span className="text-xs font-medium text-slate-500">{time}</span>
+                  </div>
+                  <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Why us */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-start lg:px-8">
+            <div>
+              <SectionHeading eyebrow="Why us" title="We don't pitch AI. We run AI." />
+              <p className="mt-5 text-base leading-relaxed text-slate-600">
+                Most AI agencies have never operated AI at scale. We have. Our products serve 100,000+ users in 9 languages and earned 6M+ Google search impressions in the last 90 days. We feel the cost, latency, and reliability tradeoffs before you do.
+              </p>
+              <ul className="mt-7 space-y-3">
+                {["11+ years of production engineering", "Real LLM cost & latency experience", "Fixed price — no hourly billing", "You own 100% of the code", "Built for India and the World"].map((point) => (
+                  <li key={point} className="flex items-center gap-3 text-sm text-slate-700"><Check size={15} className="shrink-0 text-teal-600" />{point}</li>
+                ))}
+              </ul>
+              <Link href="/services" className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">
+                See what we build <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="rounded-2xl border border-slate-200">
+              <p className="border-b border-slate-200 px-7 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Live proof</p>
+              <dl>
+                {[
+                  { label: "Users on GrahAI", value: "100,000+" },
+                  { label: "Google search impressions, last 90 days", value: "6M+" },
+                  { label: "Languages served in production", value: "9" },
+                  { label: "AI interactions per month", value: "Millions" },
+                  { label: "Countries where users live", value: "India + World" },
+                  { label: "Years of production engineering", value: "11+" },
+                ].map(({ label, value }) => (
+                  <div key={label} className="flex items-center justify-between gap-4 border-b border-slate-100 px-7 py-4 last:border-0">
+                    <dt className="text-sm text-slate-600">{label}</dt>
+                    <dd className="font-display text-base font-semibold text-slate-900">{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </section>
 
         {/* Flagship product */}
-        <section id="products" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="products" className="scroll-mt-20 border-t border-slate-200 py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <SectionHeading eyebrow="Our flagship product" title="Built for India. Used by the World." sub="Our own AI products are proof of execution — not a pitch deck. Serving real users at scale, every day." />
             <div className="mt-12 grid overflow-hidden rounded-2xl border border-slate-200 lg:grid-cols-[1.4fr_1fr]">
@@ -329,124 +375,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* GrahAI Agents */}
-        <section className="bg-slate-950 py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
-            <div>
-              <SectionHeading dark eyebrow="New · GrahAI Agents" title="Post a job. An AI agent replies in a minute — and delivers it." />
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-400">
-                Like a freelance marketplace, minus the freelancer hunt. Describe a software job — a Shopify fix, a scraper, an automation, a chatbot, an app — and get a fixed-price proposal from one of our agents. Engineer-reviewed delivery, two revisions, from $99.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/hire/post?from=home" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
-                  Post a job <ArrowRight size={15} />
-                </Link>
-                <Link href="/hire" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
-                  How it works
-                </Link>
-              </div>
-            </div>
-            <dl className="grid grid-cols-2 overflow-hidden rounded-2xl border border-white/10">
-              {[
-                ["Proposal in", "~1 minute"],
-                ["Fixed price", "from $99"],
-                ["Every delivery", "Engineer-reviewed"],
-                ["If we can't deliver", "Full refund"],
-              ].map(([k, v], i) => (
-                <div key={k} className={`p-6 ${i % 2 === 1 ? "border-l border-white/10" : ""} ${i > 1 ? "border-t border-white/10" : ""}`}>
-                  <dt className="text-xs text-slate-400">{k}</dt>
-                  <dd className="mt-1.5 font-display text-lg font-semibold text-white">{v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-
-        {/* AI services */}
-        <section className="py-20 sm:py-24">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeading eyebrow="AI services" title="We build production AI for your business" sub="Fixed scope, fixed price, real delivery. We've built AI for our own users — now we build it for yours." />
-              <Link href="/services" className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">
-                View all packages & pricing <ArrowRight size={14} />
-              </Link>
-            </div>
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
-              {services.map(({ title, price, unit, delivery, desc, icon: Icon, highlight }) => (
-                <div key={title} className={`flex flex-col rounded-2xl border bg-white p-7 ${highlight ? "border-teal-600 ring-1 ring-teal-600" : "border-slate-200"}`}>
-                  <div className="flex items-center justify-between">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-700"><Icon size={18} /></span>
-                    {highlight && <span className="text-xs font-semibold text-teal-700">Most popular</span>}
-                  </div>
-                  <h3 className="mt-5 font-display text-lg font-semibold text-slate-900">{title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{desc}</p>
-                  <div className="mt-6 border-t border-slate-100 pt-5">
-                    <div className="font-display text-2xl font-semibold text-slate-900">{price}{unit && <span className="ml-1.5 text-sm font-normal text-slate-500">{unit}</span>}</div>
-                    <div className="mt-1 flex items-center gap-1.5 text-sm text-slate-500"><Clock size={13} /> {delivery}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Process */}
-        <section className="border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <SectionHeading eyebrow="Process" title="How we work" />
-            <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-              {process.map(({ step, title, body, time }) => (
-                <li key={step} className="border-t-2 border-slate-900 pt-6">
-                  <div className="flex items-baseline justify-between">
-                    <span className="font-display text-sm font-semibold text-slate-900">{step}</span>
-                    <span className="text-xs font-medium text-slate-500">{time}</span>
-                  </div>
-                  <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        {/* Why us */}
-        <section className="py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-start lg:px-8">
-            <div>
-              <SectionHeading eyebrow="Why us" title="We don't pitch AI. We run AI." />
-              <p className="mt-5 text-base leading-relaxed text-slate-600">
-                Most AI agencies have never operated AI at scale. We have. Our products serve 100,000+ users in 9 languages and earned 6M+ Google search impressions in the last 90 days. We feel the cost, latency, and reliability tradeoffs before you do.
-              </p>
-              <ul className="mt-7 space-y-3">
-                {["11+ years of production engineering", "Real LLM cost & latency experience", "Fixed price — no hourly billing", "You own 100% of the code", "US, UK, EU & India clients"].map((point) => (
-                  <li key={point} className="flex items-center gap-3 text-sm text-slate-700"><Check size={15} className="shrink-0 text-teal-600" />{point}</li>
-                ))}
-              </ul>
-              <Link href="/services" className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800">
-                See what we build <ArrowRight size={14} />
-              </Link>
-            </div>
-            <div className="rounded-2xl border border-slate-200">
-              <p className="border-b border-slate-200 px-7 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Live proof</p>
-              <dl>
-                {[
-                  { label: "Users on GrahAI", value: "100,000+" },
-                  { label: "Google search impressions, last 90 days", value: "6M+" },
-                  { label: "Languages served in production", value: "9" },
-                  { label: "AI interactions per month", value: "Millions" },
-                  { label: "Countries where users live", value: "India + World" },
-                  { label: "Years of production engineering", value: "11+" },
-                ].map(({ label, value }) => (
-                  <div key={label} className="flex items-center justify-between gap-4 border-b border-slate-100 px-7 py-4 last:border-0">
-                    <dt className="text-sm text-slate-600">{label}</dt>
-                    <dd className="font-display text-base font-semibold text-slate-900">{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ */}
         <section className="border-t border-slate-200 bg-slate-50 py-20 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.6fr] lg:px-8">
@@ -474,15 +402,15 @@ export default function Page() {
         <section className="bg-slate-950">
           <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:py-20">
             <div className="max-w-xl">
-              <h2 className="font-display text-3xl font-semibold text-white">Tell us what you want to build</h2>
-              <p className="mt-3 text-base text-slate-400">We scope it, give you a fixed price, and deliver in 14 days. US, UK, EU and India companies welcome.</p>
+              <h2 className="font-display text-3xl font-semibold text-white">Tell us which workflow to automate</h2>
+              <p className="mt-3 text-base text-slate-400">We scope it in 2–3 days, give you a fixed price, and deliver a working agent in 14. Or start with a small job from $99.</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="mailto:hello@grahaisystems.com?subject=AI Development Enquiry — Let's scope it" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
-                Email us to start <ArrowUpRight size={15} />
+              <a href="mailto:hello@grahaisystems.com?subject=AI Agent Sprint — let's scope it" className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500">
+                Scope my agent <ArrowUpRight size={15} />
               </a>
-              <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
-                See packages & pricing
+              <Link href="/hire/post?from=home-cta" className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:text-white">
+                Get a $99+ fixed quote
               </Link>
             </div>
           </div>

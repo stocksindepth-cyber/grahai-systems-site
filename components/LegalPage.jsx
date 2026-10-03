@@ -64,11 +64,4 @@ export default function LegalPage({ title, updated, intro, sections, children })
 }
 
 // Reused across pages so the legal entity reads identically everywhere.
-export const COMPANY = {
-  name: "GrahAI Systems",
-  email: "hello@grahaisystems.com",
-  city: "Bengaluru",
-  region: "Karnataka",
-  country: "India",
-  addressLine: "Bengaluru, Karnataka, India",
-};
+export { COMPANY } from "../content/company";

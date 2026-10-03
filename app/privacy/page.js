@@ -75,7 +75,7 @@ export default function PrivacyPage() {
         {
           heading: "8. Contact",
           paragraphs: [
-            `${COMPANY.name}, ${COMPANY.addressLine}. Questions about privacy? Email <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a>.`,
+            `${COMPANY.legalName} (CIN ${COMPANY.cin}), ${COMPANY.registeredAddress}. Questions about privacy? Email <a href="mailto:hello@grahaisystems.com" class="text-azure-600 font-semibold">hello@grahaisystems.com</a>.`,
           ],
         },
       ]}
