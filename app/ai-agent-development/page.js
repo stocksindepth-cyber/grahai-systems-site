@@ -4,7 +4,7 @@ export const metadata = {
   alternates: { canonical: "/ai-agent-development" },
   title: "AI Agent Development Company India | Build AI Agents from $3,000 | GrahAI Systems",
   description:
-    "GrahAI Systems builds production AI agents for businesses — tool calling, RAG, multi-step workflows. Fixed price from $3,000, 14-day delivery. India-based, serving US, UK & EU. We run our own AI (10K+ monthly users).",
+    "GrahAI Systems builds production AI agents for businesses — tool calling, RAG, multi-step workflows. Fixed price from $3,000, 14-day delivery. India-based, serving US, UK & EU. We run our own AI (100K+ users).",
 };
 
 export default function page() {

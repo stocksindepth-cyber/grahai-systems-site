@@ -5,12 +5,15 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
   ArrowLeft, ArrowRight, Check, CheckCircle2, Clock3, Copy, CreditCard, ExternalLink, Loader2, Lock,
-  MessageSquare, PackageCheck, RotateCcw, Send, ShieldCheck, Sparkles, AlertTriangle,
+  MessageSquare, PackageCheck, RotateCcw, Send, ShieldCheck, Sparkles, AlertTriangle, LifeBuoy, Repeat,
 } from "lucide-react";
 import { saveJobLocally } from "./PostJobForm";
+import { planById } from "../../content/planCatalog";
+import { toLocalAmount, DIAL } from "../../content/jobCatalog";
 
 const STATUS = {
   proposed: { label: "Proposal ready", cls: "bg-teal-50 text-teal-700" },
+  queued: { label: "Queued", cls: "bg-slate-100 text-slate-600" },
   custom: { label: "Custom project", cls: "bg-violet-50 text-violet-700" },
   declined: { label: "Not a fit", cls: "bg-slate-100 text-slate-600" },
   in_progress: { label: "In progress", cls: "bg-amber-50 text-amber-700" },
@@ -22,7 +25,6 @@ const STATUS = {
 
 const fmtDate = (iso) => (iso ? new Date(iso).toLocaleDateString("en-US", { weekday: "short", day: "numeric", month: "short" }) : "");
 const fmtTime = (iso) => (iso ? new Date(iso).toLocaleString("en-US", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" }) : "");
-const DIAL = { US: "+1", CA: "+1", GB: "+44", IN: "+91", AU: "+61", NZ: "+64", AE: "+971", SA: "+966", QA: "+974", SG: "+65", MY: "+60", DE: "+49", FR: "+33", NL: "+31", IE: "+353", ES: "+34", IT: "+39", CH: "+41", SE: "+46", NO: "+47", DK: "+45", BE: "+32", AT: "+43", PL: "+48", PT: "+351", ZA: "+27", NG: "+234", KE: "+254", JP: "+81", HK: "+852", IL: "+972", BR: "+55", MX: "+52" };
 const initials = (s) => s.split(" ").map((w) => w[0]).slice(0, 2).join("");
 
 export default function JobRoom({ id }) {
@@ -38,6 +40,7 @@ export default function JobRoom({ id }) {
   const [copied, setCopied] = useState(false);
   const [revisionNote, setRevisionNote] = useState("");
   const [showRevision, setShowRevision] = useState(false);
+  const [startingPlan, setStartingPlan] = useState("");
   const threadBox = useRef(null);
   const checkout = params.get("checkout");
 
@@ -154,6 +157,28 @@ export default function JobRoom({ id }) {
     setRevisionNote("");
   }
 
+  async function startPlan(planId) {
+    setError("");
+    setStartingPlan(planId);
+    try {
+      const res = await fetch("/api/plans", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan: planId, fromJob: { id, key } }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Couldn't start the plan");
+      try {
+        const list = JSON.parse(localStorage.getItem("gs_hire_plans") || "[]").filter((x) => x.id !== data.id);
+        localStorage.setItem("gs_hire_plans", JSON.stringify([{ id: data.id, k: data.key, plan: planId }, ...list].slice(0, 20)));
+      } catch {}
+      window.location.href = `/hire/plans/${data.id}?k=${encodeURIComponent(data.key)}`;
+    } catch (err) {
+      setError(err.message);
+      setStartingPlan("");
+    }
+  }
+
   function copyLink() {
     navigator.clipboard?.writeText(`${window.location.origin}/hire/jobs/${id}?k=${key}`);
     setCopied(true);
@@ -236,6 +261,22 @@ export default function JobRoom({ id }) {
                   ))}
                 </ul>
               )}
+              {job.deliveries?.length > 1 && (
+                <details className="mt-5 rounded-xl bg-slate-50 px-4 py-3 text-sm">
+                  <summary className="cursor-pointer text-xs font-semibold text-slate-600">Earlier deliveries ({job.deliveries.length - 1})</summary>
+                  <div className="mt-3 space-y-4">
+                    {job.deliveries.slice(0, -1).reverse().map((d) => (
+                      <div key={d.deliveredAt} className="border-t border-slate-200 pt-3 first:border-0 first:pt-0">
+                        <div className="text-[11px] text-slate-400">{fmtTime(d.deliveredAt)}</div>
+                        <p className="mt-1 whitespace-pre-wrap text-slate-600">{d.note}</p>
+                        {d.links?.map((l) => (
+                          <a key={l} href={l} target="_blank" rel="noopener noreferrer nofollow" className="mt-1 block break-all text-xs font-semibold text-teal-700">{l}</a>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              )}
               {job.status === "delivered" && (
                 <div className="mt-6 border-t border-slate-100 pt-5">
                   {!showRevision ? (
@@ -259,6 +300,33 @@ export default function JobRoom({ id }) {
                   )}
                 </div>
               )}
+            </section>
+          )}
+
+          {job.status === "completed" && job.kind !== "plan_request" && (
+            <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
+              <h2 className="font-display text-lg font-bold text-slate-900">Keep it running, or keep building</h2>
+              <p className="mt-1 text-sm text-slate-600">Want us to stay on after this job? Month to month, cancel anytime.</p>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                {["care", "retainer"].map((pid) => {
+                  const pl = planById(pid);
+                  const Icon = pid === "care" ? LifeBuoy : Repeat;
+                  return (
+                    <div key={pid} className={`flex flex-col rounded-2xl border p-5 ${pid === "retainer" ? "border-teal-300 bg-teal-50/40" : "border-slate-200"}`}>
+                      <div className="flex items-center gap-2 text-sm font-bold text-slate-900"><Icon size={16} className="text-teal-600" /> {pl.name}</div>
+                      <div className="mt-2 font-display text-2xl font-extrabold text-slate-900">{toLocalAmount(pl.priceUsd, job.currency).display}<span className="text-sm font-medium text-slate-500">/mo</span></div>
+                      <p className="mt-1 text-xs text-slate-500">{pl.tagline}</p>
+                      <ul className="mt-3 space-y-1.5 text-xs text-slate-600">
+                        {pl.includes.slice(0, 3).map((x) => <li key={x} className="flex gap-1.5"><Check size={13} className="mt-0.5 shrink-0 text-teal-600" />{x}</li>)}
+                      </ul>
+                      <button onClick={() => startPlan(pid)} disabled={!!startingPlan} className={`mt-4 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold disabled:opacity-60 ${pid === "retainer" ? "bg-teal-600 text-white hover:bg-teal-500" : "border border-slate-200 bg-white text-slate-800 hover:bg-slate-50"}`}>
+                        {startingPlan === pid ? <Loader2 size={15} className="animate-spin" /> : null} Start {pl.name}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+              <Link href="/hire/retainer" className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-teal-700 hover:text-teal-800">Compare all plans <ArrowRight size={12} /></Link>
             </section>
           )}
 
@@ -394,7 +462,30 @@ export default function JobRoom({ id }) {
         {/* Sidebar */}
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg">
-            {p.fit === "ready" && job.priceDisplay ? (
+            {job.kind === "plan_request" ? (
+              <>
+                <div className="text-xs font-bold uppercase tracking-widest text-slate-400">Covered by your plan</div>
+                <div className="mt-1 font-display text-2xl font-extrabold text-slate-900">{job.planName}</div>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {{
+                    queued: "Queued — it starts as soon as the request ahead of it is done.",
+                    in_progress: "In progress. You'll get an email when the delivery lands here.",
+                    revision: "Revision in progress.",
+                    delivered: "Delivered — review it and approve or request changes.",
+                    completed: "Done. Send your next request from your plan room.",
+                    declined: "This one isn't a fit for our agents — see the note on the left.",
+                  }[job.status] || "The team will update you here."}
+                </p>
+                {["in_progress", "revision"].includes(job.status) && job.dueAt && (
+                  <div className="mt-3 flex items-center gap-2 text-sm text-slate-600"><Clock3 size={15} className="text-amber-500" /> Due {fmtDate(job.dueAt)}</div>
+                )}
+                {job.planUrl && (
+                  <Link href={job.planUrl} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+                    Back to your plan room
+                  </Link>
+                )}
+              </>
+            ) : p.fit === "ready" && job.priceDisplay ? (
               <>
                 <div className="text-xs font-bold uppercase tracking-widest text-slate-400">Fixed price</div>
                 <div className="mt-1 font-display text-4xl font-extrabold text-slate-900">{job.priceDisplay}</div>

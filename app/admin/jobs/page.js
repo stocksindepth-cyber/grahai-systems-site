@@ -8,9 +8,10 @@ import { Loader2, ShieldCheck, Copy, Check, RefreshCw, ExternalLink, ChevronDown
 import { auth } from "../../../lib/firebaseClient";
 import { useAuth } from "../../../components/AuthProvider";
 
-const STATUSES = ["proposed", "in_progress", "revision", "delivered", "completed", "custom", "declined", "cancelled"];
+const STATUSES = ["proposed", "queued", "in_progress", "revision", "delivered", "completed", "custom", "declined", "cancelled"];
 const color = {
   proposed: "bg-teal-100 text-teal-700",
+  queued: "bg-sky-100 text-sky-700",
   in_progress: "bg-amber-100 text-amber-800",
   revision: "bg-orange-100 text-orange-800",
   delivered: "bg-emerald-100 text-emerald-700",
@@ -29,7 +30,7 @@ function agentBrief(j) {
     .join("\n\n");
   return `# Client job: ${p.title || j.title}
 
-Client: ${j.name || "—"} <${j.email}> (${j.country}) · paid ${j.priceDisplay} · due ${j.dueAt ? new Date(j.dueAt).toDateString() : "—"}
+Client: ${j.name || "—"} <${j.email}> (${j.country}) · ${j.kind === "plan_request" ? `covered by ${j.planName}` : `paid ${j.priceDisplay}`} · due ${j.dueAt ? new Date(j.dueAt).toDateString() : "—"}
 Job room (client-facing): ${j.roomUrl}
 
 ## Client brief
@@ -130,7 +131,7 @@ export default function AdminJobsPage() {
   }
 
   const list = (jobs || []).filter((j) =>
-    filter === "all" ? true : filter === "active" ? ["in_progress", "revision", "delivered"].includes(j.status) || (j.status === "proposed") : j.status === filter,
+    filter === "all" ? true : filter === "active" ? ["queued", "in_progress", "revision", "delivered", "proposed"].includes(j.status) : j.status === filter,
   );
   const paidTotal = (jobs || []).filter((j) => j.paid);
   const counts = STATUSES.reduce((a, s) => ({ ...a, [s]: (jobs || []).filter((j) => j.status === s).length }), {});
@@ -143,6 +144,7 @@ export default function AdminJobsPage() {
             <Link href="/">GrahAI Systems</Link>
             <span className="text-slate-300">/</span>
             <span>Hire jobs</span>
+            <Link href="/admin/plans" className="text-xs font-semibold text-slate-500 hover:text-slate-900">Plans →</Link>
             <Link href="/admin/leads" className="text-xs font-semibold text-slate-500 hover:text-slate-900">Leads →</Link>
           </div>
           <button onClick={loadList} className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-900"><RefreshCw size={13} /> Refresh</button>
@@ -176,12 +178,15 @@ export default function AdminJobsPage() {
                 <button onClick={() => expand(j.id)} className="flex w-full items-start gap-3 p-4 text-left">
                   <span className={`mt-0.5 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${color[j.status] || "bg-slate-100"}`}>{j.status.replace("_", " ")}</span>
                   <div className="min-w-0 flex-1">
-                    <div className="truncate text-sm font-semibold text-slate-900">{j.proposal?.title || j.title}</div>
+                    <div className="truncate text-sm font-semibold text-slate-900">
+                      {j.planName && <span className="mr-2 rounded bg-violet-100 px-1.5 py-0.5 text-[10px] font-bold uppercase text-violet-700">{j.planName}</span>}
+                      {j.proposal?.title || j.title}
+                    </div>
                     <div className="mt-0.5 text-xs text-slate-500">{j.email} · {j.country} · {j.categoryName} · {fmt(j.createdAt)}{j.source ? ` · via ${j.source}` : ""}</div>
                   </div>
                   <div className="text-right text-xs">
-                    <div className="font-bold text-slate-900">{j.priceDisplay || "—"}</div>
-                    <div className={j.paid ? "font-semibold text-emerald-600" : "text-slate-400"}>{j.paid ? "PAID" : j.paymentStatus}</div>
+                    <div className="font-bold text-slate-900">{j.kind === "plan_request" ? "Plan" : j.priceDisplay || "—"}</div>
+                    <div className={j.paid || j.paymentStatus === "covered" ? "font-semibold text-emerald-600" : "text-slate-400"}>{j.paid ? "PAID" : j.paymentStatus}</div>
                   </div>
                   {open === j.id ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
                 </button>

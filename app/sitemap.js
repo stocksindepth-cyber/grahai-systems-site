@@ -32,6 +32,7 @@ export default function sitemap() {
     "/services",
     "/hire",
     "/hire/post",
+    "/hire/retainer",
     "/alternatives",
     "/glossary",
     "/ai-agent-development",

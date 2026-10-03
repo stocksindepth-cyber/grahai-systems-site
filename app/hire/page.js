@@ -8,6 +8,7 @@ import {
 import { hireSkills, skillsByCategory } from "../../content/hireSkills";
 import { categories } from "../../content/jobCatalog";
 import { alternatives } from "../../content/alternatives";
+import { plans } from "../../content/planCatalog";
 
 const SITE_URL = "https://www.grahaisystems.com";
 
@@ -207,6 +208,33 @@ export default function HirePage() {
           </div>
         </section>
 
+        {/* Monthly plans */}
+        <section className="bg-navy-gradient py-16">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-teal-300">Monthly plans</p>
+              <h2 className="mt-2 font-display text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Need work every month? Keep an AI dev team on call.</h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+                The Retainer gives you unlimited requests for one monthly price, worked one at a time and reviewed by an engineer. The Care plan keeps something we built for you running. Cancel anytime.
+              </p>
+              <Link href="/hire/retainer" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-teal-500 px-5 py-3 text-sm font-bold text-white hover:bg-teal-400">
+                See monthly plans <ArrowRight size={15} />
+              </Link>
+            </div>
+            <ul className="grid gap-3 text-sm sm:grid-cols-3 lg:grid-cols-1">
+              {plans.map((p) => (
+                <li key={p.id} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+                  <div>
+                    <div className="font-semibold text-white">{p.name}</div>
+                    <div className="text-xs text-slate-400">{p.tagline}</div>
+                  </div>
+                  <div className="font-display text-xl font-extrabold text-white">${p.priceUsd}<span className="text-xs font-medium text-slate-400">/mo</span></div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* Agents */}
         <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
           <SectionHead eyebrow="Meet the agents" title="Specialist agents for every kind of software job" sub="Each agent is set up for its field. Pick a category when you post, or let us route it." />
@@ -233,7 +261,7 @@ export default function HirePage() {
           <SectionHead eyebrow="Our promise" title="Built so you can't lose money on a job" />
           <div className="mt-10"><Guarantees /></div>
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-slate-500">
-            GrahAI Agents is run by GrahAI Systems, the Bengaluru company that builds and runs its own AI products for India and the World.
+            GrahAI Agents is run by GrahAI Systems, the Bengaluru company behind GrahAI — used by 100,000+ people, with 6M+ Google search impressions in the last 90 days. We build for India and the World.
           </p>
         </section>
 

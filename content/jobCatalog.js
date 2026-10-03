@@ -42,6 +42,19 @@ export const timelines = [
   { id: "flexible", label: "Flexible" },
 ];
 
+// India pays INR (rounded up so it never lands below the USD price); everyone
+// else pays USD. Shared by the server (amounts charged) and the UI (display).
+export function toLocalAmount(usd, currency) {
+  if (currency === "INR") {
+    const inr = Math.ceil((usd * USD_TO_INR) / 100) * 100 - 1;
+    return { minor: inr * 100, display: `₹${inr.toLocaleString("en-IN")}` };
+  }
+  return { minor: Math.round(usd * 100), display: `$${usd.toLocaleString("en-US")}` };
+}
+
+export const DIAL = { US: "+1", CA: "+1", GB: "+44", IN: "+91", AU: "+61", NZ: "+64", AE: "+971", SA: "+966", QA: "+974", SG: "+65", MY: "+60", DE: "+49", FR: "+33", NL: "+31", IE: "+353", ES: "+34", IT: "+39", CH: "+41", SE: "+46", NO: "+47", DK: "+45", BE: "+32", AT: "+43", PL: "+48", PT: "+351", ZA: "+27", NG: "+234", KE: "+254", JP: "+81", HK: "+852", IL: "+972", BR: "+55", MX: "+52" };
+export const dialFor = (country) => (DIAL[country] ? `${DIAL[country]} ` : "+");
+
 export const categoryById = (id) => categories.find((c) => c.id === id) || categories[categories.length - 1];
 
 // Shared grounding handed to the proposal + chat agents.

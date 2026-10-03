@@ -8,7 +8,7 @@ export const metadata = {
   alternates: { canonical: "/" },
   title: "AI Development Company India | GrahAI Systems — Products & AI Services",
   description:
-    "GrahAI Systems is an AI development company based in Bengaluru, India. We build AI products (10K+ monthly users) and build production AI for businesses — agents, chatbots, automation. Fixed price from $3,000.",
+    "GrahAI Systems is an AI development company based in Bengaluru, India. We build AI products (100K+ users) and build production AI for businesses — agents, chatbots, automation. Fixed price from $3,000.",
   keywords: [
     "AI development company India",
     "AI agent development",
@@ -30,7 +30,7 @@ const faqSchema = {
       name: "What does GrahAI Systems do?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GrahAI Systems is an AI development company based in Bengaluru, India. We build our own AI products (like GrahAI, serving 10,000+ monthly users across 9 languages) and we build production AI systems for businesses — AI agents, chatbots, workflow automation, and custom AI SaaS.",
+        text: "GrahAI Systems is an AI development company based in Bengaluru, India. We build our own AI products (like GrahAI, serving 100,000+ users across 9 languages) and we build production AI systems for businesses — AI agents, chatbots, workflow automation, and custom AI SaaS.",
       },
     },
     {
@@ -62,7 +62,7 @@ const faqSchema = {
       name: "What makes GrahAI Systems different from other AI agencies?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We run our own AI products in production — 10,000+ monthly users, 9 languages, millions of AI interactions/month. When we build your AI system, we bring real operating experience: we understand production costs, latency tradeoffs, and reliability requirements because we live with them every day.",
+        text: "We run our own AI products in production — 100,000+ users, 9 languages, and 6M+ Google search impressions in the last 90 days. When we build your AI system, we bring real operating experience: we understand production costs, latency tradeoffs, and reliability requirements because we live with them every day.",
       },
     },
     {
@@ -78,7 +78,7 @@ const faqSchema = {
       name: "Can I see examples of AI you've built?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Our flagship product GrahAI (grahai.com) is an AI Vedic astrology platform serving 10,000+ monthly users in 9 Indian and global languages. It uses real-time chart calculations, RAG grounding, and multilingual LLM outputs. Visit grahai.com to see a live AI system we built and operate.",
+        text: "Yes. Our flagship product GrahAI (grahai.com) is an AI Vedic astrology platform serving 100,000+ users in 9 Indian and global languages. It uses real-time chart calculations, RAG grounding, and multilingual LLM outputs. Visit grahai.com to see a live AI system we built and operate.",
       },
     },
     {
@@ -93,9 +93,9 @@ const faqSchema = {
 };
 
 const stats = [
-  { value: "10,000+", label: "Monthly users", icon: Users },
+  { value: "100,000+", label: "Users on GrahAI", icon: Users },
   { value: "9", label: "Languages", icon: Languages },
-  { value: "Millions", label: "AI interactions/mo", icon: Sparkles },
+  { value: "6M+", label: "Google search impressions (90 days)", icon: Sparkles },
   { value: "India + World", label: "Where we operate", icon: Globe2 },
 ];
 
@@ -153,7 +153,7 @@ const process = [
 const faqs = [
   {
     q: "What does GrahAI Systems do?",
-    a: "We're an AI development company in Bengaluru. We build our own AI products (GrahAI, 10K+ monthly users) and build production AI for businesses — agents, chatbots, automation systems, and custom AI SaaS. Fixed price, 14-day delivery.",
+    a: "We're an AI development company in Bengaluru. We build our own AI products (GrahAI, 100K+ users) and build production AI for businesses — agents, chatbots, automation systems, and custom AI SaaS. Fixed price, 14-day delivery.",
   },
   {
     q: "How much does it cost to build an AI agent?",
@@ -173,7 +173,7 @@ const faqs = [
   },
   {
     q: "Can I see AI you've already built?",
-    a: "Yes — GrahAI (grahai.com) is a live example. It's an AI astrology platform we built and operate: 10,000+ monthly users, 9 languages, real-time chart calculations, RAG grounding. That's the production standard we bring to every client build.",
+    a: "Yes — GrahAI (grahai.com) is a live example. It's an AI astrology platform we built and operate: 100,000+ users, 9 languages, real-time chart calculations, RAG grounding. That's the production standard we bring to every client build.",
   },
   {
     q: "Who maintains the AI after delivery?",
@@ -213,7 +213,7 @@ export default function Page() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
             GrahAI Systems is a product company and AI development studio in Bengaluru. We ship our own AI
-            to 10,000+ monthly users — and we build production AI systems for businesses worldwide.
+            to 100,000+ users — and we build production AI systems for businesses worldwide.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
@@ -290,8 +290,8 @@ export default function Page() {
               </div>
               <div className="flex flex-col items-start gap-3 sm:items-end sm:pt-2">
                 <div className="text-right">
-                  <p className="text-xs text-slate-500">Live users</p>
-                  <p className="font-display text-2xl font-extrabold text-teal-600">10,000+</p>
+                  <p className="text-xs text-slate-500">Users</p>
+                  <p className="font-display text-2xl font-extrabold text-teal-600">100,000+</p>
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-slate-500">Languages</p>
@@ -443,8 +443,8 @@ export default function Page() {
                 We don't pitch AI.<br />We run AI.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-slate-600">
-                Most AI agencies have never operated AI at scale. We have. Our products serve 10,000+ monthly users
-                in 9 languages with millions of AI interactions every month. We feel the cost, latency, and reliability
+                Most AI agencies have never operated AI at scale. We have. Our products serve 100,000+ users
+                in 9 languages and earned 6M+ Google search impressions in the last 90 days. We feel the cost, latency, and reliability
                 tradeoffs before you do.
               </p>
               <ul className="mt-6 space-y-3">
@@ -474,7 +474,8 @@ export default function Page() {
               <p className="text-xs font-bold uppercase tracking-widest text-teal-600 mb-6">Live proof</p>
               <div className="space-y-5">
                 {[
-                  { label: "Monthly active users on GrahAI", value: "10,000+" },
+                  { label: "Users on GrahAI", value: "100,000+" },
+                  { label: "Google search impressions, last 90 days", value: "6M+" },
                   { label: "Languages served in production", value: "9" },
                   { label: "AI interactions per month", value: "Millions" },
                   { label: "Countries where users live", value: "India + World" },

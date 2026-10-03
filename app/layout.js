@@ -13,7 +13,7 @@ const SITE_URL = "https://www.grahaisystems.com";
 const SITE_NAME = "GrahAI Systems";
 const SITE_TAGLINE = "AI Development Company India — Products & AI Services";
 const SITE_DESCRIPTION =
-  "GrahAI Systems is an AI development company in Bengaluru, India. We build AI agents, chatbots, and automation systems for businesses (from $3,000, 14-day delivery) — and we run our own AI products serving 10,000+ monthly users. Fixed price, you own all code. US, UK, EU & India.";
+  "GrahAI Systems is an AI development company in Bengaluru, India. We build AI agents, chatbots, and automation systems for businesses (from $3,000, 14-day delivery) — and we run our own AI products serving 100,000+ users. Fixed price, you own all code. US, UK, EU & India.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),

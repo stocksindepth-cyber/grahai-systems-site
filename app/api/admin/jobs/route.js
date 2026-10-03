@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { FieldValue } from "firebase-admin/firestore";
 import { adminFromRequest } from "../../../../lib/firebaseAdmin";
+import { loadPlanById, promoteQueued } from "../../../../lib/plans";
 import {
   jobsCol,
   loadJobById,
@@ -14,13 +16,14 @@ import {
 
 export const runtime = "nodejs";
 
-const STATUSES = ["proposed", "custom", "declined", "in_progress", "delivered", "revision", "completed", "cancelled"];
+const STATUSES = ["proposed", "queued", "custom", "declined", "in_progress", "delivered", "revision", "completed", "cancelled"];
 
 const adminView = (job, messages) => ({
   ...clientView(job, messages),
   country: job.country,
   source: job.source || "",
   paymentStatus: job.payment?.status || "unpaid",
+  membershipId: job.membershipId || null,
   paymentId: job.payment?.paymentId || null,
   roomUrl: jobUrl(job),
 });
@@ -69,7 +72,8 @@ export async function POST(request) {
       .filter((l) => /^https:\/\//i.test(l))
       .slice(0, 10);
     if (!note) return NextResponse.json({ error: "Add a delivery note" }, { status: 400 });
-    await ref.update({ status: "delivered", delivery: { note, links, deliveredAt: new Date() }, updatedAt: new Date() });
+    const delivery = { note, links, deliveredAt: new Date() };
+    await ref.update({ status: "delivered", delivery, deliveries: FieldValue.arrayUnion(delivery), updatedAt: new Date() });
     await addMessage(job.id, "system", "Delivery is ready for your review.", { kind: "delivered" });
     await notifyClient(
       job,
@@ -80,6 +84,9 @@ export async function POST(request) {
   } else if (body.action === "status") {
     if (!STATUSES.includes(body.status)) return NextResponse.json({ error: "Bad status" }, { status: 400 });
     await ref.update({ status: body.status, updatedAt: new Date() });
+    if (job.kind === "plan_request" && ["completed", "cancelled", "declined"].includes(body.status)) {
+      await promoteQueued(await loadPlanById(job.membershipId));
+    }
   } else if (body.action === "check_payment") {
     await reconcilePayment(job.id);
   } else {

@@ -3,10 +3,18 @@
   "buildCommand": "next build",
   "devCommand": "next dev",
   "installCommand": "npm install",
-  "regions": ["bom1"],
+  "regions": [
+    "bom1"
+  ],
   "git": {
     "deploymentEnabled": {
       "main": true
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/plans",
+      "schedule": "30 3 * * *"
+    }
+  ]
 }

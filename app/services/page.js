@@ -11,7 +11,7 @@ const SITE_URL = "https://www.grahaisystems.com";
 export const metadata = {
   title: "AI Agent Development Company India | Fixed Price, 14-Day Delivery | GrahAI Systems",
   description:
-    "GrahAI Systems builds AI agents, chatbots, and automation systems for businesses — fixed price from $3,000, delivered in 14 days. We run our own AI serving 10K+ users. US, UK, EU & India.",
+    "GrahAI Systems builds AI agents, chatbots, and automation systems for businesses — fixed price from $3,000, delivered in 14 days. We run our own AI serving 100K+ users. US, UK, EU & India.",
   keywords: [
     "AI agent development company",
     "AI agent development India",
@@ -130,7 +130,7 @@ const faqSchema = {
       name: "Can I see examples of AI systems you've built?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Our flagship product GrahAI (grahai.com) is a live production AI system we built and operate — 10,000+ monthly users, 9 languages, real-time Vedic astrology chart calculations, RAG-grounded responses, and multilingual LLM outputs. That's the standard we bring to every client build.",
+        text: "Yes. Our flagship product GrahAI (grahai.com) is a live production AI system we built and operate — 100,000+ users, 9 languages, real-time Vedic astrology chart calculations, RAG-grounded responses, and multilingual LLM outputs. That's the standard we bring to every client build.",
       },
     },
     {
@@ -262,7 +262,7 @@ const comparisonRows = [
   { label: "Pricing model", us: "Fixed price per project", them: "Hourly / daily rate" },
   { label: "Delivery timeline", us: "14 days (Sprint)", them: "3–6 months typically" },
   { label: "You own the code", us: true, them: "Sometimes (check contract)" },
-  { label: "Production AI experience", us: "10K+ monthly users", them: "Demos and POCs" },
+  { label: "Production AI experience", us: "100K+ users", them: "Demos and POCs" },
   { label: "Minimum engagement", us: "$3,000 / 14 days", them: "$20,000+ / 3 months" },
   { label: "Multilingual AI capability", us: "9 languages proven", them: "English-first typically" },
   { label: "NDA on day one", us: true, them: "Usually yes" },
@@ -341,7 +341,7 @@ export default function ServicesPage() {
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
                 We build AI agents, chatbots, and automation systems — fixed scope, fixed price, real delivery.
-                We've shipped production AI to 10,000+ monthly users. We bring that same discipline to your build.
+                We've shipped production AI to 100,000+ users. We bring that same discipline to your build.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -377,9 +377,9 @@ export default function ServicesPage() {
             </p>
             <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
               {[
-                { v: "10,000+", l: "Monthly users on GrahAI" },
+                { v: "100,000+", l: "Users on GrahAI" },
                 { v: "9", l: "Languages in production" },
-                { v: "Millions", l: "AI interactions / month" },
+                { v: "6M+", l: "Google search impressions (90 days)" },
                 { v: "11+", l: "Years production engineering" },
               ].map(({ v, l }) => (
                 <div key={l} className="text-center">
@@ -583,7 +583,7 @@ export default function ServicesPage() {
                 {
                   icon: Sparkles,
                   title: "We operate our own AI in production",
-                  body: "GrahAI serves 10,000+ users/month across 9 languages. We feel the cost, latency, and reliability tradeoffs every day — before you do.",
+                  body: "GrahAI serves 100,000+ users across 9 languages. We feel the cost, latency, and reliability tradeoffs every day — before you do.",
                 },
                 {
                   icon: ShieldCheck,

@@ -8,7 +8,9 @@ import {
   jobsCol,
   reconcilePayment,
   notifyTeam,
+  notifyClient,
 } from "../../../../lib/jobs";
+import { loadPlanById, promoteQueued } from "../../../../lib/plans";
 
 export const runtime = "nodejs";
 
@@ -50,6 +52,17 @@ export async function POST(request, { params }) {
     await ref.update({ status: "completed", completedAt: new Date(), updatedAt: new Date() });
     await addMessage(job.id, "system", "Client approved the delivery. Job complete.", { kind: "completed" });
     await notifyTeam(job, "✅ Approved & completed", `${job.email} approved the delivery.`);
+    if (job.kind === "plan_request") {
+      await promoteQueued(await loadPlanById(job.membershipId));
+    } else {
+      await notifyClient(
+        job,
+        "Thanks — your job is complete",
+        `<p style="margin:0 0 14px">Thanks for approving the delivery for <strong>${job.title.replace(/[<>&]/g, "")}</strong>. Everything we built is yours.</p>
+         <p style="margin:0">Want us to keep it running? A <strong>Care plan</strong> covers fixes and small changes every month, and a <strong>Retainer</strong> gives you an AI dev team on call for new work. Both are on your job page and can be cancelled anytime.</p>`,
+        `Thanks for approving "${job.title}". Keep it running with a Care plan, or get a Retainer for ongoing work — both are on your job page.`,
+      );
+    }
   } else if (body.action === "request_revision") {
     const note = String(body.note || "").trim().slice(0, 3000);
     if (job.status !== "delivered") return NextResponse.json({ error: "Revisions open once a delivery lands." }, { status: 400 });

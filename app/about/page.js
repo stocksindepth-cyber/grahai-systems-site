@@ -33,7 +33,7 @@ const values = [
 ];
 
 const stats = [
-  { value: "10,000+", label: "Monthly users", sub: "Across GrahAI and ApplyVita" },
+  { value: "100,000+", label: "Users", sub: "On GrahAI, across 9 languages" },
   { value: "9", label: "Languages", sub: "AI in your own language" },
   { value: "2", label: "Products live", sub: "Built and operated in-house" },
   { value: "11+", label: "Years of software engineering", sub: "Production discipline, not demos" },
