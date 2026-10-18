@@ -8,7 +8,7 @@ import { faqCategories, allFaqs } from "../../content/faqs";
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
-  title: "AI Development FAQ — Cost, Timelines & Process | GrahAI Systems",
+  title: "AI Development FAQ: Cost, Timelines & Process | GrahAI",
   description:
     "Straight answers about building AI: what GrahAI Systems builds, how much AI projects cost, timelines, integrations, security, and how to start. By a studio that operates its own AI products.",
   alternates: { canonical: `${SITE_URL}/faq` },

@@ -8,7 +8,7 @@ import { alternatives } from "../../content/alternatives";
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
-  title: "Upwork & Fiverr Alternatives for Software Jobs | GrahAI Systems",
+  title: "Upwork & Fiverr Alternatives for Software Jobs | GrahAI",
   description:
     "Honest comparisons of Upwork, Fiverr, Toptal, Freelancer.com and PeoplePerHour — and when an AI agent with a fixed price is the faster way to get a software job done.",
   keywords: ["upwork alternatives", "fiverr alternatives", "sites like upwork", "sites like fiverr", "freelance marketplace alternatives"],

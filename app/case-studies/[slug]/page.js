@@ -1,3 +1,4 @@
+import { fitTitle } from "../../../lib/seoTitle";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check, Cpu, AlertTriangle, Trophy, Lightbulb } from "lucide-react";
@@ -23,7 +24,7 @@ export function generateMetadata({ params }) {
   const cs = caseStudies.find((c) => c.slug === params.slug);
   if (!cs) return {};
   return {
-    title: `${cs.title} | GrahAI Systems Case Study`,
+    title: fitTitle(cs.seoTitle ? `${cs.seoTitle} | GrahAI Systems` : `${cs.title} | GrahAI Systems Case Study`),
     description: cs.summary,
     alternates: { canonical: `${SITE_URL}/case-studies/${cs.slug}` },
     openGraph: {

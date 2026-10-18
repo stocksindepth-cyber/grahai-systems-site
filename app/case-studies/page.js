@@ -6,7 +6,7 @@ import ContactSection from "../../components/ContactSection";
 import { caseStudies } from "../../content/caseStudies";
 
 export const metadata = {
-  title: "AI Engineering Case Studies — Production Systems We Build & Run",
+  title: "AI Case Studies: Production Systems We Build & Run",
   description:
     "Deep technical case studies from GrahAI Systems: the problem, architecture, AI stack, engineering challenges, results and lessons behind the four production AI products we own and operate.",
   alternates: { canonical: "https://www.grahaisystems.com/case-studies" },

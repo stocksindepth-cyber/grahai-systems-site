@@ -16,6 +16,7 @@ export const caseStudies = [
     ],
     category: 'Consumer AI · Multilingual RAG',
     title: 'How we built a multilingual AI astrology platform that grounds every answer in a real birth chart',
+    seoTitle: 'Case Study: Multilingual AI Astrology Platform',
     summary: `A consumer-scale Vedic astrology product where the AI never hallucinates planetary positions — it answers over a chart we compute ourselves, in 9 Indian languages, with a self-healing report pipeline on serverless.`,
     accent: 'azure',
     metrics: [
@@ -88,6 +89,7 @@ export const caseStudies = [
     ],
     category: 'Career AI · SEO · Cost-Smart Routing',
     title: 'How we built an ATS-optimising résumé platform with cost-smart AI routing and a programmatic SEO engine for India',
+    seoTitle: 'Case Study: AI Résumé Platform with Cost-Smart Routing',
     summary: `A career AI product that routes each task to the cheapest model tier that can do it well — cutting inference cost without degrading output — with a programmatic SEO layer capturing high-intent job-search traffic in India.`,
     accent: 'violet',
     metrics: [

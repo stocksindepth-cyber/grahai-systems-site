@@ -2,10 +2,24 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, ChevronDown, MessageSquare, ShieldCheck, Zap } from "lucide-react";
 import Header from "./Header";
 import Footer from "./Footer";
 import ContactSection from "./ContactSection";
+
+// Every page built on this template links to its siblings, so none of them is orphaned.
+const AI_PAGES = [
+  { href: "/ai-agent-development", label: "AI agent development" },
+  { href: "/ai-chatbot-development", label: "AI chatbot development" },
+  { href: "/document-processing-ai", label: "Document processing AI" },
+  { href: "/custom-ai-saas-development", label: "Custom AI SaaS" },
+  { href: "/enterprise-ai-solutions", label: "Enterprise AI solutions" },
+  { href: "/claude-ai-development", label: "Claude AI development" },
+  { href: "/openai-development-company", label: "OpenAI development" },
+  { href: "/gemini-ai-development", label: "Gemini AI development" },
+  { href: "/groq-development-services", label: "Groq development" },
+];
 
 export default function SEOLandingTemplate({
   pageTitle,
@@ -22,6 +36,7 @@ export default function SEOLandingTemplate({
   faqs,
 }) {
   const [openFaq, setOpenFaq] = useState(null);
+  const pathname = usePathname();
 
   const toggleFaq = (idx) => {
     setOpenFaq(openFaq === idx ? null : idx);
@@ -185,6 +200,17 @@ export default function SEOLandingTemplate({
               })}
             </div>
           </section>
+
+          <nav aria-label="More AI services" className="mt-16 border-t border-slate-200 pt-8">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">More AI services</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {AI_PAGES.filter((p) => p.href !== pathname).map((p) => (
+                <Link key={p.href} href={p.href} className="rounded-full border border-slate-200 px-3.5 py-1.5 text-sm text-slate-700 hover:border-teal-300 hover:text-teal-700">{p.label}</Link>
+              ))}
+              <Link href="/solutions" className="rounded-full border border-slate-200 px-3.5 py-1.5 text-sm text-slate-700 hover:border-teal-300 hover:text-teal-700">Solutions by use case</Link>
+              <Link href="/industries" className="rounded-full border border-slate-200 px-3.5 py-1.5 text-sm text-slate-700 hover:border-teal-300 hover:text-teal-700">Solutions by industry</Link>
+            </div>
+          </nav>
         </div>
       </main>
 

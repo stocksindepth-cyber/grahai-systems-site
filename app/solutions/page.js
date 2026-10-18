@@ -8,7 +8,7 @@ import { solutions } from "../../content/solutions";
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
-  title: "AI Solutions — Agents, RAG & Workflow Automation | GrahAI Systems",
+  title: "AI Solutions: Agents, RAG & Automation | GrahAI Systems",
   description:
     "Production-grade AI solutions for business: AI agent development, RAG & private GPT, and AI workflow automation — by industry and by use case. Built by a studio that runs its own AI products.",
   alternates: { canonical: `${SITE_URL}/solutions` },

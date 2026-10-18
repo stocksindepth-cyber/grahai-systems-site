@@ -7,6 +7,10 @@ const nextConfig = {
     formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 60 * 60 * 24 * 365,
   },
+  // /pricing listed retired packages that contradicted the current ladder; send it to /services.
+  async redirects() {
+    return [{ source: "/pricing", destination: "/services", permanent: true }];
+  },
   async headers() {
     return [
       {

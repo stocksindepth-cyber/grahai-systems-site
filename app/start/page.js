@@ -6,6 +6,8 @@ import StartFlow from "../../components/StartFlow";
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
+  // Legacy flow kept working for direct links, but out of the index.
+  robots: { index: false, follow: true },
   title: "Get an Instant AI Project Scope & Price | GrahAI Systems",
   description:
     "Describe your problem and our AI Solutions Architect returns a scoped package, delivery timeline and price in seconds — then book your build. Production-grade AI for India and the World.",

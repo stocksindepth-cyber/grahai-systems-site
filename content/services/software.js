@@ -543,7 +543,7 @@ export const softwareServicePages = [
     slug: "web-app-development",
     category: "web",
     eyebrow: "Web app development",
-    metaTitle: "Web App Development — Dashboards, Portals & Tools, Fixed Price",
+    metaTitle: "Web App Development — Dashboards, Portals & Tools",
     metaDescription:
       "Web app development with React, Next.js and Node: dashboards, client portals, booking systems and internal tools, hosted on your accounts. Fixed prices to $4,999.",
     keywords: [

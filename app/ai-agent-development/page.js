@@ -2,7 +2,7 @@ import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
   alternates: { canonical: "/ai-agent-development" },
-  title: "AI Agent Development Company India | Build AI Agents from $3,000 | GrahAI Systems",
+  title: "AI Agent Development Company — Agents from $3,000 | GrahAI",
   description:
     "GrahAI Systems builds production AI agents for businesses — tool calling, RAG, multi-step workflows. Fixed price from $3,000, 14-day delivery. India-based, serving US, UK & EU. We run our own AI (100K+ users).",
 };
@@ -64,7 +64,7 @@ export default function page() {
       },
       {
         q: "How long does it take to deploy a custom AI agent?",
-        a: "Standard agent pilots are designed and deployed to staging environments within 4 to 6 weeks. Enterprise systems requiring complex custom tool integrations and legacy database links are delivered in 8 to 12 weeks.",
+        a: "A single production agent is delivered in 14 days through our fixed-price AI Agent Sprint ($3,000), with a working demo at day 7. Larger systems with many integrations or legacy databases take 3 to 6 weeks, scoped and priced before work starts.",
       },
     ],
   };

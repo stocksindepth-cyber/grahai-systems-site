@@ -9,6 +9,8 @@ import { launchTiers, launchTimeline, factoryModules, launchFaqs } from "../../c
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
+  // Legacy flow kept working for direct links, but out of the index.
+  robots: { index: false, follow: true },
   title: "Launch Your AI Business in 7 Days — from $999 | GrahAI Systems",
   description:
     "Not a website — a business. Custom domain, production AI web app, admin dashboard, analytics, SEO and lead capture, deployed live in 7 days. Fixed price from $999. India and the World.",

@@ -16,9 +16,6 @@ export default function sitemap() {
   // Core static + legacy SEO routes
   const routes = [
     "",
-    "/launch",
-    "/start",
-    "/pricing",
     "/contact",
     "/terms",
     "/privacy",

@@ -35,7 +35,18 @@ const columns = [
       { label: "Blog", href: "/blog" },
       { label: "Case studies", href: "/case-studies" },
       ...products.map((p) => ({ label: p.name, href: p.url, external: true })),
-      { label: "Contact", href: "mailto:hello@grahaisystems.com", plain: true },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Explore",
+    links: [
+      { label: "Solutions by use case", href: "/solutions" },
+      { label: "Solutions by industry", href: "/industries" },
+      { label: "Compare AI partners", href: "/compare" },
+      { label: "Enterprise AI", href: "/enterprise-ai-solutions" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Glossary", href: "/glossary" },
     ],
   },
   {
@@ -97,7 +108,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 xl:grid-cols-5">
             {columns.map((col) => (
               <div key={col.title}>
                 <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-900">{col.title}</h2>

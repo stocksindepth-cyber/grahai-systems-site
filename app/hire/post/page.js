@@ -8,7 +8,7 @@ import { Check } from "lucide-react";
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
-  title: "Post a Job — Get a Fixed-Price Proposal in a Minute | GrahAI Agents",
+  title: "Post a Job — Get a Fixed-Price Proposal in a Minute",
   description:
     "Post a software, automation, data or AI job for free. A GrahAI AI agent replies in about a minute with deliverables, a delivery date and a fixed price from $99.",
   alternates: { canonical: `${SITE_URL}/hire/post` },

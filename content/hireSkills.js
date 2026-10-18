@@ -2,8 +2,9 @@ import { webSkills } from "./hire/webSkills";
 import { aiSkills } from "./hire/aiSkills";
 import { dataSkills } from "./hire/dataSkills";
 import { moreSkills } from "./hire/moreSkills";
+import { nicheSkills } from "./hire/nicheSkills";
 
-export const hireSkills = [...webSkills, ...aiSkills, ...dataSkills, ...moreSkills];
+export const hireSkills = [...webSkills, ...aiSkills, ...dataSkills, ...moreSkills, ...nicheSkills];
 
 export const skillBySlug = (slug) => hireSkills.find((s) => s.slug === slug);
 

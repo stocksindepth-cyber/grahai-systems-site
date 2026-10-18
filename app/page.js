@@ -6,7 +6,7 @@ import { products } from "../content/products";
 
 export const metadata = {
   alternates: { canonical: "/" },
-  title: "AI Development Company India | GrahAI Systems — Products & AI Services",
+  title: "AI Agent Development in 14 Days, from $3,000 | GrahAI Systems",
   description:
     "Production AI agents built in 14 days, fixed price from $3,000. GrahAI Systems runs its own AI products for 100,000+ users and builds support, document, sales and knowledge agents for businesses in India and the World.",
   keywords: [

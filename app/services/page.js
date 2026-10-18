@@ -9,7 +9,7 @@ import Footer from "../../components/Footer";
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
-  title: "AI Agent Development Company India | Fixed Price, 14-Day Delivery | GrahAI Systems",
+  title: "AI Development Services — Fixed Price, 14 Days | GrahAI Systems",
   description:
     "GrahAI Systems builds AI agents, chatbots, and automation systems for businesses — fixed price from $3,000, delivered in 14 days. We run our own AI serving 100K+ users. US, UK, EU & India.",
   keywords: [

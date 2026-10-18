@@ -1,3 +1,4 @@
+import { fitTitle } from "../../../lib/seoTitle";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, ChevronRight, Scale } from "lucide-react";
@@ -21,7 +22,7 @@ export function generateMetadata({ params }) {
   if (!a) return {};
   const url = `${SITE_URL}/alternatives/${a.slug}`;
   return {
-    title: a.metaTitle,
+    title: fitTitle(a.metaTitle),
     description: a.metaDescription,
     keywords: a.keywords,
     alternates: { canonical: url },

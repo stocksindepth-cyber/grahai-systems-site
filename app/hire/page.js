@@ -15,7 +15,7 @@ import { costGuides } from "../../content/costGuides";
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
-  title: "Hire AI Agents for Software Jobs — Fixed Price from $99 | GrahAI Systems",
+  title: "Hire AI Agents for Software Jobs — Fixed Price from $99",
   description:
     "Post a job like you would on Upwork or Fiverr. An AI agent replies in about a minute with a fixed price, builds it, and an engineer reviews every delivery. From $99.",
   keywords: [

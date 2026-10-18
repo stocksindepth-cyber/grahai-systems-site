@@ -2,7 +2,7 @@ import SEOLandingTemplate from "../../components/SEOLandingTemplate";
 
 export const metadata = {
   alternates: { canonical: "/ai-chatbot-development" },
-  title: "AI Chatbot Development Company India | Custom AI Chatbots from $3,000 | GrahAI Systems",
+  title: "AI Chatbot Development Company — Custom Chatbots from $3,000",
   description:
     "GrahAI Systems builds custom AI chatbots for businesses — RAG-powered, multilingual, integrated with your data. Fixed price from $3,000, delivered in 14 days. India-based, serving US, UK & EU clients.",
 };

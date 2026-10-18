@@ -9,7 +9,7 @@ import { plans, PLAN_REQUEST_RULE } from "../../../content/planCatalog";
 const SITE_URL = "https://www.grahaisystems.com";
 
 export const metadata = {
-  title: "Monthly Dev Retainer — Unlimited Requests from $399/mo | GrahAI Agents",
+  title: "Monthly Dev Retainer — Unlimited Requests from $399/mo",
   description:
     "An AI dev team on a monthly plan: unlimited software requests, worked one at a time and reviewed by an engineer. Care plans from $79/mo. Cancel anytime.",
   keywords: [

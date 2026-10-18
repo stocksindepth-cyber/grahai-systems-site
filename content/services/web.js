@@ -7,7 +7,7 @@ export const webServicePages = [
     slug: "website-design-services",
     category: "web",
     eyebrow: "Website design",
-    metaTitle: "Website Design Services for Small Business — Fixed Price from $149",
+    metaTitle: "Website Design Services for Small Business — From $149",
     metaDescription:
       "Website design services for small businesses: one-page sites from $149, five-page business sites from $399, bookings and payments from $999. Fixed price, you own it.",
     keywords: [
@@ -144,7 +144,7 @@ export const webServicePages = [
     slug: "website-redesign-services",
     category: "web",
     eyebrow: "Website redesign",
-    metaTitle: "Website Redesign Services — Refresh, Rebuild or Migrate, Fixed Price",
+    metaTitle: "Website Redesign Services — Refresh, Rebuild or Migrate",
     metaDescription:
       "Website redesign services with a redirect plan for every moved URL. Visual refresh, full rebuild or a move off Wix or Squarespace, quoted at one fixed price.",
     keywords: [

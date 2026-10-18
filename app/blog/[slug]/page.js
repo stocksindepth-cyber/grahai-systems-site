@@ -1,3 +1,4 @@
+import { fitTitle } from "../../../lib/seoTitle";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, User, MessageSquare } from "lucide-react";
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }) {
   if (!post) return {};
   
   return {
-    title: `${post.title} | Grah AI Systems`,
+    title: fitTitle(`${post.title} | GrahAI Systems`),
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
   };
@@ -38,9 +39,9 @@ export default function BlogPostPage({ params }) {
       // Header 1
       if (trimmed.startsWith("# ")) {
         return (
-          <h1 key={idx} className="text-3xl font-extrabold font-display text-slate-900 mt-10 mb-5 sm:text-4xl leading-tight">
+          <h2 key={idx} className="text-3xl font-extrabold font-display text-slate-900 mt-10 mb-5 sm:text-4xl leading-tight">
             {trimmed.replace("# ", "")}
-          </h1>
+          </h2>
         );
       }
       
